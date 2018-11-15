@@ -1,0 +1,19 @@
+{
+	"name": "Jenkins Test",
+	"version": "1.0",
+	"description": "Jenkins Job Notifier",
+	"permissions": [
+		"storage",
+		"declarativeContent",
+		"https://jenkins.cerner.com/*"
+	],
+	"background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+	"page_action": {
+		"default_popup": "popup.html"
+	},
+	"manifest_version": 2
+
+}
