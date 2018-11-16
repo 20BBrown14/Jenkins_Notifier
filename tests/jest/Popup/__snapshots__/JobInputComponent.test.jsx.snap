@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JobInputComponent should render a default view 1`] = `
+<InputField
+  error="someMessage"
+  errorIcon={
+    <IconError
+      viewBox="0 0 48 48"
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  }
+  help="With or without 'api/xml' appended"
+  hideRequired={false}
+  inputAttrs={Object {}}
+  inputId="jobNameInput"
+  isInline={false}
+  isInvalid={false}
+  isLabelHidden={false}
+  label="Input url of job to track"
+  labelAttrs={Object {}}
+  onChange={[Function]}
+  required={false}
+  showOptional={false}
+/>
+`;

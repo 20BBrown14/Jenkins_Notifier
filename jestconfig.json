@@ -1,0 +1,17 @@
+{
+    "setupFiles": [
+        "raf/polyfill",
+        "./jestsetup.js"
+      ],
+    "snapshotSerializers": [
+        "./node_modules/enzyme-to-json/serializer"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": ["src/**/*.{js,jsx}"],
+    "coverageReporters": ["html", "text-summary"],
+    "coverageDirectory": "./coverage/jest",
+    "moduleNameMapper": {
+        "\\.(css|scss|svg|png)$": "identity-obj-proxy"
+      }
+
+}
