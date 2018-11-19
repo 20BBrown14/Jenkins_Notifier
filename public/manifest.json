@@ -1,0 +1,17 @@
+{
+	"name": "Jenkins Test",
+	"version": "1.0",
+	"description": "Jenkins Job Notifier",
+	"browser_action": {
+		"default_popup": "index.html",
+		"default_title": "Open the popup"
+	},
+	"permissions": [
+		"storage",
+		"declarativeContent",
+		"https://jenkins.cerner.com/*"
+	],
+	"manifest_version": 2,
+	"content_security_policy": "script-src 'self' 'sha256-GgRxrVOKNdB4LrRsVPDSbzvfdV4UqglmviH9GoBJ5jk='; object-src 'self'"
+
+}
