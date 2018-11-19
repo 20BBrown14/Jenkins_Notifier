@@ -1,7 +1,46 @@
 {
   "name": "jenkins-notifier",
   "version": "0.1.0",
+  "description": "Chrome extension to track Jenkins Jobs",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.cerner.com/BB052256/Jenkins_Notifier.git"
+  },
+  "license": "UNLICENSED",
+  "author": "Branden Brown",
+  "scripts": {
+    "build": "react-scripts build",
+    "clean:all": "rimraf ./node_modules",
+    "clean:install": "npm run clean:all && npm install",
+    "lint": "npm run lint:js && npm run lint:scss",
+    "lint:js": "eslint --ext .js,.jsx .",
+    "lint:scss": "stylelint src/**/*.scss",
+    "lint:test": "npm run lint && npm run test",
+    "start": "react-scripts start",
+    "test": "jest --config jestconfig.json",
+    "update-snaps": "jest --updateSnapshot --config jestconfig.json"
+  },
   "dependencies": {
+    "node-sass": "^4.10.0",
+    "polyfill": "^0.1.0",
+    "prop-types": "^15.6.2",
+    "raf": "^3.4.1",
+    "terra-app-delegate": "^2.8.0",
+    "terra-base": "^3.29.0",
+    "terra-clinical-application": "^2.9.0",
+    "terra-form-field": "^2.31.0",
+    "terra-form-input": "^1.30.0"
+  },
+  "peerDependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-redux": "^5.1.1",
+    "react-scripts": "2.1.1",
+    "redux": "^4.0.1",
+    "redux-saga": "^0.16.2"
+  },
+  "devDependencies": {
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
     "babel-core": "^6.26.3",
@@ -15,30 +54,18 @@
     "enzyme-adapter-react-16": "^1.7.0",
     "enzyme-react-intl": "^2.0.3",
     "enzyme-to-json": "^3.3.4",
-    "node-sass": "^4.10.0",
-    "polyfill": "^0.1.0",
-    "prop-types": "^15.6.2",
-    "raf": "^3.4.1",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.1",
     "react-scripts": "2.1.1",
     "redux": "^4.0.1",
     "redux-saga": "^0.16.2",
-    "terra-app-delegate": "^2.8.0",
-    "terra-base": "^3.29.0",
-    "terra-clinical-application": "^2.9.0",
-    "terra-form-field": "^2.31.0",
-    "terra-form-input": "^1.30.0"
-  },
-  "license": "UNLICENSED",
-  "author": "Branden Brown",
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "jest --config jestconfig.json",
-    "eject": "react-scripts eject",
-    "update-snaps": "jest --updateSnapshot --config jestconfig.json"
+    "rimraf": "^2.6.2"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -48,6 +75,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "devDependencies": {}
+  ]
 }
