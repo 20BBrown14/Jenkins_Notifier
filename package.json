@@ -13,6 +13,9 @@
     "build": "react-scripts build",
     "clean:all": "rimraf ./node_modules",
     "clean:install": "npm run clean:all && npm install",
+    "compile": "npm run compile:clean && npm run compile:build",
+    "compile:clean": "if [ -d './src' ]; then rimraf ./lib; fi",
+    "compile:build": "babel src --out-dir lib --copy-files",
     "lint": "npm run lint:js && npm run lint:scss",
     "lint:js": "eslint --ext .js,.jsx .",
     "lint:scss": "stylelint src/**/*.scss",
@@ -43,6 +46,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^23.6.0",
     "babel-plugin-transform-object-assign": "^6.22.0",
