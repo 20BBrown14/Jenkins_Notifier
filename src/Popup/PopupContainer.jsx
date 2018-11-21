@@ -23,13 +23,11 @@ export class PopupContainer extends React.Component {
     };
 
     return (
-      <div>
-        <PopupView
-          errorMessage="Job url is not valid. Recheck and retry."
-          isInvalid={formInvalid || false}
-          handleValidation={validateInput}
-        />
-      </div>
+      <PopupView
+        errorMessage="Job url is not valid. Recheck and retry."
+        isInvalid={formInvalid || false}
+        handleValidation={validateInput}
+      />
     );
   }
 }

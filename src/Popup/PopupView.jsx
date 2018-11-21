@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from 'terra-button';
 import JobInputComponent from './JobInputComponent';
+import './PopupView.scss';
 
 const propTypes = {
   /** Error message for input */
@@ -23,11 +25,19 @@ const PopupView = (props) => {
   } = props;
 
   return (
-    <div style={{ width: '650px', height: '450px' }}>
+    <div className="popupview-Window">
       <JobInputComponent
         errorMessage={errorMessage}
         isInvalid={formInvalid}
         handleValidation={handleValidation}
+      />
+      <Button
+        style={{ margin: '0px 5px 0px 25px' }}
+        text="Validate"
+      />
+      <Button
+        style={{ margin: '0px 0px 0px 5px' }}
+        text="Confirm"
       />
     </div>
   );
