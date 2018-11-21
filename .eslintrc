@@ -1,0 +1,23 @@
+{
+    "extends": "airbnb",
+    "plugins": [
+        "react",
+        "import",
+        "jsx-a11y"
+    ],
+    "env": {
+        "browser": true,
+        "jest": true
+    },
+    "rules": {
+        "max-len": ["warn", 120],
+        "react/require-default-props": "off",
+        "no-multi-assign": "off",
+        "object-curly-newline": "off"
+    },
+    "globals": {
+        "shallow": true,
+        "render": true,
+        "mount": true
+    }
+}

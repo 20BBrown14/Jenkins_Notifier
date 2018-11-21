@@ -1,5 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import Enzyme, { shallow, render, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+/* eslint-enable import/no-extraneous-dependencies */
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -10,8 +12,9 @@ global.mount = mount;
 const htmlTag = document.getElementsByTagName('html')[0];
 htmlTag.setAttribute('dir', 'ltr');
 
+// eslint-disable-next-line no-console
 console.error = (message) => {
-    if(!/(React.createElement: type should not be null)/.test(message)) {
-        fail(message); //eslint-disable-line no-undef
-    }
-}
+  if (!/(React.createElement: type should not be null)/.test(message)) {
+    fail(message); // eslint-disable-line no-undef
+  }
+};
