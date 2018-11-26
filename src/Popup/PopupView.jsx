@@ -10,7 +10,15 @@ const propTypes = {
   /** If input is invalid */
   formInvalid: PropTypes.bool,
   /** Function to validate input */
-  handleValidation: PropTypes.func.isRequired,
+  fieldChanged: PropTypes.func.isRequired,
+  /** Help message to display under input field */
+  helpMessage: PropTypes.string,
+  /** Value of the job input url input field */
+  jobInputURL: PropTypes.string.isRequired,
+  /** Handler for when validate is clicked */
+  validateClickHandler: PropTypes.func,
+  /** Handler for when confirm is clicked */
+  confirmClickHandler: PropTypes.func,
 };
 
 const defaultProps = {
@@ -21,7 +29,11 @@ const PopupView = (props) => {
   const {
     errorMessage,
     formInvalid,
-    handleValidation,
+    fieldChanged,
+    helpMessage,
+    jobInputURL,
+    validateClickHandler,
+    confirmClickHandler,
   } = props;
 
   return (
@@ -29,15 +41,19 @@ const PopupView = (props) => {
       <JobInputComponent
         errorMessage={errorMessage}
         isInvalid={formInvalid}
-        handleValidation={handleValidation}
+        fieldChanged={fieldChanged}
+        helpMessage={helpMessage}
+        jobInputURL={jobInputURL}
       />
       <Button
         style={{ margin: '0px 5px 0px 25px' }}
         text="Validate"
+        onClick={validateClickHandler}
       />
       <Button
         style={{ margin: '0px 0px 0px 5px' }}
         text="Confirm"
+        onClick={confirmClickHandler}
       />
     </div>
   );

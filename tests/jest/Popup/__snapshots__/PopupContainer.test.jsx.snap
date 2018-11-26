@@ -1,23 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PatientKioskContainer Initialization should render a default view 1`] = `
-<div>
-  <PopupView
-    errorMessage="Job url is not valid. Recheck and retry."
-    formInvaild={false}
-    handleValidation={[Function]}
-    isInvalid={false}
-  />
-</div>
-`;
-
 exports[`PopupContainer Initialization should render a default view 1`] = `
-<div>
-  <PopupView
-    errorMessage="Job url is not valid. Recheck and retry."
-    formInvaild={false}
-    handleValidation={[Function]}
-    isInvalid={false}
-  />
-</div>
+<PopupView
+  errorMessage="Job url is not valid. Recheck and retry."
+  fieldChanged={[Function]}
+  formInvalid={false}
+  helpMessage="With or without '/api/xml' appended"
+  isInvalid={false}
+  jobInputURL=""
+  validateClickHandler={[Function]}
+/>
 `;
