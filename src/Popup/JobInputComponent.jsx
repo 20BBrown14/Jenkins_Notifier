@@ -2,6 +2,7 @@ import React from 'react';
 import InputField from 'terra-form-input/lib/InputField';
 import PropTypes from 'prop-types';
 
+
 const propTypes = {
 /** Error message */
   errorMessage: PropTypes.string.isRequired,
@@ -24,10 +25,11 @@ const JobInputComponent = (props) => {
 
   return (
     <InputField
+      style={{ margin: '25px' }}
       inputId="jobNameInput"
-      label="Input url of job to track"
+      label="Input URL of repo to track"
       error={errorMessage}
-      help="With or without 'api/xml' appended"
+      help="With or without '/api/xml' appended"
       isInvalid={formInvalid}
       onChange={handleValidation}
     />
