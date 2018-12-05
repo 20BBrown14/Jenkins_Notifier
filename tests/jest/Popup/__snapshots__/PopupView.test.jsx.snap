@@ -2,17 +2,44 @@
 
 exports[`PopupView should render a default view 1`] = `
 <div
-  style={
-    Object {
-      "height": "450px",
-      "width": "650px",
-    }
-  }
+  className="popupview-Window"
 >
   <JobInputComponent
     errorMessage="someMessage"
+    fieldChanged={[Function]}
     formInvalid={false}
-    handleValidation={[Function]}
+    isInvalid={false}
+    jobInputURL=""
+  />
+  <Button
+    isBlock={false}
+    isCompact={false}
+    isDisabled={false}
+    isIconOnly={false}
+    isReversed={false}
+    style={
+      Object {
+        "margin": "0px 5px 0px 25px",
+      }
+    }
+    text="Validate"
+    type="button"
+    variant="neutral"
+  />
+  <Button
+    isBlock={false}
+    isCompact={false}
+    isDisabled={false}
+    isIconOnly={false}
+    isReversed={false}
+    style={
+      Object {
+        "margin": "0px 0px 0px 5px",
+      }
+    }
+    text="Confirm"
+    type="button"
+    variant="neutral"
   />
 </div>
 `;

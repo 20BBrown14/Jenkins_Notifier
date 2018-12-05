@@ -9,7 +9,11 @@ const propTypes = {
   /** Whether form input is invalid */
   formInvalid: PropTypes.bool,
   /** Function for validation */
-  handleValidation: PropTypes.func.isRequired,
+  fieldChanged: PropTypes.func.isRequired,
+  /** Help message to display under input field */
+  helpMessage: PropTypes.string,
+  /** Value of the job input url field */
+  jobInputURL: PropTypes.string.isRequired,
 };
 
 const defaultProps = {
@@ -20,7 +24,9 @@ const JobInputComponent = (props) => {
   const {
     errorMessage,
     formInvalid,
-    handleValidation,
+    fieldChanged,
+    helpMessage,
+    jobInputURL,
   } = props;
 
   return (
@@ -29,9 +35,10 @@ const JobInputComponent = (props) => {
       inputId="jobNameInput"
       label="Input URL of repo to track"
       error={errorMessage}
-      help="With or without '/api/xml' appended"
+      help={helpMessage}
       isInvalid={formInvalid}
-      onChange={handleValidation}
+      onChange={fieldChanged}
+      value={jobInputURL}
     />
   );
 };

@@ -2,12 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import PopupView from './PopupView';
+import { jobInputDataChanged, A_VALIDATE_REPO_URL } from './actions';
+import { POPUP_STATE } from './reducers';
 
 const propTypes = {
   /** If form input is invalid */
   formInvalid: PropTypes.bool,
-  /** Function if input validation failed */
-  inputValidationFailed: PropTypes.func.isRequired,
+  /** Function for when the input field data has chagned */
+  fieldChanged: PropTypes.func.isRequired,
+  /** Value of the job input url input field */
+  jobInputURL: PropTypes.string,
+  /** Handler for when validate is clicked */
+  validateClickHandler: PropTypes.func,
+  /** handler for when confirm is clicked */
+  confirmClickHandler: PropTypes.func,
 };
 
 /* eslint-disable-next-line react/prefer-stateless-function */
@@ -15,18 +23,27 @@ export class PopupContainer extends React.Component {
   render() {
     const {
       formInvalid,
-      fieldValidationFailed,
+      fieldChanged,
+      jobInputURL,
+      validateClickHandler,
+      confirmClickHandler,
     } = this.props;
 
-    const validateInput = (event) => {
-      // TODO: Validate Field
+    const defaultHelpMessage = 'With or without \'/api/xml\' appended';
+
+    const validateClick = () => {
+      validateClickHandler(jobInputURL);
     };
 
     return (
       <PopupView
         errorMessage="Job url is not valid. Recheck and retry."
         isInvalid={formInvalid || false}
-        handleValidation={validateInput}
+        fieldChanged={fieldChanged}
+        helpMessage={false || defaultHelpMessage}
+        jobInputURL={jobInputURL}
+        validateClickHandler={validateClick}
+        confirmClickHandler={confirmClickHandler}
       />
     );
   }
@@ -34,11 +51,24 @@ export class PopupContainer extends React.Component {
 
 const mapStateToProps = state => ({
   // formInvalid: TODO: Get state
+  jobInputURL: state[POPUP_STATE].jobInputURL,
 });
 
 export const mapDispatchToProps = dispatch => ({
-  inputValidationFailed: (error) => {
-    // TODO: Dispatch error action
+  fieldChanged: (newValue) => {
+    dispatch(jobInputDataChanged(newValue.target.value));
+  },
+  validateClickHandler: (jobInputURL) => {
+    dispatch(
+      {
+        type: A_VALIDATE_REPO_URL,
+        data: { jobInputURL },
+      },
+    );
+  },
+  confirmClickHandler: () => {
+    console.log('confirm');
+    // TODO: Dispatch confirmClick
   },
 });
 

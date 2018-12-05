@@ -3,7 +3,14 @@ import JobInputComponent from '../../../src/Popup/JobInputComponent';
 
 describe('JobInputComponent', () => {
   it('should render a default view', () => {
-    const testComponent = (shallow(<JobInputComponent errorMessage="someMessage" handleValidation={() => {}} />));
+    const testComponent = (shallow(
+      <JobInputComponent
+        errorMessage="someMessage"
+        handleValidation={() => {}}
+        jobInputURL=""
+        fieldChanged={() => {}}
+      />,
+    ));
     expect(testComponent).toMatchSnapshot();
   });
 });
