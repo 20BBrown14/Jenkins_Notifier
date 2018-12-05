@@ -10,6 +10,11 @@
     "collectCoverageFrom": ["src/**/*.{js,jsx}"],
     "coverageReporters": ["html", "text-summary"],
     "coverageDirectory": "./coverage/jest",
+    "coveragePathIgnorePatterns": [
+      "src/App.jsx",
+      "src/index.jsx",
+      "src/serviceWorker.js"
+    ],
     "moduleNameMapper": {
         "\\.(css|scss|svg|png)$": "identity-obj-proxy"
       }
