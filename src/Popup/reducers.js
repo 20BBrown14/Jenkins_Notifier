@@ -1,15 +1,34 @@
-import { A_JOB_INPUT_DATA_CHANGED } from './actions';
+import { A_JOB_INPUT_DATA_CHANGED, A_VALID_REPO_URL, A_INVALID_REPO_URL } from './actions';
 
 export const POPUP_STATE = 'popupState';
 
 const INITIAL_STATE = {
   jobInputURL: '',
+  helpMessage: 'With or without \'/api/json\' appended',
+  formInvalid: false,
 };
 
 const reduceJobInputDataChanged = (state, action) => (
   {
     ...state,
     jobInputURL: action.data.newValue,
+    formInvalid: false,
+    helpMessage: INITIAL_STATE.helpMessage,
+  }
+);
+
+const reduceValidRepoURL = (state, action) => (
+  {
+    ...state,
+    jsonData: action.data.json,
+    helpMessage: 'Jenkins URL is valid!',
+  }
+);
+
+const reduceInvalidRepoURL = state => (
+  {
+    ...state,
+    formInvalid: true,
   }
 );
 
@@ -26,6 +45,10 @@ const reducePopup = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case A_JOB_INPUT_DATA_CHANGED:
       return reduceJobInputDataChanged(state, action);
+    case A_VALID_REPO_URL:
+      return reduceValidRepoURL(state, action);
+    case A_INVALID_REPO_URL:
+      return reduceInvalidRepoURL(state);
     default:
       return state;
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import PopupView from './PopupView';
-import { jobInputDataChanged, A_VALIDATE_REPO_URL } from './actions';
+import { jobInputDataChanged, validateRepoURL } from './actions';
 import { POPUP_STATE } from './reducers';
 
 const propTypes = {
@@ -16,6 +16,8 @@ const propTypes = {
   validateClickHandler: PropTypes.func,
   /** handler for when confirm is clicked */
   confirmClickHandler: PropTypes.func,
+  /** Help message */
+  helpMessage: PropTypes.string.isRequired,
 };
 
 /* eslint-disable-next-line react/prefer-stateless-function */
@@ -27,9 +29,8 @@ export class PopupContainer extends React.Component {
       jobInputURL,
       validateClickHandler,
       confirmClickHandler,
+      helpMessage,
     } = this.props;
-
-    const defaultHelpMessage = 'With or without \'/api/xml\' appended';
 
     const validateClick = () => {
       validateClickHandler(jobInputURL);
@@ -37,10 +38,10 @@ export class PopupContainer extends React.Component {
 
     return (
       <PopupView
-        errorMessage="Job url is not valid. Recheck and retry."
-        isInvalid={formInvalid || false}
+        errorMessage="Job url is NOT valid. Recheck and retry."
+        formInvalid={formInvalid || false}
         fieldChanged={fieldChanged}
-        helpMessage={false || defaultHelpMessage}
+        helpMessage={helpMessage}
         jobInputURL={jobInputURL}
         validateClickHandler={validateClick}
         confirmClickHandler={confirmClickHandler}
@@ -50,8 +51,9 @@ export class PopupContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  // formInvalid: TODO: Get state
   jobInputURL: state[POPUP_STATE].jobInputURL,
+  helpMessage: state[POPUP_STATE].helpMessage,
+  formInvalid: state[POPUP_STATE].formInvalid,
 });
 
 export const mapDispatchToProps = dispatch => ({
@@ -59,12 +61,7 @@ export const mapDispatchToProps = dispatch => ({
     dispatch(jobInputDataChanged(newValue.target.value));
   },
   validateClickHandler: (jobInputURL) => {
-    dispatch(
-      {
-        type: A_VALIDATE_REPO_URL,
-        data: { jobInputURL },
-      },
-    );
+    dispatch(validateRepoURL(jobInputURL));
   },
   confirmClickHandler: () => {
     console.log('confirm');
