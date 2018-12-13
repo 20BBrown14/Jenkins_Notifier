@@ -2,11 +2,10 @@
 
 exports[`PopupContainer Initialization should render a default view 1`] = `
 <PopupView
-  errorMessage="Job url is not valid. Recheck and retry."
+  errorMessage="Job url is NOT valid. Recheck and retry."
   fieldChanged={[Function]}
   formInvalid={false}
-  helpMessage="With or without '/api/xml' appended"
-  isInvalid={false}
+  helpMessage=""
   jobInputURL=""
   validateClickHandler={[Function]}
 />

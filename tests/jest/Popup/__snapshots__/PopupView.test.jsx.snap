@@ -8,7 +8,6 @@ exports[`PopupView should render a default view 1`] = `
     errorMessage="someMessage"
     fieldChanged={[Function]}
     formInvalid={false}
-    isInvalid={false}
     jobInputURL=""
   />
   <Button

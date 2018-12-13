@@ -8,6 +8,9 @@ Enzyme.configure({ adapter: new Adapter() });
 global.shallow = shallow;
 global.render = render;
 global.mount = mount;
+/* eslint-disable import/no-extraneous-dependencies */
+global.fetch = require('jest-fetch-mock');
+/* eslint-enable import/no-extraneous-dependencies */
 
 const htmlTag = document.getElementsByTagName('html')[0];
 htmlTag.setAttribute('dir', 'ltr');

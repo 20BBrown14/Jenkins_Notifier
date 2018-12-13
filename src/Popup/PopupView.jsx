@@ -40,7 +40,7 @@ const PopupView = (props) => {
     <div className="popupview-Window">
       <JobInputComponent
         errorMessage={errorMessage}
-        isInvalid={formInvalid}
+        formInvalid={formInvalid}
         fieldChanged={fieldChanged}
         helpMessage={helpMessage}
         jobInputURL={jobInputURL}

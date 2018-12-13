@@ -10,6 +10,7 @@ describe('PopupContainer', () => {
           inputValidationFailed={() => {}}
           fieldChanged={() => {}}
           jobInputURL=""
+          helpMessage=""
         />,
       ));
       expect(testContainer).toMatchSnapshot();
@@ -29,11 +30,11 @@ describe('PopupContainer', () => {
     it('dispatches a validate job URL action', () => {
       const mockDispatch = jest.fn((action) => {
         expect(action.type).toEqual(A_VALIDATE_REPO_URL);
-        expect(action.data.jobInputURL).toEqual('someURL');
       });
       const dispatchProps = mapDispatchToProps(mockDispatch, {});
       dispatchProps.validateClickHandler('someURL');
       expect(mockDispatch).toHaveBeenCalled();
+      expect(mockDispatch).toHaveBeenCalledTimes(1);
     });
   });
 });
