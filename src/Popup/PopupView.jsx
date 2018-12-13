@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'terra-button';
-import JobInputComponent from './JobInputComponent';
+import Text from 'terra-text';
+import RepoInputComponent from './RepoInputComponent';
 import './PopupView.scss';
 
 const propTypes = {
@@ -9,12 +10,16 @@ const propTypes = {
   errorMessage: PropTypes.string.isRequired,
   /** If input is invalid */
   formInvalid: PropTypes.bool,
-  /** Function to validate input */
-  fieldChanged: PropTypes.func.isRequired,
+  /** Function for when repo url input field changes */
+  URLFieldChange: PropTypes.func.isRequired,
+  /** Function for when repo name input field changes */
+  nameFieldChanged: PropTypes.func.isRequired,
   /** Help message to display under input field */
   helpMessage: PropTypes.string,
-  /** Value of the job input url input field */
-  jobInputURL: PropTypes.string.isRequired,
+  /** Value of the repo URL input field */
+  repoURL: PropTypes.string.isRequired,
+  /** Value of the repo name input field */
+  repoName: PropTypes.string.isRequired,
   /** Handler for when validate is clicked */
   validateClickHandler: PropTypes.func,
   /** Handler for when confirm is clicked */
@@ -29,21 +34,26 @@ const PopupView = (props) => {
   const {
     errorMessage,
     formInvalid,
-    fieldChanged,
+    URLFieldChange,
+    nameFieldChanged,
     helpMessage,
-    jobInputURL,
+    repoURL,
     validateClickHandler,
     confirmClickHandler,
+    repoName,
   } = props;
 
   return (
     <div className="popupview-Window">
-      <JobInputComponent
+      <Text style={{ margin: '12px 0px 0px 25px' }} fontSize={32}>Track a New Repo</Text>
+      <RepoInputComponent
         errorMessage={errorMessage}
         formInvalid={formInvalid}
-        fieldChanged={fieldChanged}
+        URLFieldChange={URLFieldChange}
+        nameFieldChanged={nameFieldChanged}
         helpMessage={helpMessage}
-        jobInputURL={jobInputURL}
+        repoURL={repoURL}
+        repoName={repoName}
       />
       <Button
         style={{ margin: '0px 5px 0px 25px' }}

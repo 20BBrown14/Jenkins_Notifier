@@ -1,14 +1,16 @@
 import React from 'react';
-import JobInputComponent from '../../../src/Popup/JobInputComponent';
+import RepoInputComponent from '../../../src/Popup/RepoInputComponent';
 
-describe('JobInputComponent', () => {
+describe('RepoInputComponent', () => {
   it('should render a default view', () => {
     const testComponent = (shallow(
-      <JobInputComponent
+      <RepoInputComponent
         errorMessage="someMessage"
         handleValidation={() => {}}
-        jobInputURL=""
-        fieldChanged={() => {}}
+        repoURL=""
+        repoName=""
+        URLFieldChange={() => {}}
+        nameFieldChanged={() => {}}
       />,
     ));
     expect(testComponent).toMatchSnapshot();

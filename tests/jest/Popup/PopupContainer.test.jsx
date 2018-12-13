@@ -1,6 +1,10 @@
 import React from 'react';
 import { PopupContainer, mapDispatchToProps } from '../../../src/Popup/PopupContainer';
-import { A_JOB_INPUT_DATA_CHANGED, A_VALIDATE_REPO_URL } from '../../../src/Popup/actions';
+import {
+  A_VALIDATE_REPO_URL,
+  A_URL_INPUT_DATA_CHANGED,
+  A_NAME_INPUT_DATA_CHANGED,
+} from '../../../src/Popup/actions';
 
 describe('PopupContainer', () => {
   describe('Initialization', () => {
@@ -8,8 +12,10 @@ describe('PopupContainer', () => {
       const testContainer = (shallow(
         <PopupContainer
           inputValidationFailed={() => {}}
-          fieldChanged={() => {}}
-          jobInputURL=""
+          URLFieldChange={() => {}}
+          nameFieldChanged={() => {}}
+          repoURL=""
+          repoName=""
           helpMessage=""
         />,
       ));
@@ -17,23 +23,37 @@ describe('PopupContainer', () => {
     });
   });
   describe('Action dispatch', () => {
-    it('dispatches a field data changed action', () => {
-      const mockDispatch = jest.fn((action) => {
-        expect(action.type).toEqual(A_JOB_INPUT_DATA_CHANGED);
+    let mockDispatch;
+    afterEach(() => {
+      expect(mockDispatch).toHaveBeenCalled();
+      mockDispatch = undefined;
+    });
+    it('dispatches a URL input data changed action', () => {
+      mockDispatch = jest.fn((action) => {
+        expect(action.type).toEqual(A_URL_INPUT_DATA_CHANGED);
         expect(action.data.newValue).toEqual('newValue');
       });
-      const dispatchProps = mapDispatchToProps(mockDispatch, {});
+      const dispatchProps = mapDispatchToProps(mockDispatch);
       const mockEventObject = { target: { value: 'newValue' } };
-      dispatchProps.fieldChanged(mockEventObject);
-      expect(mockDispatch).toHaveBeenCalled();
+      dispatchProps.URLFieldChange(mockEventObject);
+      expect(mockDispatch).toHaveBeenCalledTimes(1);
+    });
+    it('dispatches a name input data changed action', () => {
+      mockDispatch = jest.fn((action) => {
+        expect(action.type).toEqual(A_NAME_INPUT_DATA_CHANGED);
+        expect(action.data.newValue).toEqual('newValue');
+      });
+      const dispatchProps = mapDispatchToProps(mockDispatch);
+      const mockEventObject = { target: { value: 'newValue' } };
+      dispatchProps.nameFieldChanged(mockEventObject);
+      expect(mockDispatch).toHaveBeenCalledTimes(1);
     });
     it('dispatches a validate job URL action', () => {
-      const mockDispatch = jest.fn((action) => {
+      mockDispatch = jest.fn((action) => {
         expect(action.type).toEqual(A_VALIDATE_REPO_URL);
       });
       const dispatchProps = mapDispatchToProps(mockDispatch, {});
       dispatchProps.validateClickHandler('someURL');
-      expect(mockDispatch).toHaveBeenCalled();
       expect(mockDispatch).toHaveBeenCalledTimes(1);
     });
   });

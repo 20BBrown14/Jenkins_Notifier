@@ -4,11 +4,26 @@ exports[`PopupView should render a default view 1`] = `
 <div
   className="popupview-Window"
 >
-  <JobInputComponent
+  <Text
+    color="inherit"
+    fontSize={32}
+    isItalic={false}
+    isVisuallyHidden={false}
+    style={
+      Object {
+        "margin": "12px 0px 0px 25px",
+      }
+    }
+  >
+    Track a New Repo
+  </Text>
+  <RepoInputComponent
+    URLFieldChange={[Function]}
     errorMessage="someMessage"
-    fieldChanged={[Function]}
     formInvalid={false}
-    jobInputURL=""
+    nameFieldChanged={[Function]}
+    repoName=""
+    repoURL=""
   />
   <Button
     isBlock={false}
