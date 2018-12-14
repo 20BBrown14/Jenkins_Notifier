@@ -1,5 +1,10 @@
 import reducers, { POPUP_STATE as REDUCER_KEY } from '../../../src/Popup/reducers';
-import { A_JOB_INPUT_DATA_CHANGED, A_VALID_REPO_URL, A_INVALID_REPO_URL } from '../../../src/Popup/actions';
+import {
+  A_URL_INPUT_DATA_CHANGED,
+  A_VALID_REPO_URL,
+  A_INVALID_REPO_URL,
+  A_NAME_INPUT_DATA_CHANGED,
+} from '../../../src/Popup/actions';
 
 describe('Popup reducers', () => {
   describe('when initialized', () => {
@@ -9,26 +14,50 @@ describe('Popup reducers', () => {
       expect(state).toBeTruthy();
     });
   });
-  describe('When reducing A_JOB_INPUT_DATA_CHANGED', () => {
+  describe('When reducing A_URL_INPUT_DATA_CHANGED', () => {
     let newState;
     beforeAll(() => {
       const action = {
-        type: A_JOB_INPUT_DATA_CHANGED,
+        type: A_URL_INPUT_DATA_CHANGED,
         data: { newValue: 'someURL' },
       };
       const oldState = {
+        repoURL: 'anotherURL',
         formInvalid: true,
       };
       newState = reducers[REDUCER_KEY](oldState, action);
     });
-    it('should update jobInputURL', () => {
-      expect(newState.jobInputURL).toEqual('someURL');
+    it('should update repoURL', () => {
+      expect(newState.repoURL).toEqual('someURL');
     });
     it('should update formInvalid to false', () => {
       expect(newState.formInvalid).toBeFalsy();
     });
     it('should update helpMessage', () => {
-      expect(newState.helpMessage).not.toBeUndefined();
+      expect(newState.helpMessage).toBeDefined();
+    });
+  });
+  describe('When reducing A_NAME_INPUT_DATA_CHANGED', () => {
+    let newState;
+    beforeAll(() => {
+      const action = {
+        type: A_NAME_INPUT_DATA_CHANGED,
+        data: { newValue: 'someName' },
+      };
+      const oldState = {
+        repoName: 'anotherName',
+        formInvalid: true,
+      };
+      newState = reducers[REDUCER_KEY](oldState, action);
+    });
+    it('should update repoName', () => {
+      expect(newState.repoName).toEqual('someName');
+    });
+    it('should update formInvalid to false', () => {
+      expect(newState.formInvalid).toBeFalsy();
+    });
+    it('should update helpMessage', () => {
+      expect(newState.helpMessage).toBeDefined();
     });
   });
   describe('When reducing A_VALID_REPO_URL', () => {

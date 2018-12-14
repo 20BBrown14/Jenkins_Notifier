@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RepoInputComponent should render a default view 1`] = `
+<div>
+  <InputField
+    error={null}
+    errorIcon={
+      <IconError
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+      />
+    }
+    help={null}
+    hideRequired={false}
+    inputAttrs={Object {}}
+    inputId="repoNameInput"
+    isInline={false}
+    isInvalid={false}
+    isLabelHidden={false}
+    label="Name"
+    labelAttrs={Object {}}
+    onChange={[Function]}
+    required={false}
+    showOptional={false}
+    style={
+      Object {
+        "margin": "15px 25px 12.5px 25px",
+      }
+    }
+    value=""
+  />
+  <InputField
+    error="someMessage"
+    errorIcon={
+      <IconError
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+      />
+    }
+    help={null}
+    hideRequired={false}
+    inputAttrs={Object {}}
+    inputId="repoURLInput"
+    isInline={false}
+    isInvalid={false}
+    isLabelHidden={false}
+    label="URL"
+    labelAttrs={Object {}}
+    onChange={[Function]}
+    required={false}
+    showOptional={false}
+    style={
+      Object {
+        "margin": "12.5px 25px 12.5px 25px",
+      }
+    }
+    value=""
+  />
+</div>
+`;

@@ -7,8 +7,10 @@ describe('PopupView', () => {
       <PopupView
         errorMessage="someMessage"
         handleValidation={() => {}}
-        jobInputURL=""
-        fieldChanged={() => {}}
+        repoURL=""
+        repoName=""
+        URLFieldChange={() => {}}
+        nameFieldChanged={() => {}}
       />,
     ));
     expect(testView).toMatchSnapshot();

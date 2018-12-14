@@ -2,16 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import PopupView from './PopupView';
-import { jobInputDataChanged, validateRepoURL } from './actions';
+import { URLInputDataChanged, validateRepoURL, nameInputDataChanged } from './actions';
 import { POPUP_STATE } from './reducers';
 
 const propTypes = {
   /** If form input is invalid */
   formInvalid: PropTypes.bool,
-  /** Function for when the input field data has chagned */
-  fieldChanged: PropTypes.func.isRequired,
-  /** Value of the job input url input field */
-  jobInputURL: PropTypes.string,
+  /** Function for when repo url input field changes */
+  URLFieldChange: PropTypes.func.isRequired,
+  /** Function for when repo name input field changes */
+  nameFieldChanged: PropTypes.func.isRequired,
+  /** Value of the repo URL input field */
+  repoURL: PropTypes.string,
+  /** Value of the repo name input field */
+  repoName: PropTypes.string,
   /** Handler for when validate is clicked */
   validateClickHandler: PropTypes.func,
   /** handler for when confirm is clicked */
@@ -25,24 +29,28 @@ export class PopupContainer extends React.Component {
   render() {
     const {
       formInvalid,
-      fieldChanged,
-      jobInputURL,
+      URLFieldChange,
+      nameFieldChanged,
+      repoURL,
       validateClickHandler,
       confirmClickHandler,
       helpMessage,
+      repoName,
     } = this.props;
 
     const validateClick = () => {
-      validateClickHandler(jobInputURL);
+      validateClickHandler(repoURL);
     };
 
     return (
       <PopupView
         errorMessage="Job url is NOT valid. Recheck and retry."
         formInvalid={formInvalid || false}
-        fieldChanged={fieldChanged}
+        URLFieldChange={URLFieldChange}
+        nameFieldChanged={nameFieldChanged}
         helpMessage={helpMessage}
-        jobInputURL={jobInputURL}
+        repoURL={repoURL}
+        repoName={repoName}
         validateClickHandler={validateClick}
         confirmClickHandler={confirmClickHandler}
       />
@@ -51,17 +59,20 @@ export class PopupContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  jobInputURL: state[POPUP_STATE].jobInputURL,
+  repoURL: state[POPUP_STATE].repoURL,
   helpMessage: state[POPUP_STATE].helpMessage,
   formInvalid: state[POPUP_STATE].formInvalid,
 });
 
 export const mapDispatchToProps = dispatch => ({
-  fieldChanged: (newValue) => {
-    dispatch(jobInputDataChanged(newValue.target.value));
+  URLFieldChange: (newValue) => {
+    dispatch(URLInputDataChanged(newValue.target.value));
   },
-  validateClickHandler: (jobInputURL) => {
-    dispatch(validateRepoURL(jobInputURL));
+  nameFieldChanged: (newValue) => {
+    dispatch(nameInputDataChanged(newValue.target.value));
+  },
+  validateClickHandler: (repoURL) => {
+    dispatch(validateRepoURL(repoURL));
   },
   confirmClickHandler: () => {
     console.log('confirm');
