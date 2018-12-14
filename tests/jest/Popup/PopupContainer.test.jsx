@@ -17,6 +17,7 @@ describe('PopupContainer', () => {
           repoURL=""
           repoName=""
           helpMessage=""
+          errorMessage=""
         />,
       ));
       expect(testContainer).toMatchSnapshot();

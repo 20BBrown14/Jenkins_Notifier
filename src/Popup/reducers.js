@@ -5,8 +5,9 @@ export const POPUP_STATE = 'popupState';
 const INITIAL_STATE = {
   repoURL: '',
   repoName: '',
-  helpMessage: 'With or without \'/api/json\' appended',
+  helpMessage: 'Repo URL should be appended with \'/api/json\'',
   formInvalid: false,
+  errorMessage: undefined,
 };
 
 const reduceURLInputDataChanged = (state, action) => (
@@ -15,6 +16,7 @@ const reduceURLInputDataChanged = (state, action) => (
     repoURL: action.data.newValue,
     formInvalid: false,
     helpMessage: INITIAL_STATE.helpMessage,
+    errorMessage: undefined,
   }
 );
 
@@ -24,6 +26,7 @@ const reduceNameInputDataChanged = (state, action) => (
     repoName: action.data.newValue,
     formInvalid: false,
     helpMessage: INITIAL_STATE.helpMessage,
+    errorMessage: undefined,
   }
 );
 
@@ -35,10 +38,11 @@ const reduceValidRepoURL = (state, action) => (
   }
 );
 
-const reduceInvalidRepoURL = state => (
+const reduceInvalidRepoURL = (state, action) => (
   {
     ...state,
     formInvalid: true,
+    errorMessage: action.data.errorMessage,
   }
 );
 
@@ -60,7 +64,7 @@ const reducePopup = (state = INITIAL_STATE, action) => {
     case A_VALID_REPO_URL:
       return reduceValidRepoURL(state, action);
     case A_INVALID_REPO_URL:
-      return reduceInvalidRepoURL(state);
+      return reduceInvalidRepoURL(state, action);
     default:
       return state;
   }

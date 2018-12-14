@@ -9,7 +9,8 @@ function parseJson(response) {
   try {
     return response.json();
   } catch (e) {
-    throw new Error(e);
+    // console.log(e);
+    throw new Error('Error parsing json');
   }
 }
 

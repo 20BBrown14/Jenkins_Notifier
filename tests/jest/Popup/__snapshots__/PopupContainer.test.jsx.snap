@@ -3,7 +3,7 @@
 exports[`PopupContainer Initialization should render a default view 1`] = `
 <PopupView
   URLFieldChange={[Function]}
-  errorMessage="Job url is NOT valid. Recheck and retry."
+  errorMessage=""
   formInvalid={false}
   helpMessage=""
   nameFieldChanged={[Function]}

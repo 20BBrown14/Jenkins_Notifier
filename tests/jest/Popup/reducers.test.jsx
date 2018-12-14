@@ -24,6 +24,7 @@ describe('Popup reducers', () => {
       const oldState = {
         repoURL: 'anotherURL',
         formInvalid: true,
+        erorrMessage: 'oldErrorMessage',
       };
       newState = reducers[REDUCER_KEY](oldState, action);
     });
@@ -36,6 +37,9 @@ describe('Popup reducers', () => {
     it('should update helpMessage', () => {
       expect(newState.helpMessage).toBeDefined();
     });
+    it('should clear error message', () => {
+      expect(newState.errorMessage).toBeUndefined();
+    });
   });
   describe('When reducing A_NAME_INPUT_DATA_CHANGED', () => {
     let newState;
@@ -47,6 +51,7 @@ describe('Popup reducers', () => {
       const oldState = {
         repoName: 'anotherName',
         formInvalid: true,
+        errorMesasge: 'oldErrorMessage',
       };
       newState = reducers[REDUCER_KEY](oldState, action);
     });
@@ -58,6 +63,9 @@ describe('Popup reducers', () => {
     });
     it('should update helpMessage', () => {
       expect(newState.helpMessage).toBeDefined();
+    });
+    it('should clear error message', () => {
+      expect(newState.errorMessage).toBeUndefined();
     });
   });
   describe('When reducing A_VALID_REPO_URL', () => {
@@ -79,8 +87,15 @@ describe('Popup reducers', () => {
   });
   describe('When reducing A_INVALID_REPO_URL', () => {
     it('updates formInvalid to true', () => {
-      const newState = reducers[REDUCER_KEY](undefined, { type: A_INVALID_REPO_URL });
+      const action = {
+        type: A_INVALID_REPO_URL,
+        data: {
+          errorMessage: 'someErrorMessage',
+        },
+      };
+      const newState = reducers[REDUCER_KEY](undefined, action);
       expect(newState.formInvalid).toBeTruthy();
+      expect(newState.errorMessage).toEqual('someErrorMessage');
     });
   });
 });

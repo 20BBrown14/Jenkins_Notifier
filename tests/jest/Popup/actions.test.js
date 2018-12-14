@@ -5,6 +5,8 @@ import {
   nameInputDataChanged,
   validateRepoURL,
   URLInputDataChanged,
+  invalidRepoURL,
+  A_INVALID_REPO_URL,
 } from '../../../src/Popup/actions';
 
 describe('Popup Actions', () => {
@@ -22,5 +24,10 @@ describe('Popup Actions', () => {
     const validateAction = validateRepoURL('someURL');
     expect(validateAction.type).toEqual(A_VALIDATE_REPO_URL);
     expect(validateAction.data.URL).toEqual('someURL');
+  });
+  it('should produce a invalid repo url action', () => {
+    const invalidRepoAction = invalidRepoURL('someErrorMessage');
+    expect(invalidRepoAction.type).toEqual(A_INVALID_REPO_URL);
+    expect(invalidRepoAction.data.errorMessage).toEqual('someErrorMessage');
   });
 });
