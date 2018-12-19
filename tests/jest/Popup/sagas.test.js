@@ -13,7 +13,7 @@ describe('Repo Validation Sagas', () => {
         const validate = validateRepo(action);
         validate.next();
         const result = validate.next({ data: 1 });
-        expect(result.value).toEqual(put({ type: A_VALID_REPO_URL, data: 1 }));
+        expect(result.value).toEqual(put({ type: A_VALID_REPO_URL, data: { jsonData: 1 } }));
       });
     });
     describe('When url is invalid', () => {

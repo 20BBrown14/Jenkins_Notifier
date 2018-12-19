@@ -18,8 +18,8 @@ const request = (url, options) => (
   fetch(url, options)
     .then(checkStatus)
     .then(parseJson)
-    .then(data => ({ status: 1, data }))
-    .catch(err => ({ status: 0, err }))
+    .then(data => ({ data }))
+    .catch(err => ({ err }))
 );
 
 export default request;
