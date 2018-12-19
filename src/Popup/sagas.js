@@ -15,7 +15,7 @@ export function* validateRepo(action) {
     }
     const json = yield call(request, action.data.URL);
     if (json.data) {
-      yield put({ type: A_VALID_REPO_URL, data: json.data });
+      yield put({ type: A_VALID_REPO_URL, data: { jsonData: json.data } });
     } else {
       yield put(invalidRepoURL(json.err.message));
     }
