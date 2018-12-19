@@ -40,3 +40,10 @@ export const validateRepoURL = URL => (
     data: { URL },
   }
 );
+
+export const invalidRepoURL = error => (
+  {
+    type: A_INVALID_REPO_URL,
+    data: { errorMessage: error },
+  }
+);

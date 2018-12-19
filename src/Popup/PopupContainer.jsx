@@ -22,6 +22,8 @@ const propTypes = {
   confirmClickHandler: PropTypes.func,
   /** Help message */
   helpMessage: PropTypes.string.isRequired,
+  /** Error message to display on error */
+  errorMessage: PropTypes.string,
 };
 
 /* eslint-disable-next-line react/prefer-stateless-function */
@@ -36,6 +38,7 @@ export class PopupContainer extends React.Component {
       confirmClickHandler,
       helpMessage,
       repoName,
+      errorMessage,
     } = this.props;
 
     const validateClick = () => {
@@ -44,7 +47,7 @@ export class PopupContainer extends React.Component {
 
     return (
       <PopupView
-        errorMessage="Job url is NOT valid. Recheck and retry."
+        errorMessage={errorMessage}
         formInvalid={formInvalid || false}
         URLFieldChange={URLFieldChange}
         nameFieldChanged={nameFieldChanged}
@@ -62,6 +65,7 @@ const mapStateToProps = state => ({
   repoURL: state[POPUP_STATE].repoURL,
   helpMessage: state[POPUP_STATE].helpMessage,
   formInvalid: state[POPUP_STATE].formInvalid,
+  errorMessage: state[POPUP_STATE].errorMessage,
 });
 
 export const mapDispatchToProps = dispatch => ({
