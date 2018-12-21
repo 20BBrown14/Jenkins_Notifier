@@ -1,4 +1,5 @@
 {
+    "automock": false,
     "setupFiles": [
         "raf/polyfill",
         "./jestsetup.js"

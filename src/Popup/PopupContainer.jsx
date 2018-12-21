@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import PopupView from './PopupView';
-import { URLInputDataChanged, validateRepoURL, nameInputDataChanged } from './actions';
+import {
+  URLInputDataChanged,
+  validateRepoURL,
+  nameInputDataChanged,
+  A_CONFIRM_BUTTON_CLICKED,
+  A_INFORMATION_CONFIRMED,
+} from './actions';
 import { POPUP_STATE } from './reducers';
 
 const propTypes = {
@@ -24,10 +30,26 @@ const propTypes = {
   helpMessage: PropTypes.string.isRequired,
   /** Error message to display on error */
   errorMessage: PropTypes.string,
+  /** Whether or not the url has been validated */
+  validated: PropTypes.bool.isRequired,
+  /** Whether or not the confirmed button has been clicked */
+  confirmed: PropTypes.bool.isRequired,
 };
 
 /* eslint-disable-next-line react/prefer-stateless-function */
 export class PopupContainer extends React.Component {
+  componentDidUpdate() {
+    const {
+      validated,
+      confirmed,
+      confirmClickHandler,
+      repoName,
+    } = this.props;
+    if (validated && confirmed) {
+      confirmClickHandler(true, repoName);
+    }
+  }
+
   render() {
     const {
       formInvalid,
@@ -39,10 +61,16 @@ export class PopupContainer extends React.Component {
       helpMessage,
       repoName,
       errorMessage,
+      validated,
+      confirmed,
     } = this.props;
 
     const validateClick = () => {
       validateClickHandler(repoURL);
+    };
+
+    const confirmClick = () => {
+      confirmClickHandler(validated, repoName, repoURL);
     };
 
     return (
@@ -55,7 +83,9 @@ export class PopupContainer extends React.Component {
         repoURL={repoURL}
         repoName={repoName}
         validateClickHandler={validateClick}
-        confirmClickHandler={confirmClickHandler}
+        confirmClickHandler={confirmClick}
+        validated={validated}
+        confirmed={confirmed}
       />
     );
   }
@@ -63,9 +93,12 @@ export class PopupContainer extends React.Component {
 
 const mapStateToProps = state => ({
   repoURL: state[POPUP_STATE].repoURL,
+  repoName: state[POPUP_STATE].repoName,
   helpMessage: state[POPUP_STATE].helpMessage,
   formInvalid: state[POPUP_STATE].formInvalid,
   errorMessage: state[POPUP_STATE].errorMessage,
+  validated: state[POPUP_STATE].validated,
+  confirmed: state[POPUP_STATE].confirmed,
 });
 
 export const mapDispatchToProps = dispatch => ({
@@ -78,9 +111,14 @@ export const mapDispatchToProps = dispatch => ({
   validateClickHandler: (repoURL) => {
     dispatch(validateRepoURL(repoURL));
   },
-  confirmClickHandler: () => {
-    console.log('confirm');
-    // TODO: Dispatch confirmClick
+  confirmClickHandler: (validated, repoName, repoURL) => {
+    if (!validated) {
+      dispatch(validateRepoURL(repoURL));
+      dispatch({ type: A_CONFIRM_BUTTON_CLICKED });
+    } else {
+      dispatch({ type: A_CONFIRM_BUTTON_CLICKED });
+      dispatch({ type: A_INFORMATION_CONFIRMED, data: { repoName } });
+    }
   },
 });
 

@@ -43,6 +43,7 @@ const RepoInputComponent = (props) => {
         label="Name"
         value={repoName}
         onChange={nameFieldChanged}
+        help="Input no name to use name on Jenkins"
       />
       <InputField
         style={{ margin: '12.5px 25px 12.5px 25px' }}

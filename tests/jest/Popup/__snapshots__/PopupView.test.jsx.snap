@@ -48,7 +48,7 @@ exports[`PopupView should render a default view 1`] = `
     isReversed={false}
     style={
       Object {
-        "margin": "0px 0px 0px 5px",
+        "margin": "0px 5px 0px 5px",
       }
     }
     text="Confirm"
