@@ -14,6 +14,12 @@ export const A_VALID_REPO_URL = 'valid_repo_url';
 /** @const action for when job input url is invalid */
 export const A_INVALID_REPO_URL = 'invalid_repo_url';
 
+/** @const action for when confirm button is clicked */
+export const A_CONFIRM_BUTTON_CLICKED = 'confirm_button_clicked';
+
+/** @const action for when repo information has been validated and confirmed */
+export const A_INFORMATION_CONFIRMED = 'information confirmed';
+
 /**
  * Action creator for A_URL_INPUT_DATA_CHANGED
  */

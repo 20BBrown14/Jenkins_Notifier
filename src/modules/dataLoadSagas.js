@@ -1,15 +1,15 @@
-function checkStatus(response) {
+// exporting for testing
+export function checkStatus(response) {
   if (response.status !== 200) {
     throw new Error(`Unexpected status returned from server: ${response.status}`);
   }
   return response;
 }
-
-function parseJson(response) {
+// Exporting for testing
+export function parseJson(response) {
   try {
     return response.json();
   } catch (e) {
-    // console.log(e);
     throw new Error('Error parsing json');
   }
 }

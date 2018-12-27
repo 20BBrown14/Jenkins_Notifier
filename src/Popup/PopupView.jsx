@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'terra-button';
 import Text from 'terra-text';
+import IconSuccess from 'terra-icon/lib/icon/IconSuccess';
 import RepoInputComponent from './RepoInputComponent';
 import './PopupView.scss';
 
@@ -24,6 +25,10 @@ const propTypes = {
   validateClickHandler: PropTypes.func,
   /** Handler for when confirm is clicked */
   confirmClickHandler: PropTypes.func,
+  /** Whether or not the URL has been validated */
+  validated: PropTypes.bool,
+  /** Whether or not the URL has been confirmed */
+  confirmed: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -41,6 +46,8 @@ const PopupView = (props) => {
     validateClickHandler,
     confirmClickHandler,
     repoName,
+    validated,
+    confirmed,
   } = props;
 
   return (
@@ -59,12 +66,16 @@ const PopupView = (props) => {
         style={{ margin: '0px 5px 0px 25px' }}
         text="Validate"
         onClick={validateClickHandler}
+        isDisabled={validated}
       />
       <Button
-        style={{ margin: '0px 0px 0px 5px' }}
+        style={{ margin: '0px 5px 0px 5px' }}
         text="Confirm"
         onClick={confirmClickHandler}
+        isDisabled={confirmed}
       />
+      {confirmed && validated &&
+        <IconSuccess />}
     </div>
   );
 };

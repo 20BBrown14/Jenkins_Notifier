@@ -10,7 +10,7 @@ exports[`RepoInputComponent should render a default view 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       />
     }
-    help={null}
+    help="Input no name to use name on Jenkins"
     hideRequired={false}
     inputAttrs={Object {}}
     inputId="repoNameInput"

@@ -3,6 +3,8 @@
 exports[`PopupContainer Initialization should render a default view 1`] = `
 <PopupView
   URLFieldChange={[Function]}
+  confirmClickHandler={[Function]}
+  confirmed={false}
   errorMessage=""
   formInvalid={false}
   helpMessage=""
@@ -10,5 +12,6 @@ exports[`PopupContainer Initialization should render a default view 1`] = `
   repoName=""
   repoURL=""
   validateClickHandler={[Function]}
+  validated={false}
 />
 `;

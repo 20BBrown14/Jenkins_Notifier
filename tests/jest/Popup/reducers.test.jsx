@@ -4,6 +4,7 @@ import {
   A_VALID_REPO_URL,
   A_INVALID_REPO_URL,
   A_NAME_INPUT_DATA_CHANGED,
+  A_CONFIRM_BUTTON_CLICKED,
 } from '../../../src/Popup/actions';
 
 describe('Popup reducers', () => {
@@ -24,7 +25,9 @@ describe('Popup reducers', () => {
       const oldState = {
         repoURL: 'anotherURL',
         formInvalid: true,
-        erorrMessage: 'oldErrorMessage',
+        errorMessage: 'oldErrorMessage',
+        validated: true,
+        confirmed: true,
       };
       newState = reducers[REDUCER_KEY](oldState, action);
     });
@@ -40,6 +43,12 @@ describe('Popup reducers', () => {
     it('should clear error message', () => {
       expect(newState.errorMessage).toBeUndefined();
     });
+    it('should update validated to false', () => {
+      expect(newState.validated).toBeFalsy();
+    });
+    it('should update confirmed to false', () => {
+      expect(newState.confirmed).toBeFalsy();
+    });
   });
   describe('When reducing A_NAME_INPUT_DATA_CHANGED', () => {
     let newState;
@@ -50,22 +59,18 @@ describe('Popup reducers', () => {
       };
       const oldState = {
         repoName: 'anotherName',
-        formInvalid: true,
-        errorMesasge: 'oldErrorMessage',
+        confirmed: true,
       };
       newState = reducers[REDUCER_KEY](oldState, action);
     });
     it('should update repoName', () => {
       expect(newState.repoName).toEqual('someName');
     });
-    it('should update formInvalid to false', () => {
-      expect(newState.formInvalid).toBeFalsy();
-    });
-    it('should update helpMessage', () => {
-      expect(newState.helpMessage).toBeDefined();
-    });
     it('should clear error message', () => {
       expect(newState.errorMessage).toBeUndefined();
+    });
+    it('should update confirmed to false', () => {
+      expect(newState.confirmed).toBeFalsy();
     });
   });
   describe('When reducing A_VALID_REPO_URL', () => {
@@ -73,7 +78,7 @@ describe('Popup reducers', () => {
     beforeAll(() => {
       const action = {
         type: A_VALID_REPO_URL,
-        data: { json: 'json' },
+        data: { jsonData: 'json' },
       };
       newState = reducers[REDUCER_KEY](undefined, action);
     });
@@ -86,16 +91,36 @@ describe('Popup reducers', () => {
     });
   });
   describe('When reducing A_INVALID_REPO_URL', () => {
-    it('updates formInvalid to true', () => {
+    let newState;
+    beforeAll(() => {
       const action = {
         type: A_INVALID_REPO_URL,
         data: {
           errorMessage: 'someErrorMessage',
         },
       };
-      const newState = reducers[REDUCER_KEY](undefined, action);
+      const oldState = {
+        validated: true,
+      };
+      newState = reducers[REDUCER_KEY](oldState, action);
+    });
+    it('updates formInvalid to true', () => {
       expect(newState.formInvalid).toBeTruthy();
+    });
+    it('updates error message', () => {
       expect(newState.errorMessage).toEqual('someErrorMessage');
+    });
+    it('updates validated to false', () => {
+      expect(newState.validated).toBeFalsy();
+    });
+  });
+  describe('When reducing A_CONFIRM_BUTTON_CLICKED', () => {
+    it('should update confirmed to true', () => {
+      const action = {
+        type: A_CONFIRM_BUTTON_CLICKED,
+      };
+      const newState = reducers[REDUCER_KEY](undefined, action);
+      expect(newState.confirmed).toBeTruthy();
     });
   });
 });

@@ -61,6 +61,7 @@ describe('Repo Validation Sagas', () => {
       const validate = validateRepo(action);
       const result = validate.next();
       expect(result.value).toEqual(put(expectedAction));
+      validate.next();
     });
   });
 });
