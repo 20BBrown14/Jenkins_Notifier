@@ -1,11 +1,12 @@
-import reducers, { POPUP_STATE as REDUCER_KEY } from '../../../src/Popup/reducers';
+import reducers, { POPUP_STATE as REDUCER_KEY } from '../../../src/AddRepo/reducers';
 import {
   A_URL_INPUT_DATA_CHANGED,
   A_VALID_REPO_URL,
   A_INVALID_REPO_URL,
   A_NAME_INPUT_DATA_CHANGED,
   A_CONFIRM_BUTTON_CLICKED,
-} from '../../../src/Popup/actions';
+  A_CANCEL_CLICKED,
+} from '../../../src/AddRepo/actions';
 
 describe('Popup reducers', () => {
   describe('when initialized', () => {
@@ -121,6 +122,27 @@ describe('Popup reducers', () => {
       };
       const newState = reducers[REDUCER_KEY](undefined, action);
       expect(newState.confirmed).toBeTruthy();
+    });
+  });
+  describe('When reducing A_CANCEL_CLICKED', () => {
+    it('should update state to initial state', () => {
+      const action = {
+        type: A_CANCEL_CLICKED,
+      };
+      const oldState = {
+        formInvalid: true,
+        errorMessage: '',
+        validated: true,
+        confirmed: true,
+      };
+      const newState = reducers[REDUCER_KEY](oldState, action);
+      expect(newState.repoURL).toEqual('');
+      expect(newState.repoName).toEqual('');
+      expect(newState.helpMessage).toEqual('Repo URL should be appended with \'/api/json\'');
+      expect(newState.formInvalid).toBeFalsy();
+      expect(newState.errorMessage).toBeUndefined();
+      expect(newState.validated).toBeFalsy();
+      expect(newState.confirmed).toBeFalsy();
     });
   });
 });

@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatusView should render a default view 1`] = `
+<div>
+  <div
+    className="StatusView-Window"
+  >
+    <Arrange
+      alignFill="center"
+      alignFitEnd="center"
+      alignFitStart="center"
+      className="statusArrange"
+      fill={
+        <Text
+          color="inherit"
+          fontSize={16}
+          isItalic={false}
+          isVisuallyHidden={false}
+        >
+          someKey
+        </Text>
+      }
+      fitEnd={
+        <Button
+          className="arrangeButton"
+          isBlock={false}
+          isCompact={false}
+          isDisabled={false}
+          isIconOnly={false}
+          isReversed={false}
+          onClick={[Function]}
+          text="View Jobs"
+          type="button"
+          variant="neutral"
+        />
+      }
+      fitStart={
+        <Button
+          className="arrangeButton"
+          isBlock={false}
+          isCompact={false}
+          isDisabled={false}
+          isIconOnly={false}
+          isReversed={false}
+          onClick={[Function]}
+          text="View on Jenkins"
+          type="button"
+          variant="neutral"
+        />
+      }
+      key="someKey fill"
+    />
+    <Arrange
+      alignFill="center"
+      alignFitEnd="center"
+      alignFitStart="center"
+      className="statusArrange"
+      fill={
+        <Text
+          color="inherit"
+          fontSize={16}
+          isItalic={false}
+          isVisuallyHidden={false}
+        >
+          anotherKey
+        </Text>
+      }
+      fitEnd={
+        <Button
+          className="arrangeButton"
+          isBlock={false}
+          isCompact={false}
+          isDisabled={false}
+          isIconOnly={false}
+          isReversed={false}
+          onClick={[Function]}
+          text="View Jobs"
+          type="button"
+          variant="neutral"
+        />
+      }
+      fitStart={
+        <Button
+          className="arrangeButton"
+          isBlock={false}
+          isCompact={false}
+          isDisabled={false}
+          isIconOnly={false}
+          isReversed={false}
+          onClick={[Function]}
+          text="View on Jenkins"
+          type="button"
+          variant="neutral"
+        />
+      }
+      key="anotherKey fill"
+    />
+  </div>
+  <Button
+    isBlock={false}
+    isCompact={false}
+    isDisabled={false}
+    isIconOnly={false}
+    isReversed={false}
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": "12.5px 5px 0px 5px",
+      }
+    }
+    text="Add New Repo"
+    type="button"
+    variant="neutral"
+  />
+</div>
+`;

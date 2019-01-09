@@ -4,7 +4,7 @@ import Button from 'terra-button';
 import Text from 'terra-text';
 import IconSuccess from 'terra-icon/lib/icon/IconSuccess';
 import RepoInputComponent from './RepoInputComponent';
-import './PopupView.scss';
+import './AddRepoView.scss';
 
 const propTypes = {
   /** Error message for input */
@@ -29,13 +29,15 @@ const propTypes = {
   validated: PropTypes.bool,
   /** Whether or not the URL has been confirmed */
   confirmed: PropTypes.bool,
+  /** Function for when the cancel button is clicked */
+  cancelClickHandler: PropTypes.func.isRequired,
 };
 
 const defaultProps = {
   formInvalid: false,
 };
 
-const PopupView = (props) => {
+const AddRepoView = (props) => {
   const {
     errorMessage,
     formInvalid,
@@ -48,10 +50,11 @@ const PopupView = (props) => {
     repoName,
     validated,
     confirmed,
+    cancelClickHandler,
   } = props;
 
   return (
-    <div className="popupview-Window">
+    <div className="AddRepoview-Window">
       <Text style={{ margin: '12px 0px 0px 25px' }} fontSize={32}>Track a New Repo</Text>
       <RepoInputComponent
         errorMessage={errorMessage}
@@ -74,13 +77,18 @@ const PopupView = (props) => {
         onClick={confirmClickHandler}
         isDisabled={confirmed}
       />
+      <Button
+        style={{ margin: '0px 5px 0px 5px' }}
+        text="Cancel"
+        onClick={cancelClickHandler}
+      />
       {confirmed && validated &&
         <IconSuccess />}
     </div>
   );
 };
 
-PopupView.propTypes = propTypes;
-PopupView.defaultProps = defaultProps;
+AddRepoView.propTypes = propTypes;
+AddRepoView.defaultProps = defaultProps;
 
-export default PopupView;
+export default AddRepoView;

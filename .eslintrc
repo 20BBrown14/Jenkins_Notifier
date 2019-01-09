@@ -22,7 +22,8 @@
               ":": "before"
             }
           }
-        ]
+        ],
+        "react/prefer-stateless-function": "off"
     },
     "globals": {
         "shallow": true,

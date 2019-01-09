@@ -20,6 +20,9 @@ export const A_CONFIRM_BUTTON_CLICKED = 'confirm_button_clicked';
 /** @const action for when repo information has been validated and confirmed */
 export const A_INFORMATION_CONFIRMED = 'information confirmed';
 
+/** @const action for when cancel button is clicked */
+export const A_CANCEL_CLICKED = 'cancel_clicked';
+
 /**
  * Action creator for A_URL_INPUT_DATA_CHANGED
  */

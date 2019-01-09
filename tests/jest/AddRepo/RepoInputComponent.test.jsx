@@ -1,5 +1,5 @@
 import React from 'react';
-import RepoInputComponent from '../../../src/Popup/RepoInputComponent';
+import RepoInputComponent from '../../../src/AddRepo/RepoInputComponent';
 
 describe('RepoInputComponent', () => {
   it('should render a default view', () => {
