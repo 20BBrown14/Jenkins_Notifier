@@ -7,7 +7,7 @@ import {
   URLInputDataChanged,
   invalidRepoURL,
   A_INVALID_REPO_URL,
-} from '../../../src/Popup/actions';
+} from '../../../src/AddRepo/actions';
 
 describe('Popup Actions', () => {
   it('should produce a url input data changed action', () => {

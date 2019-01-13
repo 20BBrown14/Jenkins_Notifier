@@ -1,5 +1,7 @@
 import reducers, { APP_STATE as REDUCER_KEY } from '../../src/reducers';
-import { A_VALID_REPO_URL, A_INFORMATION_CONFIRMED } from '../../src/Popup/actions';
+import { A_VALID_REPO_URL, A_INFORMATION_CONFIRMED, A_CANCEL_CLICKED } from '../../src/AddRepo/actions';
+import { A_ADD_NEW_REPO_CLICKED } from '../../src/Status/actions';
+import { VK_ADD_NEW_JOB, VK_JOB_STATUS } from '../../src/Navigation/viewKeys';
 
 describe('App Reducers', () => {
   describe('When initialized', () => {
@@ -19,7 +21,24 @@ describe('App Reducers', () => {
       expect(newState.jsonData).toEqual('someData');
     });
   });
-  describe('When reducer A_INFORMATION_CONFIRMED', () => {
+
+  describe('When reducing A_ADD_NEW_REPO_CLICKED', () => {
+    it('Updates the state view key to VK_ADD_NEW_JOB', () => {
+      const oldState = { viewKey: 'someViewKey' };
+      const newState = reducers[REDUCER_KEY](oldState, { type: A_ADD_NEW_REPO_CLICKED });
+      expect(newState.viewKey).toEqual(VK_ADD_NEW_JOB);
+    });
+  });
+
+  describe('When reducing A_CANCEL_CLICKED', () => {
+    it('Updaotes the state view key to VK_JOB_STATUS', () => {
+      const oldState = { viewKey: 'someViewKey' };
+      const newState = reducers[REDUCER_KEY](oldState, { type: A_CANCEL_CLICKED });
+      expect(newState.viewKey).toEqual(VK_JOB_STATUS);
+    });
+  });
+
+  describe('When reducing A_INFORMATION_CONFIRMED', () => {
     describe('Repo name was defined', () => {
       describe('Repo URL not already in state', () => {
         it('should add repo to state', () => {

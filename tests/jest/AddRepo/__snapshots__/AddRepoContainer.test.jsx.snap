@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PopupContainer Initialization should render a default view 1`] = `
-<PopupView
+exports[`AddRepoContainer Initialization should render a default view 1`] = `
+<AddRepoView
   URLFieldChange={[Function]}
+  cancelClickHandler={[Function]}
   confirmClickHandler={[Function]}
   confirmed={false}
   errorMessage=""

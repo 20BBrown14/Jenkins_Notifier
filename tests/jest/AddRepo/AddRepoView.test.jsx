@@ -1,16 +1,17 @@
 import React from 'react';
-import PopupView from '../../../src/Popup/PopupView';
+import AddRepoView from '../../../src/AddRepo/AddRepoView';
 
-describe('PopupView', () => {
+describe('AddRepoView', () => {
   it('should render a default view', () => {
     const testView = (shallow(
-      <PopupView
+      <AddRepoView
         errorMessage="someMessage"
         handleValidation={() => {}}
         repoURL=""
         repoName=""
         URLFieldChange={() => {}}
         nameFieldChanged={() => {}}
+        cancelClickHandler={() => {}}
       />,
     ));
     expect(testView).toMatchSnapshot();

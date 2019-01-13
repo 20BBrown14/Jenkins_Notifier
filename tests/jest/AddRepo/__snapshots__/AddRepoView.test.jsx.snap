@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PopupView should render a default view 1`] = `
+exports[`AddRepoView should render a default view 1`] = `
 <div
-  className="popupview-Window"
+  className="AddRepoview-Window"
 >
   <Text
     color="inherit"
@@ -52,6 +52,22 @@ exports[`PopupView should render a default view 1`] = `
       }
     }
     text="Confirm"
+    type="button"
+    variant="neutral"
+  />
+  <Button
+    isBlock={false}
+    isCompact={false}
+    isDisabled={false}
+    isIconOnly={false}
+    isReversed={false}
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": "0px 5px 0px 5px",
+      }
+    }
+    text="Cancel"
     type="button"
     variant="neutral"
   />

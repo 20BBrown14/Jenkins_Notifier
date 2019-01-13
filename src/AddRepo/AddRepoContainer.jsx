@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import PopupView from './PopupView';
+import AddRepoView from './AddRepoView';
 import {
   URLInputDataChanged,
   validateRepoURL,
   nameInputDataChanged,
   A_CONFIRM_BUTTON_CLICKED,
   A_INFORMATION_CONFIRMED,
+  A_CANCEL_CLICKED,
 } from './actions';
 import { POPUP_STATE } from './reducers';
 
@@ -34,19 +35,23 @@ const propTypes = {
   validated: PropTypes.bool.isRequired,
   /** Whether or not the confirmed button has been clicked */
   confirmed: PropTypes.bool.isRequired,
+  /** Function for when repo information has been confirmed */
+  informationConfirmed: PropTypes.func,
+  /** Function for when the cancel button is clicked */
+  cancelClickHandler: PropTypes.func.isRequired,
 };
 
 /* eslint-disable-next-line react/prefer-stateless-function */
-export class PopupContainer extends React.Component {
+export class AddRepoContainer extends React.Component {
   componentDidUpdate() {
     const {
       validated,
       confirmed,
-      confirmClickHandler,
+      informationConfirmed,
       repoName,
     } = this.props;
     if (validated && confirmed) {
-      confirmClickHandler(true, repoName);
+      informationConfirmed(repoName);
     }
   }
 
@@ -63,6 +68,7 @@ export class PopupContainer extends React.Component {
       errorMessage,
       validated,
       confirmed,
+      cancelClickHandler,
     } = this.props;
 
     const validateClick = () => {
@@ -70,11 +76,11 @@ export class PopupContainer extends React.Component {
     };
 
     const confirmClick = () => {
-      confirmClickHandler(validated, repoName, repoURL);
+      confirmClickHandler(validated, repoURL);
     };
 
     return (
-      <PopupView
+      <AddRepoView
         errorMessage={errorMessage}
         formInvalid={formInvalid || false}
         URLFieldChange={URLFieldChange}
@@ -85,7 +91,8 @@ export class PopupContainer extends React.Component {
         validateClickHandler={validateClick}
         confirmClickHandler={confirmClick}
         validated={validated}
-        confirmed={confirmed}
+        confirmed={confirmed && validated}
+        cancelClickHandler={cancelClickHandler}
       />
     );
   }
@@ -111,17 +118,21 @@ export const mapDispatchToProps = dispatch => ({
   validateClickHandler: (repoURL) => {
     dispatch(validateRepoURL(repoURL));
   },
-  confirmClickHandler: (validated, repoName, repoURL) => {
+  confirmClickHandler: (validated, repoURL) => {
     if (!validated) {
       dispatch(validateRepoURL(repoURL));
-      dispatch({ type: A_CONFIRM_BUTTON_CLICKED });
-    } else {
-      dispatch({ type: A_CONFIRM_BUTTON_CLICKED });
-      dispatch({ type: A_INFORMATION_CONFIRMED, data: { repoName } });
     }
+    dispatch({ type: A_CONFIRM_BUTTON_CLICKED });
+  },
+  informationConfirmed: (repoName) => {
+    dispatch({ type: A_INFORMATION_CONFIRMED, data: { repoName } });
+    dispatch({ type: A_CANCEL_CLICKED });
+  },
+  cancelClickHandler: () => {
+    dispatch({ type: A_CANCEL_CLICKED });
   },
 });
 
-PopupContainer.propTypes = propTypes;
+AddRepoContainer.propTypes = propTypes;
 
-export default connect(mapStateToProps, mapDispatchToProps)(PopupContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(AddRepoContainer);

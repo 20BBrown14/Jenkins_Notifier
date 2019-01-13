@@ -1,6 +1,6 @@
 import { put } from 'redux-saga/effects';
-import { A_VALID_REPO_URL, A_VALIDATE_REPO_URL, A_INVALID_REPO_URL } from '../../../src/Popup/actions';
-import { validateRepo } from '../../../src/Popup/sagas';
+import { A_VALID_REPO_URL, A_VALIDATE_REPO_URL, A_INVALID_REPO_URL } from '../../../src/AddRepo/actions';
+import { validateRepo } from '../../../src/AddRepo/sagas';
 
 describe('Repo Validation Sagas', () => {
   describe('When validating repo url', () => {

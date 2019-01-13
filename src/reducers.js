@@ -1,9 +1,46 @@
-import { A_VALID_REPO_URL, A_INFORMATION_CONFIRMED } from './Popup/actions';
+import { A_VALID_REPO_URL, A_INFORMATION_CONFIRMED, A_CANCEL_CLICKED } from './AddRepo/actions';
+import { VK_ADD_NEW_JOB, VK_JOB_STATUS } from './Navigation/viewKeys';
+import { A_ADD_NEW_REPO_CLICKED } from './Status/actions';
 
 export const APP_STATE = 'app_state';
 
 const INITIAL_STATE = {
-  repos: {},
+
+  /* repos: {
+    patientKioskJS: {
+      URL: 'https://jenkins.cerner.com/ion/job/Revenue%20Cycle%20Patient%20Kiosk/job/patient-kiosk-js/',
+      jobs: {
+        0: {
+          color: 'blue',
+          name: 'dev',
+          url: 'https://jenkins.cerner.com/ion/job/Revenue%20Cycle%20Patient%20Kiosk/job/patient-kiosk-js/job/dev/',
+        },
+        1: {
+          color: 'red',
+          name: 'cheese',
+          url: 'https://jenkins.cerner.com/ion/job/Revenue%20Cycle%20Patient%20Kiosk/job/patient-kiosk-js/job/feature%252FREVCYCSCH-3884/'
+        },
+      },
+    },
+    kioskServer: {
+      URL: 'https://jenkins.cerner.com/ion/job/Revenue%20Cycle%20Patient%20Kiosk/job/kiosk_server/',
+      jobs: {
+        0: {
+          color: 'blue',
+          name: 'dev',
+          url: 'https://jenkins.cerner.com/ion/job/Revenue%20Cycle%20Patient%20Kiosk/job/patient-kiosk-js/job/dev/',
+        },
+        1: {
+          color: 'red',
+          name: 'cheese',
+          url: 'https://jenkins.cerner.com/ion/job/Revenue%20Cycle%20Patient%20Kiosk/job/patient-kiosk-js/job/feature%252FREVCYCSCH-3884/'
+        },
+      },
+    },
+  }, */
+
+  repos: undefined,
+  viewKey: VK_JOB_STATUS,
 };
 
 const reduceValidRepoURL = (state, action) => (
@@ -54,6 +91,10 @@ const reduceApp = (state = INITIAL_STATE, action) => {
       return reduceInformationConfirmed(state, action);
     case A_VALID_REPO_URL:
       return reduceValidRepoURL(state, action);
+    case A_ADD_NEW_REPO_CLICKED:
+      return { ...state, viewKey: VK_ADD_NEW_JOB };
+    case A_CANCEL_CLICKED:
+      return { ...state, viewKey: VK_JOB_STATUS };
     default:
       return state;
   }

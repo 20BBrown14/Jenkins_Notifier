@@ -4,6 +4,7 @@ import {
   A_INVALID_REPO_URL,
   A_NAME_INPUT_DATA_CHANGED,
   A_CONFIRM_BUTTON_CLICKED,
+  A_CANCEL_CLICKED,
 } from './actions';
 
 export const POPUP_STATE = 'popupState';
@@ -71,7 +72,7 @@ const reduceInvalidRepoURL = (state, action) => (
  * @param {object} action.data - The data related to the action
  * @returns {object} updated state. If no action is handled returns original state.
  */
-const reducePopup = (state = INITIAL_STATE, action) => {
+const reduceAddRepo = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case A_URL_INPUT_DATA_CHANGED:
       return reduceURLInputDataChanged(state, action);
@@ -83,9 +84,11 @@ const reducePopup = (state = INITIAL_STATE, action) => {
       return reduceInvalidRepoURL(state, action);
     case A_CONFIRM_BUTTON_CLICKED:
       return { ...state, confirmed: true };
+    case A_CANCEL_CLICKED:
+      return INITIAL_STATE;
     default:
       return state;
   }
 };
 
-export default { [POPUP_STATE]: reducePopup };
+export default { [POPUP_STATE]: reduceAddRepo };

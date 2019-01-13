@@ -1,0 +1,18 @@
+.StatusView-Window {
+  width: 650px;
+  height: 370px;
+  overflow-y: auto;
+  border-bottom: inset;
+  border-bottom-color: lightgray;
+  border-width: 2px;
+}
+
+.statusArrange {
+  border-bottom: solid;
+  border-width: 2px;
+  border-color: lightgray;
+}
+
+.arrangeButton {
+  margin: 5px;
+}
