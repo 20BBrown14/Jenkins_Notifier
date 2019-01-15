@@ -11,6 +11,7 @@ describe('StatusView', () => {
       <StatusView
         repos={repoInformation}
         addRepoClickHandler={() => {}}
+        removeRepo={() => {}}
       />,
     ));
     expect(testView).toMatchSnapshot();

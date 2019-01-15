@@ -16,6 +16,9 @@ const rootReducer = combineReducers(Object.assign({}, AddRepoReducers, AppReduce
 /** @const redux store */
 const store = createStore(rootReducer, compose(applyMiddleware(sagaMiddleware)));
 
+/* eslint-disable no-underscore-dangle */
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const store = createStore(rootReducer, composeEnhancers(applyMiddleware(sagaMiddleware)));
 [...PopupSagas].map(saga => (sagaMiddleware.run(saga)));
 
 class App extends React.Component {

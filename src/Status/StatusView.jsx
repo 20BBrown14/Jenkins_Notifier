@@ -10,16 +10,18 @@ const propTypes = {
   repos: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   /** Button click handler for add new repo button */
   addRepoClickHandler: PropTypes.func.isRequired,
+  /** Function to remove repo from list */
+  removeRepo: PropTypes.func.isRequired,
 };
 
 const StatusView = (props) => {
   const {
     repos,
     addRepoClickHandler,
+    removeRepo,
   } = props;
 
   const keys = [];
-
   if (repos) {
     Object.keys(repos).forEach((key) => {
       keys.push(key);
@@ -43,20 +45,28 @@ const StatusView = (props) => {
       </Text>);
 
     const arrangeStart = (
-      <Button
-        key={`${keys[i]} start`}
-        className="arrangeButton"
-        text="View on Jenkins"
-        onClick={() => { window.open(repos[keys[i]].URL); }}
-      />
+      <div>
+        <Button
+          key={`${keys[i]} start Jenkins`}
+          className="arrangeButton"
+          text="View on Jenkins"
+          onClick={() => { window.open(repos[keys[i]].URL); }}
+        />
+        <Button
+          key={`${keys[i]} start jobs`}
+          className="arrangeButton"
+          text="View Jobs"
+          onClick={() => {}}
+        />
+      </div>
     );
 
     const arrangeEnd = (
       <Button
         key={`${keys[i]} end`}
         className="arrangeButton"
-        text="View Jobs"
-        onClick={() => {}}
+        text="Remove Repo"
+        onClick={() => { removeRepo(`${keys[i]}`); }}
       />
     );
     content.push(

@@ -9,7 +9,7 @@ import {
   A_INVALID_REPO_URL,
 } from '../../../src/AddRepo/actions';
 
-describe('Popup Actions', () => {
+describe('AddRepo Actions', () => {
   it('should produce a url input data changed action', () => {
     const URLChangedAction = URLInputDataChanged('URLValue');
     expect(URLChangedAction.type).toEqual(A_URL_INPUT_DATA_CHANGED);
