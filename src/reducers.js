@@ -1,5 +1,5 @@
 import { A_VALID_REPO_URL, A_INFORMATION_CONFIRMED, A_CANCEL_CLICKED } from './AddRepo/actions';
-import { VK_ADD_NEW_JOB, VK_JOB_STATUS } from './Navigation/viewKeys';
+import { VK_ADD_NEW_REPO, VK_REPOS } from './Navigation/viewKeys';
 import { A_ADD_NEW_REPO_CLICKED, A_REMOVE_REPO } from './Status/actions';
 
 export const APP_STATE = 'app_state';
@@ -40,7 +40,7 @@ const INITIAL_STATE = {
   }, */
 
   repos: undefined,
-  viewKey: VK_JOB_STATUS,
+  viewKey: VK_REPOS,
 };
 
 const reduceValidRepoURL = (state, action) => (
@@ -102,9 +102,9 @@ const reduceApp = (state = INITIAL_STATE, action) => {
     case A_VALID_REPO_URL:
       return reduceValidRepoURL(state, action);
     case A_ADD_NEW_REPO_CLICKED:
-      return { ...state, viewKey: VK_ADD_NEW_JOB };
+      return { ...state, viewKey: VK_ADD_NEW_REPO };
     case A_CANCEL_CLICKED:
-      return { ...state, viewKey: VK_JOB_STATUS };
+      return { ...state, viewKey: VK_REPOS };
     case A_REMOVE_REPO:
       return reduceRemoveRepo(state, action);
     default:

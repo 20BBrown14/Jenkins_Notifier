@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusContainer, mapDispatchToProps } from '../../../src/Status/StatusContainer';
-import { A_ADD_NEW_REPO_CLICKED, A_REMOVE_REPO } from '../../../src/Status/actions';
+import { A_ADD_NEW_REPO_CLICKED, A_REMOVE_REPO, A_VIEW_JOBS_CLICKED } from '../../../src/Status/actions';
 
 describe('StatusContainer', () => {
   describe('Initialization', () => {
@@ -11,6 +11,7 @@ describe('StatusContainer', () => {
           addNewRepoClicked={() => {}}
           noRepos={() => {}}
           removeRepo={() => {}}
+          viewJobs={() => {}}
         />,
       ));
       expect(testContainer).toMatchSnapshot();
@@ -46,6 +47,19 @@ describe('StatusContainer', () => {
       dispatchProps.removeRepo();
       expect(mockDispatch).toHaveBeenCalledTimes(1);
     });
+    it('dispatches a view jobs action', () => {
+      mockDispatch = jest.fn((action) => {
+        expect(action.type).toEqual(A_VIEW_JOBS_CLICKED);
+      });
+      const ownProps = {
+        repos: {
+          someRepo: 'hello',
+        },
+      };
+      const dispatchProps = mapDispatchToProps(mockDispatch, ownProps);
+      dispatchProps.viewJobs('someRepo');
+      expect(mockDispatch).toHaveBeenCalledTimes(1);
+    });
   });
   describe('Component Did Mount', () => {
     it('should call noRepos when there are no repos in state', () => {
@@ -55,6 +69,7 @@ describe('StatusContainer', () => {
           addNewRepoClicked={() => {}}
           noRepos={jest.fn()}
           removeRepo={() => {}}
+          viewJobs={() => {}}
         />,
       );
       expect(wrapper.instance().props.noRepos).toHaveBeenCalled();
@@ -70,6 +85,7 @@ describe('StatusContainer', () => {
           addNewRepoClicked={() => {}}
           noRepos={() => {}}
           removeRepo={() => {}}
+          viewJobs={() => {}}
         />,
       );
       wrapper.setProps({ repos: undefined, noRepos: jest.fn() });
