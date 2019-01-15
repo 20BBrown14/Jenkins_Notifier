@@ -29,24 +29,38 @@ exports[`StatusView should render a default view 1`] = `
           isIconOnly={false}
           isReversed={false}
           onClick={[Function]}
-          text="View Jobs"
+          text="Remove Repo"
           type="button"
           variant="neutral"
         />
       }
       fitStart={
-        <Button
-          className="arrangeButton"
-          isBlock={false}
-          isCompact={false}
-          isDisabled={false}
-          isIconOnly={false}
-          isReversed={false}
-          onClick={[Function]}
-          text="View on Jenkins"
-          type="button"
-          variant="neutral"
-        />
+        <div>
+          <Button
+            className="arrangeButton"
+            isBlock={false}
+            isCompact={false}
+            isDisabled={false}
+            isIconOnly={false}
+            isReversed={false}
+            onClick={[Function]}
+            text="View on Jenkins"
+            type="button"
+            variant="neutral"
+          />
+          <Button
+            className="arrangeButton"
+            isBlock={false}
+            isCompact={false}
+            isDisabled={false}
+            isIconOnly={false}
+            isReversed={false}
+            onClick={[Function]}
+            text="View Jobs"
+            type="button"
+            variant="neutral"
+          />
+        </div>
       }
       key="someKey fill"
     />
@@ -74,24 +88,38 @@ exports[`StatusView should render a default view 1`] = `
           isIconOnly={false}
           isReversed={false}
           onClick={[Function]}
-          text="View Jobs"
+          text="Remove Repo"
           type="button"
           variant="neutral"
         />
       }
       fitStart={
-        <Button
-          className="arrangeButton"
-          isBlock={false}
-          isCompact={false}
-          isDisabled={false}
-          isIconOnly={false}
-          isReversed={false}
-          onClick={[Function]}
-          text="View on Jenkins"
-          type="button"
-          variant="neutral"
-        />
+        <div>
+          <Button
+            className="arrangeButton"
+            isBlock={false}
+            isCompact={false}
+            isDisabled={false}
+            isIconOnly={false}
+            isReversed={false}
+            onClick={[Function]}
+            text="View on Jenkins"
+            type="button"
+            variant="neutral"
+          />
+          <Button
+            className="arrangeButton"
+            isBlock={false}
+            isCompact={false}
+            isDisabled={false}
+            isIconOnly={false}
+            isReversed={false}
+            onClick={[Function]}
+            text="View Jobs"
+            type="button"
+            variant="neutral"
+          />
+        </div>
       }
       key="anotherKey fill"
     />

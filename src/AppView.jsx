@@ -11,37 +11,35 @@ const propTypes = {
   repos: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
-export class AppView extends React.Component {
-  render() {
-    const {
-      viewKey,
-      repos,
-    } = this.props;
+export const AppView = (props) => {
+  const {
+    viewKey,
+    repos,
+  } = props;
 
-    let content;
-    switch (viewKey) {
-      case VK_JOB_STATUS:
-        content = (
-          <Status
-            repos={repos}
-          />
-        );
-        break;
-      case VK_ADD_NEW_JOB:
-        content = (<AddRepo />);
-        break;
-      default:
-        content = undefined;
-        break;
-    }
-
-    return (
-      <div>
-        {content}
-      </div>
-    );
+  let content;
+  switch (viewKey) {
+    case VK_JOB_STATUS:
+      content = (
+        <Status
+          repos={repos}
+        />
+      );
+      break;
+    case VK_ADD_NEW_JOB:
+      content = (<AddRepo />);
+      break;
+    default:
+      content = undefined;
+      break;
   }
-}
+
+  return (
+    <div>
+      {content}
+    </div>
+  );
+};
 
 AppView.propTypes = propTypes;
 export default AppView;
