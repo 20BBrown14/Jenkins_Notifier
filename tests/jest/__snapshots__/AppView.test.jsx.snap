@@ -6,7 +6,7 @@ exports[`AppView When view key is VK_ADD_NEW_REPO should render a vie with an Ad
 </div>
 `;
 
-exports[`AppView When view key is VK_JOB_STATUS should render a view with a status component 1`] = `
+exports[`AppView When view key is VK_REPOS should render a view with a status component 1`] = `
 <div>
   <Connect(StatusContainer)
     repos={Object {}}

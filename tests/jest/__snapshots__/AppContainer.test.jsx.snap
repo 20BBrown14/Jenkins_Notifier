@@ -16,20 +16,20 @@ exports[`AppContainer Initialization should render a default view 1`] = `
 </AppContainer>
 `;
 
-exports[`AppContainer When view key is {VK_JOB_STATUS} should render a status view 1`] = `
+exports[`AppContainer When view key is VK_ADD_NEW_REPO should render an add new repo view 1`] = `
 <div>
   <AppView
     repos={Object {}}
-    viewKey="job_status"
+    viewKey="add_new_repo"
   />
 </div>
 `;
 
-exports[`AppContainer When view key is VK_ADD_NEW_JOB should render an add new repo view 1`] = `
+exports[`AppContainer When view key is VK_REPOS should render a status view 1`] = `
 <div>
   <AppView
     repos={Object {}}
-    viewKey="add_new_job"
+    viewKey="repos"
   />
 </div>
 `;

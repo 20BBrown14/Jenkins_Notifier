@@ -1,7 +1,7 @@
 import reducers, { APP_STATE as REDUCER_KEY } from '../../src/reducers';
 import { A_VALID_REPO_URL, A_INFORMATION_CONFIRMED, A_CANCEL_CLICKED } from '../../src/AddRepo/actions';
-import { A_ADD_NEW_REPO_CLICKED } from '../../src/Status/actions';
-import { VK_ADD_NEW_JOB, VK_JOB_STATUS } from '../../src/Navigation/viewKeys';
+import { A_ADD_NEW_REPO_CLICKED, A_REMOVE_REPO } from '../../src/Status/actions';
+import { VK_ADD_NEW_REPO, VK_REPOS } from '../../src/Navigation/viewKeys';
 
 describe('App Reducers', () => {
   describe('When initialized', () => {
@@ -23,18 +23,18 @@ describe('App Reducers', () => {
   });
 
   describe('When reducing A_ADD_NEW_REPO_CLICKED', () => {
-    it('Updates the state view key to VK_ADD_NEW_JOB', () => {
+    it('Updates the state view key to VK_ADD_NEW_REPO', () => {
       const oldState = { viewKey: 'someViewKey' };
       const newState = reducers[REDUCER_KEY](oldState, { type: A_ADD_NEW_REPO_CLICKED });
-      expect(newState.viewKey).toEqual(VK_ADD_NEW_JOB);
+      expect(newState.viewKey).toEqual(VK_ADD_NEW_REPO);
     });
   });
 
   describe('When reducing A_CANCEL_CLICKED', () => {
-    it('Updaotes the state view key to VK_JOB_STATUS', () => {
+    it('Updaotes the state view key to VK_REPOS', () => {
       const oldState = { viewKey: 'someViewKey' };
       const newState = reducers[REDUCER_KEY](oldState, { type: A_CANCEL_CLICKED });
-      expect(newState.viewKey).toEqual(VK_JOB_STATUS);
+      expect(newState.viewKey).toEqual(VK_REPOS);
     });
   });
 
@@ -130,6 +130,41 @@ describe('App Reducers', () => {
         expect(newState.repos.someName).toBeDefined();
         expect(newState.repos.someName.URL).toEqual('someUrl');
         expect(newState.repos.someName.jobs).toEqual('someJobs');
+      });
+    });
+  });
+  describe('When reducing A_REMOVE_REPO', () => {
+    it('should delete the given repo from state', () => {
+      const action = {
+        type: A_REMOVE_REPO,
+        data: { repoToRemove: 'someRepo' },
+      };
+      const oldState = {
+        repos: {
+          aRepo: 'aRepo',
+          someRepo: 'someRepo',
+          anotherRepo: 'anotherRepo',
+        },
+      };
+      const newState = reducers[REDUCER_KEY](oldState, action);
+      expect(newState.repos).toBeDefined();
+      expect(newState.repos.aRepo).toBeDefined();
+      expect(newState.repos.anotherRepo).toBeDefined();
+      expect(newState.repos.someRepo).toBeUndefined();
+    });
+    describe('When the last repo is removed', () => {
+      it('should set repos as undefined', () => {
+        const action = {
+          type: A_REMOVE_REPO,
+          data: { repoToRemove: 'someRepo' },
+        };
+        const oldState = {
+          repos: {
+            someRepo: 'someRepo',
+          },
+        };
+        const newState = reducers[REDUCER_KEY](oldState, action);
+        expect(newState.repos).toBeUndefined();
       });
     });
   });

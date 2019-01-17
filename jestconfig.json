@@ -17,7 +17,7 @@
       "src/serviceWorker.js"
     ],
     "moduleNameMapper": {
-        "\\.(css|scss|svg|png)$": "identity-obj-proxy"
+        "\\.(css|scss|svg|png|gif)$": "identity-obj-proxy"
       }
 
 }

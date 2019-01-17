@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AddRepo from './AddRepo/AddRepoContainer';
-import { VK_ADD_NEW_JOB, VK_JOB_STATUS } from './Navigation/viewKeys';
+import { VK_ADD_NEW_REPO, VK_REPOS } from './Navigation/viewKeys';
 import Status from './Status/StatusContainer';
 
 const propTypes = {
@@ -19,14 +19,14 @@ export const AppView = (props) => {
 
   let content;
   switch (viewKey) {
-    case VK_JOB_STATUS:
+    case VK_REPOS:
       content = (
         <Status
           repos={repos}
         />
       );
       break;
-    case VK_ADD_NEW_JOB:
+    case VK_ADD_NEW_REPO:
       content = (<AddRepo />);
       break;
     default:

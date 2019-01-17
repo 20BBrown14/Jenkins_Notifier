@@ -6,12 +6,13 @@ import { Provider } from 'react-redux';
 import './App.css';
 import AddRepoReducers from './AddRepo/reducers';
 import AppReducers from './reducers';
+import StatusReducers from './Status/reducers';
 import PopupSagas from './AddRepo/sagas';
 import Container from './AppContainer';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const rootReducer = combineReducers(Object.assign({}, AddRepoReducers, AppReducers));
+const rootReducer = combineReducers(Object.assign({}, AddRepoReducers, AppReducers, StatusReducers));
 
 /** @const redux store */
 const store = createStore(rootReducer, compose(applyMiddleware(sagaMiddleware)));

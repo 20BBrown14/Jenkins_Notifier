@@ -38,6 +38,7 @@
     "terra-form-field": "^2.31.0",
     "terra-form-input": "^1.30.0",
     "terra-icon": "^2.29.1",
+    "terra-image": "^2.31.0",
     "terra-text": "^2.29.1",
     "xhr": "^2.5.0"
   },
@@ -70,6 +71,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "jest-fetch-mock": "^2.0.1",
+    "jest-image-snapshot": "^2.7.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.1",
