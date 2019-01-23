@@ -177,7 +177,7 @@ const StatusView = (props) => {
             <Button
               style={{ margin: '12.5px 5px 0px 5px' }}
               text="View Repo on Jenkins"
-              onClick={() => { /* TODO: add function to open repo url in window */ }}
+              onClick={() => { window.open(repos[repoToView].URL); }}
             />
             <div style={{ float: 'right' }}>
               <Button
