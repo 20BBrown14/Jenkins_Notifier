@@ -18,7 +18,9 @@ const propTypes = {
   /** Function to view jobs */
   viewJobs: PropTypes.func.isRequired,
   /** string indicating which repo's jobs to view */
-  repoToView: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  repoToView: PropTypes.string, // eslint-disable-line react/forbid-prop-types
+  /** Function to remove a job from a repo */
+  removeJob: PropTypes.func.isRequired,
 };
 
 const StatusView = (props) => {
@@ -28,12 +30,15 @@ const StatusView = (props) => {
     removeRepo,
     viewJobs,
     repoToView,
+    removeJob,
   } = props;
 
+  let view = 'repos';
   const content = [];
-  if (repoToView) {
+  if (repoToView && repos && repos[repoToView] && repos[repoToView].jobs) {
+    view = 'jobs';
     const keys = [];
-    const repoJobs = repoToView.jobs;
+    const repoJobs = repos[repoToView].jobs;
     Object.keys(repoJobs).forEach((key) => {
       keys.push(key);
     });
@@ -67,10 +72,10 @@ const StatusView = (props) => {
             onClick={() => { window.open(repoJobs[keys[i]].url); }}
           />
           <Button
-            key={`${keys[i]} delete`}
+            key={`${keys[i]} remove`}
             className="arrangeButton"
             text="Remove"
-            onClick={() => { /* TODO: Add handler to delete job from repo */ }}
+            onClick={() => { removeJob(`${keys[i]}`, repoToView); }}
           />
         </div>
       );
@@ -89,6 +94,7 @@ const StatusView = (props) => {
       );
     }
   } else if (repos) {
+    view = 'repos';
     const keys = [];
     if (repos) {
       Object.keys(repos).forEach((key) => {
@@ -116,6 +122,7 @@ const StatusView = (props) => {
             className="arrangeButton"
             text="View Jobs"
             onClick={() => { viewJobs(`${keys[i]}`); }}
+            isDisabled={!repos[keys[i]].jobs}
           />
         </div>
       );
@@ -143,6 +150,7 @@ const StatusView = (props) => {
     }
   } else {
     console.log('error');
+    view = 'error';
     return (
       <Text>error</Text>
     );
@@ -153,7 +161,7 @@ const StatusView = (props) => {
         {content}
       </div>
       {/* Repos View Button */}
-      {!repoToView && repos &&
+      {view === 'repos' &&
         (
           <Button
             style={{ margin: '12.5px 5px 0px 5px' }}
@@ -163,7 +171,7 @@ const StatusView = (props) => {
         )
       }
       {/* Job View Buttons */}
-      {repos && repoToView &&
+      {view === 'jobs' &&
         (
           <div>
             <Button
