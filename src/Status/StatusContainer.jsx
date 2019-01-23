@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import View from './StatusView';
-import { A_ADD_NEW_REPO_CLICKED, removeRepoAction, viewJobsClickedAction } from './actions';
+import { A_ADD_NEW_REPO_CLICKED, removeRepoAction, viewJobsClickedAction, removeJobAction } from './actions';
 import { APP_STATE } from '../reducers';
 import { STATUS_STATE } from './reducers';
 
@@ -19,6 +19,8 @@ const propTypes = {
   viewJobs: PropTypes.func.isRequired,
   /** String indicating which repo's jobs to view */
   repoToView: PropTypes.string,
+  /** Function to remove job from repo */
+  removeJob: PropTypes.func.isRequired,
 };
 
 export class StatusContainer extends React.Component {
@@ -49,6 +51,7 @@ export class StatusContainer extends React.Component {
       removeRepo,
       viewJobs,
       repoToView,
+      removeJob,
     } = this.props;
     return (
       <div>
@@ -58,6 +61,7 @@ export class StatusContainer extends React.Component {
           removeRepo={removeRepo}
           viewJobs={viewJobs}
           repoToView={repoToView}
+          removeJob={removeJob}
         />
       </div>
     );
@@ -69,7 +73,7 @@ const mapStateToProps = state => ({
   repoToView: state[STATUS_STATE].repoToView,
 });
 
-export const mapDispatchToProps = (dispatch, ownProps) => ({
+export const mapDispatchToProps = dispatch => ({
   addNewRepoClicked: () => {
     dispatch({ type: A_ADD_NEW_REPO_CLICKED });
   },
@@ -80,7 +84,10 @@ export const mapDispatchToProps = (dispatch, ownProps) => ({
     dispatch(removeRepoAction(repoToRemove));
   },
   viewJobs: (repoToView) => {
-    dispatch(viewJobsClickedAction(ownProps.repos[repoToView]));
+    dispatch(viewJobsClickedAction(repoToView));
+  },
+  removeJob: (jobToRemove, repoToView) => {
+    dispatch(removeJobAction(jobToRemove, repoToView));
   },
 });
 

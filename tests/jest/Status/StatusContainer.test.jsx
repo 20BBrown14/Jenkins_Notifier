@@ -1,6 +1,10 @@
 import React from 'react';
 import { StatusContainer, mapDispatchToProps } from '../../../src/Status/StatusContainer';
-import { A_ADD_NEW_REPO_CLICKED, A_REMOVE_REPO, A_VIEW_JOBS_CLICKED } from '../../../src/Status/actions';
+import {
+  A_ADD_NEW_REPO_CLICKED,
+  A_REMOVE_REPO, A_VIEW_JOBS_CLICKED,
+  A_REMOVE_JOB_CLICKED,
+} from '../../../src/Status/actions';
 
 describe('StatusContainer', () => {
   describe('Initialization', () => {
@@ -12,6 +16,7 @@ describe('StatusContainer', () => {
           noRepos={() => {}}
           removeRepo={() => {}}
           viewJobs={() => {}}
+          removeJob={() => {}}
         />,
       ));
       expect(testContainer).toMatchSnapshot();
@@ -51,13 +56,18 @@ describe('StatusContainer', () => {
       mockDispatch = jest.fn((action) => {
         expect(action.type).toEqual(A_VIEW_JOBS_CLICKED);
       });
-      const ownProps = {
-        repos: {
-          someRepo: 'hello',
-        },
-      };
-      const dispatchProps = mapDispatchToProps(mockDispatch, ownProps);
+      const dispatchProps = mapDispatchToProps(mockDispatch);
       dispatchProps.viewJobs('someRepo');
+      expect(mockDispatch).toHaveBeenCalledTimes(1);
+    });
+    it('dispatches a remove jobs action', () => {
+      mockDispatch = jest.fn((action) => {
+        expect(action.type).toEqual(A_REMOVE_JOB_CLICKED);
+        expect(action.data.repo).toEqual('someRepoView');
+        expect(action.data.jobToRemove).toEqual('someJobToRemove');
+      });
+      const dispatchProps = mapDispatchToProps(mockDispatch);
+      dispatchProps.removeJob('someJobToRemove', 'someRepoView');
       expect(mockDispatch).toHaveBeenCalledTimes(1);
     });
   });
@@ -70,6 +80,7 @@ describe('StatusContainer', () => {
           noRepos={jest.fn()}
           removeRepo={() => {}}
           viewJobs={() => {}}
+          removeJob={() => {}}
         />,
       );
       expect(wrapper.instance().props.noRepos).toHaveBeenCalled();
@@ -86,6 +97,7 @@ describe('StatusContainer', () => {
           noRepos={() => {}}
           removeRepo={() => {}}
           viewJobs={() => {}}
+          removeJob={() => {}}
         />,
       );
       wrapper.setProps({ repos: undefined, noRepos: jest.fn() });

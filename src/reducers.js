@@ -1,6 +1,6 @@
 import { A_VALID_REPO_URL, A_INFORMATION_CONFIRMED, A_CANCEL_CLICKED } from './AddRepo/actions';
 import { VK_ADD_NEW_REPO, VK_REPOS } from './Navigation/viewKeys';
-import { A_ADD_NEW_REPO_CLICKED, A_REMOVE_REPO } from './Status/actions';
+import { A_ADD_NEW_REPO_CLICKED, A_REMOVE_REPO, A_REMOVE_JOB_CLICKED } from './Status/actions';
 
 export const APP_STATE = 'app_state';
 
@@ -85,6 +85,18 @@ const reduceRemoveRepo = (state, action) => {
   return { ...newState, repos: { ...newState.repos } };
 };
 
+const reduceRemoveJob = (state, action) => {
+  const { jobToRemove, repo } = action.data;
+  const newState = { ...state };
+  delete newState.repos[repo].jobs[jobToRemove];
+  if (Object.keys(newState.repos[repo].jobs).length === 0) {
+    const reposToReturn = { ...newState.repos };
+    reposToReturn[repo].jobs = undefined;
+    return { ...newState, repos: reposToReturn };
+  }
+  return { ...newState, repos: { ...newState.repos } };
+};
+
 
 /**
  * Define App reducers
@@ -107,6 +119,8 @@ const reduceApp = (state = INITIAL_STATE, action) => {
       return { ...state, viewKey: VK_REPOS };
     case A_REMOVE_REPO:
       return reduceRemoveRepo(state, action);
+    case A_REMOVE_JOB_CLICKED:
+      return reduceRemoveJob(state, action);
     default:
       return state;
   }

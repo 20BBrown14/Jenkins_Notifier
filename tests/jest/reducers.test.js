@@ -1,6 +1,6 @@
 import reducers, { APP_STATE as REDUCER_KEY } from '../../src/reducers';
 import { A_VALID_REPO_URL, A_INFORMATION_CONFIRMED, A_CANCEL_CLICKED } from '../../src/AddRepo/actions';
-import { A_ADD_NEW_REPO_CLICKED, A_REMOVE_REPO } from '../../src/Status/actions';
+import { A_ADD_NEW_REPO_CLICKED, A_REMOVE_REPO, A_REMOVE_JOB_CLICKED } from '../../src/Status/actions';
 import { VK_ADD_NEW_REPO, VK_REPOS } from '../../src/Navigation/viewKeys';
 
 describe('App Reducers', () => {
@@ -165,6 +165,56 @@ describe('App Reducers', () => {
         };
         const newState = reducers[REDUCER_KEY](oldState, action);
         expect(newState.repos).toBeUndefined();
+      });
+    });
+  });
+  describe('When reducing A_REMOVE_JOB_CLICKED', () => {
+    it('should remove a job from a repo', () => {
+      const action = {
+        type: A_REMOVE_JOB_CLICKED,
+        data: { jobToRemove: 'someJobToRemove', repo: 'someRepo' },
+      };
+      const oldState = {
+        repos: {
+          someRepo: {
+            jobs: {
+              someJob: 'someJob',
+              someJobToRemove: 'someJobToRemove',
+            },
+          },
+          anotherRepo: {
+            jobs: {
+              anotherJob: 'anotherJob',
+              andAnotherJob: 'andAnotherJob',
+            },
+          },
+        },
+      };
+      const newState = reducers[REDUCER_KEY](oldState, action);
+      expect(newState.repos.someRepo).toBeDefined();
+      expect(newState.repos.someRepo.jobs).toBeDefined();
+      expect(newState.repos.someRepo.jobs.someJob).toBeDefined();
+      expect(newState.repos.someRepo.jobs.someJobToRemove).toBeUndefined();
+      expect(newState.repos.anotherRepo.jobs).toBeDefined();
+    });
+    describe('When last job is removed', () => {
+      it('Should returned undefined for repo.jobs', () => {
+        const action = {
+          type: A_REMOVE_JOB_CLICKED,
+          data: { jobToRemove: 'someJobToRemove', repo: 'someRepo' },
+        };
+        const oldState = {
+          repos: {
+            someRepo: {
+              jobs: {
+                someJobToRemove: 'someJobToRemove',
+              },
+            },
+          },
+        };
+        const newState = reducers[REDUCER_KEY](oldState, action);
+        expect(newState.repos.someRepo).toBeDefined();
+        expect(newState.repos.someRepo.jobs).toBeUndefined();
       });
     });
   });
