@@ -49,6 +49,7 @@ const StatusView = (props) => {
     for (let i = 0; i < keys.length; i += 1) {
       const arrangeFill = (
         <Text
+          className="textCenter"
           fontSize={16}
         >
           {repoJobs[keys[i]].name}
@@ -107,6 +108,7 @@ const StatusView = (props) => {
     for (let i = 0; i < keys.length; i += 1) {
       const arrangeFill = (
         <Text
+          className="textCenter"
           fontSize={16}
         >
           {keys[i]}
@@ -160,6 +162,17 @@ const StatusView = (props) => {
   }
   return (
     <div>
+      {view === 'jobs' &&
+        (
+          <Text
+            className="jobTitleText"
+            fontSize={20}
+            weight={700}
+          >
+            {repoToView}
+          </Text>
+        )
+      }
       <div className="StatusView-Window">
         {content}
       </div>
@@ -178,18 +191,18 @@ const StatusView = (props) => {
         (
           <div>
             <Button
-              style={{ margin: '12.5px 5px 0px 5px' }}
+              style={{ margin: '7px 5px 0px 5px' }}
               text="View Repo on Jenkins"
               onClick={() => { window.open(repos[repoToView].URL); }}
             />
             <div style={{ float: 'right' }}>
               <Button
-                style={{ margin: '12.5px 5px 0px 5px' }}
+                style={{ margin: '7px 5px 0px 5px' }}
                 text="Back"
                 onClick={goBack}
               />
               <Button
-                style={{ margin: '12.5px 5px 0px 5px' }}
+                style={{ margin: '7px 5px 0px 5px' }}
                 text="Remove Repo"
                 onClick={() => { removeRepo(repoToView); goBack(); }}
               />
