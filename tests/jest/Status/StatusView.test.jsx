@@ -320,5 +320,16 @@ describe('StatusView', () => {
         expect(removeJob.mock.calls[1][1]).toEqual('someRepo');
       });
     });
+    describe('View Repo Button', () => {
+      it('should call open window function', () => {
+        global.open = jest.fn();
+        expect(testView).toMatchSnapshot();
+        const buttons = testView.find('Button');
+        expect(buttons.length).toEqual(7);
+        buttons.at(4).simulate('click');
+        expect(global.open).toHaveBeenCalled();
+        expect(global.open).toHaveBeenCalledTimes(1);
+      });
+    });
   });
 });
