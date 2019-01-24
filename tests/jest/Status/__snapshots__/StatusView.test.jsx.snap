@@ -70,6 +70,25 @@ exports[`StatusView Job Click handlers Back Button should call back button handl
   viewJobs={[Function]}
 >
   <div>
+    <Text
+      className="jobTitleText"
+      color="inherit"
+      fontSize={20}
+      isItalic={false}
+      isVisuallyHidden={false}
+      weight={700}
+    >
+      <span
+        className="text font-size-20 font-weight-700 jobTitleText"
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        someRepo
+      </span>
+    </Text>
     <div
       className="StatusView-Window"
     >
@@ -80,6 +99,7 @@ exports[`StatusView Job Click handlers Back Button should call back button handl
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -151,13 +171,14 @@ exports[`StatusView Job Click handlers Back Button should call back button handl
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -253,6 +274,7 @@ exports[`StatusView Job Click handlers Back Button should call back button handl
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -337,13 +359,14 @@ exports[`StatusView Job Click handlers Back Button should call back button handl
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -443,7 +466,7 @@ exports[`StatusView Job Click handlers Back Button should call back button handl
         onClick={[Function]}
         style={
           Object {
-            "margin": "12.5px 5px 0px 5px",
+            "margin": "7px 5px 0px 5px",
           }
         }
         text="View Repo on Jenkins"
@@ -461,7 +484,7 @@ exports[`StatusView Job Click handlers Back Button should call back button handl
           onKeyUp={[Function]}
           style={
             Object {
-              "margin": "12.5px 5px 0px 5px",
+              "margin": "7px 5px 0px 5px",
             }
           }
           type="button"
@@ -493,7 +516,7 @@ exports[`StatusView Job Click handlers Back Button should call back button handl
           onClick={[MockFunction]}
           style={
             Object {
-              "margin": "12.5px 5px 0px 5px",
+              "margin": "7px 5px 0px 5px",
             }
           }
           text="Back"
@@ -511,7 +534,7 @@ exports[`StatusView Job Click handlers Back Button should call back button handl
             onKeyUp={[Function]}
             style={
               Object {
-                "margin": "12.5px 5px 0px 5px",
+                "margin": "7px 5px 0px 5px",
               }
             }
             type="button"
@@ -536,7 +559,7 @@ exports[`StatusView Job Click handlers Back Button should call back button handl
           onClick={[Function]}
           style={
             Object {
-              "margin": "12.5px 5px 0px 5px",
+              "margin": "7px 5px 0px 5px",
             }
           }
           text="Remove Repo"
@@ -554,7 +577,7 @@ exports[`StatusView Job Click handlers Back Button should call back button handl
             onKeyUp={[Function]}
             style={
               Object {
-                "margin": "12.5px 5px 0px 5px",
+                "margin": "7px 5px 0px 5px",
               }
             }
             type="button"
@@ -618,6 +641,25 @@ exports[`StatusView Job Click handlers Remove Repo Button should remove repo and
   viewJobs={[Function]}
 >
   <div>
+    <Text
+      className="jobTitleText"
+      color="inherit"
+      fontSize={20}
+      isItalic={false}
+      isVisuallyHidden={false}
+      weight={700}
+    >
+      <span
+        className="text font-size-20 font-weight-700 jobTitleText"
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        someRepo
+      </span>
+    </Text>
     <div
       className="StatusView-Window"
     >
@@ -628,6 +670,7 @@ exports[`StatusView Job Click handlers Remove Repo Button should remove repo and
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -699,13 +742,14 @@ exports[`StatusView Job Click handlers Remove Repo Button should remove repo and
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -801,6 +845,7 @@ exports[`StatusView Job Click handlers Remove Repo Button should remove repo and
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -885,13 +930,14 @@ exports[`StatusView Job Click handlers Remove Repo Button should remove repo and
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -991,7 +1037,7 @@ exports[`StatusView Job Click handlers Remove Repo Button should remove repo and
         onClick={[Function]}
         style={
           Object {
-            "margin": "12.5px 5px 0px 5px",
+            "margin": "7px 5px 0px 5px",
           }
         }
         text="View Repo on Jenkins"
@@ -1009,7 +1055,7 @@ exports[`StatusView Job Click handlers Remove Repo Button should remove repo and
           onKeyUp={[Function]}
           style={
             Object {
-              "margin": "12.5px 5px 0px 5px",
+              "margin": "7px 5px 0px 5px",
             }
           }
           type="button"
@@ -1041,7 +1087,7 @@ exports[`StatusView Job Click handlers Remove Repo Button should remove repo and
           onClick={[MockFunction]}
           style={
             Object {
-              "margin": "12.5px 5px 0px 5px",
+              "margin": "7px 5px 0px 5px",
             }
           }
           text="Back"
@@ -1059,7 +1105,7 @@ exports[`StatusView Job Click handlers Remove Repo Button should remove repo and
             onKeyUp={[Function]}
             style={
               Object {
-                "margin": "12.5px 5px 0px 5px",
+                "margin": "7px 5px 0px 5px",
               }
             }
             type="button"
@@ -1084,7 +1130,7 @@ exports[`StatusView Job Click handlers Remove Repo Button should remove repo and
           onClick={[Function]}
           style={
             Object {
-              "margin": "12.5px 5px 0px 5px",
+              "margin": "7px 5px 0px 5px",
             }
           }
           text="Remove Repo"
@@ -1102,7 +1148,7 @@ exports[`StatusView Job Click handlers Remove Repo Button should remove repo and
             onKeyUp={[Function]}
             style={
               Object {
-                "margin": "12.5px 5px 0px 5px",
+                "margin": "7px 5px 0px 5px",
               }
             }
             type="button"
@@ -1166,6 +1212,25 @@ exports[`StatusView Job Click handlers Remove job button should call removeJob p
   viewJobs={[Function]}
 >
   <div>
+    <Text
+      className="jobTitleText"
+      color="inherit"
+      fontSize={20}
+      isItalic={false}
+      isVisuallyHidden={false}
+      weight={700}
+    >
+      <span
+        className="text font-size-20 font-weight-700 jobTitleText"
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        someRepo
+      </span>
+    </Text>
     <div
       className="StatusView-Window"
     >
@@ -1176,6 +1241,7 @@ exports[`StatusView Job Click handlers Remove job button should call removeJob p
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -1247,13 +1313,14 @@ exports[`StatusView Job Click handlers Remove job button should call removeJob p
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -1349,6 +1416,7 @@ exports[`StatusView Job Click handlers Remove job button should call removeJob p
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -1433,13 +1501,14 @@ exports[`StatusView Job Click handlers Remove job button should call removeJob p
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -1539,7 +1608,7 @@ exports[`StatusView Job Click handlers Remove job button should call removeJob p
         onClick={[Function]}
         style={
           Object {
-            "margin": "12.5px 5px 0px 5px",
+            "margin": "7px 5px 0px 5px",
           }
         }
         text="View Repo on Jenkins"
@@ -1557,7 +1626,7 @@ exports[`StatusView Job Click handlers Remove job button should call removeJob p
           onKeyUp={[Function]}
           style={
             Object {
-              "margin": "12.5px 5px 0px 5px",
+              "margin": "7px 5px 0px 5px",
             }
           }
           type="button"
@@ -1589,7 +1658,7 @@ exports[`StatusView Job Click handlers Remove job button should call removeJob p
           onClick={[MockFunction]}
           style={
             Object {
-              "margin": "12.5px 5px 0px 5px",
+              "margin": "7px 5px 0px 5px",
             }
           }
           text="Back"
@@ -1607,7 +1676,7 @@ exports[`StatusView Job Click handlers Remove job button should call removeJob p
             onKeyUp={[Function]}
             style={
               Object {
-                "margin": "12.5px 5px 0px 5px",
+                "margin": "7px 5px 0px 5px",
               }
             }
             type="button"
@@ -1632,7 +1701,7 @@ exports[`StatusView Job Click handlers Remove job button should call removeJob p
           onClick={[Function]}
           style={
             Object {
-              "margin": "12.5px 5px 0px 5px",
+              "margin": "7px 5px 0px 5px",
             }
           }
           text="Remove Repo"
@@ -1650,7 +1719,7 @@ exports[`StatusView Job Click handlers Remove job button should call removeJob p
             onKeyUp={[Function]}
             style={
               Object {
-                "margin": "12.5px 5px 0px 5px",
+                "margin": "7px 5px 0px 5px",
               }
             }
             type="button"
@@ -1714,6 +1783,25 @@ exports[`StatusView Job Click handlers View Job Button should call open window f
   viewJobs={[Function]}
 >
   <div>
+    <Text
+      className="jobTitleText"
+      color="inherit"
+      fontSize={20}
+      isItalic={false}
+      isVisuallyHidden={false}
+      weight={700}
+    >
+      <span
+        className="text font-size-20 font-weight-700 jobTitleText"
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        someRepo
+      </span>
+    </Text>
     <div
       className="StatusView-Window"
     >
@@ -1724,6 +1812,7 @@ exports[`StatusView Job Click handlers View Job Button should call open window f
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -1795,13 +1884,14 @@ exports[`StatusView Job Click handlers View Job Button should call open window f
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -1897,6 +1987,7 @@ exports[`StatusView Job Click handlers View Job Button should call open window f
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -1981,13 +2072,14 @@ exports[`StatusView Job Click handlers View Job Button should call open window f
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -2087,7 +2179,7 @@ exports[`StatusView Job Click handlers View Job Button should call open window f
         onClick={[Function]}
         style={
           Object {
-            "margin": "12.5px 5px 0px 5px",
+            "margin": "7px 5px 0px 5px",
           }
         }
         text="View Repo on Jenkins"
@@ -2105,7 +2197,7 @@ exports[`StatusView Job Click handlers View Job Button should call open window f
           onKeyUp={[Function]}
           style={
             Object {
-              "margin": "12.5px 5px 0px 5px",
+              "margin": "7px 5px 0px 5px",
             }
           }
           type="button"
@@ -2137,7 +2229,7 @@ exports[`StatusView Job Click handlers View Job Button should call open window f
           onClick={[MockFunction]}
           style={
             Object {
-              "margin": "12.5px 5px 0px 5px",
+              "margin": "7px 5px 0px 5px",
             }
           }
           text="Back"
@@ -2155,7 +2247,7 @@ exports[`StatusView Job Click handlers View Job Button should call open window f
             onKeyUp={[Function]}
             style={
               Object {
-                "margin": "12.5px 5px 0px 5px",
+                "margin": "7px 5px 0px 5px",
               }
             }
             type="button"
@@ -2180,7 +2272,7 @@ exports[`StatusView Job Click handlers View Job Button should call open window f
           onClick={[Function]}
           style={
             Object {
-              "margin": "12.5px 5px 0px 5px",
+              "margin": "7px 5px 0px 5px",
             }
           }
           text="Remove Repo"
@@ -2198,7 +2290,7 @@ exports[`StatusView Job Click handlers View Job Button should call open window f
             onKeyUp={[Function]}
             style={
               Object {
-                "margin": "12.5px 5px 0px 5px",
+                "margin": "7px 5px 0px 5px",
               }
             }
             type="button"
@@ -2262,6 +2354,25 @@ exports[`StatusView Job Click handlers View Repo Button should call open window 
   viewJobs={[Function]}
 >
   <div>
+    <Text
+      className="jobTitleText"
+      color="inherit"
+      fontSize={20}
+      isItalic={false}
+      isVisuallyHidden={false}
+      weight={700}
+    >
+      <span
+        className="text font-size-20 font-weight-700 jobTitleText"
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        someRepo
+      </span>
+    </Text>
     <div
       className="StatusView-Window"
     >
@@ -2272,6 +2383,7 @@ exports[`StatusView Job Click handlers View Repo Button should call open window 
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -2343,13 +2455,14 @@ exports[`StatusView Job Click handlers View Repo Button should call open window 
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -2445,6 +2558,7 @@ exports[`StatusView Job Click handlers View Repo Button should call open window 
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -2529,13 +2643,14 @@ exports[`StatusView Job Click handlers View Repo Button should call open window 
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -2635,7 +2750,7 @@ exports[`StatusView Job Click handlers View Repo Button should call open window 
         onClick={[Function]}
         style={
           Object {
-            "margin": "12.5px 5px 0px 5px",
+            "margin": "7px 5px 0px 5px",
           }
         }
         text="View Repo on Jenkins"
@@ -2653,7 +2768,7 @@ exports[`StatusView Job Click handlers View Repo Button should call open window 
           onKeyUp={[Function]}
           style={
             Object {
-              "margin": "12.5px 5px 0px 5px",
+              "margin": "7px 5px 0px 5px",
             }
           }
           type="button"
@@ -2685,7 +2800,7 @@ exports[`StatusView Job Click handlers View Repo Button should call open window 
           onClick={[MockFunction]}
           style={
             Object {
-              "margin": "12.5px 5px 0px 5px",
+              "margin": "7px 5px 0px 5px",
             }
           }
           text="Back"
@@ -2703,7 +2818,7 @@ exports[`StatusView Job Click handlers View Repo Button should call open window 
             onKeyUp={[Function]}
             style={
               Object {
-                "margin": "12.5px 5px 0px 5px",
+                "margin": "7px 5px 0px 5px",
               }
             }
             type="button"
@@ -2728,7 +2843,7 @@ exports[`StatusView Job Click handlers View Repo Button should call open window 
           onClick={[Function]}
           style={
             Object {
-              "margin": "12.5px 5px 0px 5px",
+              "margin": "7px 5px 0px 5px",
             }
           }
           text="Remove Repo"
@@ -2746,7 +2861,7 @@ exports[`StatusView Job Click handlers View Repo Button should call open window 
             onKeyUp={[Function]}
             style={
               Object {
-                "margin": "12.5px 5px 0px 5px",
+                "margin": "7px 5px 0px 5px",
               }
             }
             type="button"
@@ -2806,6 +2921,25 @@ exports[`StatusView Jobs should render a view 1`] = `
   viewJobs={[Function]}
 >
   <div>
+    <Text
+      className="jobTitleText"
+      color="inherit"
+      fontSize={20}
+      isItalic={false}
+      isVisuallyHidden={false}
+      weight={700}
+    >
+      <span
+        className="text font-size-20 font-weight-700 jobTitleText"
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        someRepo
+      </span>
+    </Text>
     <div
       className="StatusView-Window"
     >
@@ -2816,6 +2950,7 @@ exports[`StatusView Jobs should render a view 1`] = `
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -2887,13 +3022,14 @@ exports[`StatusView Jobs should render a view 1`] = `
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -2989,6 +3125,7 @@ exports[`StatusView Jobs should render a view 1`] = `
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -3073,13 +3210,14 @@ exports[`StatusView Jobs should render a view 1`] = `
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -3179,7 +3317,7 @@ exports[`StatusView Jobs should render a view 1`] = `
         onClick={[Function]}
         style={
           Object {
-            "margin": "12.5px 5px 0px 5px",
+            "margin": "7px 5px 0px 5px",
           }
         }
         text="View Repo on Jenkins"
@@ -3197,7 +3335,7 @@ exports[`StatusView Jobs should render a view 1`] = `
           onKeyUp={[Function]}
           style={
             Object {
-              "margin": "12.5px 5px 0px 5px",
+              "margin": "7px 5px 0px 5px",
             }
           }
           type="button"
@@ -3229,7 +3367,7 @@ exports[`StatusView Jobs should render a view 1`] = `
           onClick={[Function]}
           style={
             Object {
-              "margin": "12.5px 5px 0px 5px",
+              "margin": "7px 5px 0px 5px",
             }
           }
           text="Back"
@@ -3247,7 +3385,7 @@ exports[`StatusView Jobs should render a view 1`] = `
             onKeyUp={[Function]}
             style={
               Object {
-                "margin": "12.5px 5px 0px 5px",
+                "margin": "7px 5px 0px 5px",
               }
             }
             type="button"
@@ -3272,7 +3410,7 @@ exports[`StatusView Jobs should render a view 1`] = `
           onClick={[Function]}
           style={
             Object {
-              "margin": "12.5px 5px 0px 5px",
+              "margin": "7px 5px 0px 5px",
             }
           }
           text="Remove Repo"
@@ -3290,7 +3428,7 @@ exports[`StatusView Jobs should render a view 1`] = `
             onKeyUp={[Function]}
             style={
               Object {
-                "margin": "12.5px 5px 0px 5px",
+                "margin": "7px 5px 0px 5px",
               }
             }
             type="button"
@@ -3369,6 +3507,7 @@ exports[`StatusView Repo Click handlers Remove repo button should call remove re
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -3504,13 +3643,14 @@ exports[`StatusView Repo Click handlers Remove repo button should call remove re
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -3569,6 +3709,7 @@ exports[`StatusView Repo Click handlers Remove repo button should call remove re
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -3704,13 +3845,14 @@ exports[`StatusView Repo Click handlers Remove repo button should call remove re
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -3769,6 +3911,7 @@ exports[`StatusView Repo Click handlers Remove repo button should call remove re
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -3904,13 +4047,14 @@ exports[`StatusView Repo Click handlers Remove repo button should call remove re
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -4067,6 +4211,7 @@ exports[`StatusView Repo Click handlers View Jobs Button should call view jobs p
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -4202,13 +4347,14 @@ exports[`StatusView Repo Click handlers View Jobs Button should call view jobs p
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -4267,6 +4413,7 @@ exports[`StatusView Repo Click handlers View Jobs Button should call view jobs p
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -4402,13 +4549,14 @@ exports[`StatusView Repo Click handlers View Jobs Button should call view jobs p
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -4467,6 +4615,7 @@ exports[`StatusView Repo Click handlers View Jobs Button should call view jobs p
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -4602,13 +4751,14 @@ exports[`StatusView Repo Click handlers View Jobs Button should call view jobs p
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -4765,6 +4915,7 @@ exports[`StatusView Repo Click handlers View Repo Button should open jenkins win
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -4900,13 +5051,14 @@ exports[`StatusView Repo Click handlers View Repo Button should open jenkins win
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -4965,6 +5117,7 @@ exports[`StatusView Repo Click handlers View Repo Button should open jenkins win
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -5100,13 +5253,14 @@ exports[`StatusView Repo Click handlers View Repo Button should open jenkins win
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -5165,6 +5319,7 @@ exports[`StatusView Repo Click handlers View Repo Button should open jenkins win
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -5300,13 +5455,14 @@ exports[`StatusView Repo Click handlers View Repo Button should open jenkins win
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -5463,6 +5619,7 @@ exports[`StatusView Repos should render a view 1`] = `
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -5598,13 +5755,14 @@ exports[`StatusView Repos should render a view 1`] = `
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -5663,6 +5821,7 @@ exports[`StatusView Repos should render a view 1`] = `
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -5798,13 +5957,14 @@ exports[`StatusView Repos should render a view 1`] = `
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -5863,6 +6023,7 @@ exports[`StatusView Repos should render a view 1`] = `
         className="statusArrange"
         fill={
           <Text
+            className="textCenter"
             color="inherit"
             fontSize={16}
             isItalic={false}
@@ -5998,13 +6159,14 @@ exports[`StatusView Repos should render a view 1`] = `
             className="fill center"
           >
             <Text
+              className="textCenter"
               color="inherit"
               fontSize={16}
               isItalic={false}
               isVisuallyHidden={false}
             >
               <span
-                className="text font-size-16"
+                className="text font-size-16 textCenter"
                 style={
                   Object {
                     "color": "inherit",
@@ -6116,6 +6278,7 @@ exports[`StatusView should render a default view 1`] = `
       className="statusArrange"
       fill={
         <Text
+          className="textCenter"
           color="inherit"
           fontSize={16}
           isItalic={false}
@@ -6175,6 +6338,7 @@ exports[`StatusView should render a default view 1`] = `
       className="statusArrange"
       fill={
         <Text
+          className="textCenter"
           color="inherit"
           fontSize={16}
           isItalic={false}
