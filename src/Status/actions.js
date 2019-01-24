@@ -6,6 +6,8 @@ export const A_REMOVE_REPO = 'remove_repo';
 export const A_VIEW_JOBS_CLICKED = 'view_jobs_clicked';
 /** @const action to remove job from repo */
 export const A_REMOVE_JOB_CLICKED = 'remove_job_clicked';
+/** @const action to go back to repo view from jobs view */
+export const A_GO_BACK_TO_REPO_VIEW = 'go_back_to_repo_view';
 
 
 export const removeRepoAction = repoToRemove => (

@@ -17,6 +17,7 @@ describe('StatusView', () => {
         removeRepo={() => {}}
         viewJobs={() => {}}
         removeJob={() => {}}
+        goBack={() => {}}
       />,
     ));
     expect(testView).toMatchSnapshot();
@@ -66,6 +67,7 @@ describe('StatusView', () => {
           removeRepo={() => {}}
           viewJobs={() => {}}
           removeJob={() => {}}
+          goBack={() => {}}
         />,
       ));
       expect(testView).toMatchSnapshot();
@@ -112,6 +114,7 @@ describe('StatusView', () => {
           viewJobs={() => {}}
           repoToView={repoToView}
           removeJob={() => {}}
+          goBack={() => {}}
         />,
       ));
       expect(testView).toMatchSnapshot();
@@ -130,6 +133,7 @@ describe('StatusView', () => {
           viewJobs={() => {}}
           repoToView={undefined}
           removeJob={() => {}}
+          goBack={() => {}}
         />,
       ));
       expect(testView).toMatchSnapshot();
@@ -187,6 +191,7 @@ describe('StatusView', () => {
           removeRepo={removeRepo}
           viewJobs={viewJobs}
           removeJob={() => {}}
+          goBack={() => {}}
         />,
       ));
     });
@@ -246,6 +251,7 @@ describe('StatusView', () => {
     let repoToView;
     let testView;
     let removeJob;
+    let goBack;
     beforeEach(() => {
       repoInformation = {
         someRepo: {
@@ -278,6 +284,7 @@ describe('StatusView', () => {
       };
       repoToView = 'someRepo';
       removeJob = jest.fn();
+      goBack = jest.fn();
       testView = (mount(
         <StatusView
           repos={repoInformation}
@@ -287,6 +294,7 @@ describe('StatusView', () => {
           viewJobs={() => {}}
           repoToView={repoToView}
           removeJob={removeJob}
+          goBack={goBack}
         />,
       ));
     });
@@ -329,6 +337,16 @@ describe('StatusView', () => {
         buttons.at(4).simulate('click');
         expect(global.open).toHaveBeenCalled();
         expect(global.open).toHaveBeenCalledTimes(1);
+      });
+    });
+    describe('Back Button', () => {
+      it('should call back button handler', () => {
+        expect(testView).toMatchSnapshot();
+        const buttons = testView.find('Button');
+        expect(buttons.length).toEqual(7);
+        buttons.at(5).simulate('click');
+        expect(goBack).toHaveBeenCalled();
+        expect(goBack).toHaveBeenCalledTimes(1);
       });
     });
   });

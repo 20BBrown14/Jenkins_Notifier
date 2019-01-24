@@ -1,6 +1,11 @@
 import reducers, { APP_STATE as REDUCER_KEY } from '../../src/reducers';
 import { A_VALID_REPO_URL, A_INFORMATION_CONFIRMED, A_CANCEL_CLICKED } from '../../src/AddRepo/actions';
-import { A_ADD_NEW_REPO_CLICKED, A_REMOVE_REPO, A_REMOVE_JOB_CLICKED } from '../../src/Status/actions';
+import {
+  A_ADD_NEW_REPO_CLICKED,
+  A_REMOVE_REPO,
+  A_REMOVE_JOB_CLICKED,
+  A_GO_BACK_TO_REPO_VIEW,
+} from '../../src/Status/actions';
 import { VK_ADD_NEW_REPO, VK_REPOS } from '../../src/Navigation/viewKeys';
 
 describe('App Reducers', () => {
@@ -216,6 +221,19 @@ describe('App Reducers', () => {
         expect(newState.repos.someRepo).toBeDefined();
         expect(newState.repos.someRepo.jobs).toBeUndefined();
       });
+    });
+  });
+  describe('When reducing A_GO_BACK_TO_REPO_VIEW', () => {
+    it('should set view key', () => {
+      const action = {
+        type: A_GO_BACK_TO_REPO_VIEW,
+      };
+      const oldState = {
+        viewKey: 'someotherkey',
+      };
+      const newState = reducers[REDUCER_KEY](oldState, action);
+      expect(newState).toBeDefined();
+      expect(newState.viewKey).toEqual(VK_REPOS);
     });
   });
 });

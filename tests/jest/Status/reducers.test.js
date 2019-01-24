@@ -1,5 +1,5 @@
 import reducers, { STATUS_STATE as REDUCER_KEY } from '../../../src/Status/reducers';
-import { A_VIEW_JOBS_CLICKED } from '../../../src/Status/actions';
+import { A_VIEW_JOBS_CLICKED, A_GO_BACK_TO_REPO_VIEW } from '../../../src/Status/actions';
 
 describe('Status Reducers', () => {
   describe('When initialized', () => {
@@ -19,6 +19,16 @@ describe('Status Reducers', () => {
       expect(newState).toBeDefined();
       expect(newState.repoToView).toBeDefined();
       expect(newState.repoToView).toEqual('someRepoToView');
+    });
+  });
+  describe('When reducing A_GO_BACK_TO_REPO_VIEW', () => {
+    it('should set repoToView to undefined', () => {
+      const action = {
+        type: A_GO_BACK_TO_REPO_VIEW,
+      };
+      const newState = reducers[REDUCER_KEY](undefined, action);
+      expect(newState).toBeDefined();
+      expect(newState.repoToView).toBeUndefined();
     });
   });
 });
