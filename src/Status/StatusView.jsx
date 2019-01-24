@@ -191,7 +191,7 @@ const StatusView = (props) => {
               <Button
                 style={{ margin: '12.5px 5px 0px 5px' }}
                 text="Remove Repo"
-                onClick={() => { /* TODO: Add handler to delete repo and go back to repo view */ }}
+                onClick={() => { removeRepo(repoToView); goBack(); }}
               />
             </div>
           </div>
