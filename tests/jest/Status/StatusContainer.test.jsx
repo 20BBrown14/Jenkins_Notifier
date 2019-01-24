@@ -4,6 +4,7 @@ import {
   A_ADD_NEW_REPO_CLICKED,
   A_REMOVE_REPO, A_VIEW_JOBS_CLICKED,
   A_REMOVE_JOB_CLICKED,
+  A_GO_BACK_TO_REPO_VIEW,
 } from '../../../src/Status/actions';
 
 describe('StatusContainer', () => {
@@ -17,6 +18,7 @@ describe('StatusContainer', () => {
           removeRepo={() => {}}
           viewJobs={() => {}}
           removeJob={() => {}}
+          goBackToRepoView={() => {}}
         />,
       ));
       expect(testContainer).toMatchSnapshot();
@@ -70,6 +72,14 @@ describe('StatusContainer', () => {
       dispatchProps.removeJob('someJobToRemove', 'someRepoView');
       expect(mockDispatch).toHaveBeenCalledTimes(1);
     });
+    it('dispatches a go back action', () => {
+      mockDispatch = jest.fn((action) => {
+        expect(action.type).toEqual(A_GO_BACK_TO_REPO_VIEW);
+      });
+      const dispatchProps = mapDispatchToProps(mockDispatch);
+      dispatchProps.goBackToRepoView();
+      expect(mockDispatch).toHaveBeenCalledTimes(1);
+    });
   });
   describe('Component Did Mount', () => {
     it('should call noRepos when there are no repos in state', () => {
@@ -81,6 +91,7 @@ describe('StatusContainer', () => {
           removeRepo={() => {}}
           viewJobs={() => {}}
           removeJob={() => {}}
+          goBackToRepoView={() => {}}
         />,
       );
       expect(wrapper.instance().props.noRepos).toHaveBeenCalled();
@@ -98,6 +109,7 @@ describe('StatusContainer', () => {
           removeRepo={() => {}}
           viewJobs={() => {}}
           removeJob={() => {}}
+          goBackToRepoView={() => {}}
         />,
       );
       wrapper.setProps({ repos: undefined, noRepos: jest.fn() });

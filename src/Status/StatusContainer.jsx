@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import View from './StatusView';
-import { A_ADD_NEW_REPO_CLICKED, removeRepoAction, viewJobsClickedAction, removeJobAction } from './actions';
+import {
+  A_ADD_NEW_REPO_CLICKED,
+  removeRepoAction,
+  viewJobsClickedAction,
+  removeJobAction,
+  A_GO_BACK_TO_REPO_VIEW,
+} from './actions';
 import { APP_STATE } from '../reducers';
 import { STATUS_STATE } from './reducers';
 
@@ -21,6 +27,8 @@ const propTypes = {
   repoToView: PropTypes.string,
   /** Function to remove job from repo */
   removeJob: PropTypes.func.isRequired,
+  /** Function to go back to repo view from jobs view */
+  goBackToRepoView: PropTypes.func.isRequired,
 };
 
 export class StatusContainer extends React.Component {
@@ -52,6 +60,7 @@ export class StatusContainer extends React.Component {
       viewJobs,
       repoToView,
       removeJob,
+      goBackToRepoView,
     } = this.props;
     return (
       <div>
@@ -62,6 +71,7 @@ export class StatusContainer extends React.Component {
           viewJobs={viewJobs}
           repoToView={repoToView}
           removeJob={removeJob}
+          goBack={goBackToRepoView}
         />
       </div>
     );
@@ -88,6 +98,9 @@ export const mapDispatchToProps = dispatch => ({
   },
   removeJob: (jobToRemove, repoToView) => {
     dispatch(removeJobAction(jobToRemove, repoToView));
+  },
+  goBackToRepoView: () => {
+    dispatch({ type: A_GO_BACK_TO_REPO_VIEW });
   },
 });
 

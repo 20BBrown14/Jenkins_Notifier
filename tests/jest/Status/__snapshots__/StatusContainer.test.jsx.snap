@@ -4,6 +4,7 @@ exports[`StatusContainer Initialization should render a default view 1`] = `
 <div>
   <StatusView
     addRepoClickHandler={[Function]}
+    goBack={[Function]}
     removeJob={[Function]}
     removeRepo={[Function]}
     repos={Object {}}

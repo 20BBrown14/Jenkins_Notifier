@@ -1,4 +1,4 @@
-import { A_VIEW_JOBS_CLICKED } from './actions';
+import { A_VIEW_JOBS_CLICKED, A_GO_BACK_TO_REPO_VIEW } from './actions';
 
 export const STATUS_STATE = 'status state';
 
@@ -25,6 +25,8 @@ const reduceStatus = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case A_VIEW_JOBS_CLICKED:
       return reduceViewJobsClicked(state, action);
+    case A_GO_BACK_TO_REPO_VIEW:
+      return { ...state, repoToView: undefined };
     default:
       return state;
   }

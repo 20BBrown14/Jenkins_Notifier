@@ -21,6 +21,8 @@ const propTypes = {
   repoToView: PropTypes.string, // eslint-disable-line react/forbid-prop-types
   /** Function to remove a job from a repo */
   removeJob: PropTypes.func.isRequired,
+  /** Function to go back to repo view from jobs view */
+  goBack: PropTypes.func.isRequired,
 };
 
 const StatusView = (props) => {
@@ -31,6 +33,7 @@ const StatusView = (props) => {
     viewJobs,
     repoToView,
     removeJob,
+    goBack,
   } = props;
 
   let view = 'repos';
@@ -183,7 +186,7 @@ const StatusView = (props) => {
               <Button
                 style={{ margin: '12.5px 5px 0px 5px' }}
                 text="Back"
-                onClick={() => { /* TODO: Add handler to go back to repo view */ }}
+                onClick={goBack}
               />
               <Button
                 style={{ margin: '12.5px 5px 0px 5px' }}
