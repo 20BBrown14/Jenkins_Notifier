@@ -251,6 +251,7 @@ describe('StatusView', () => {
     let repoToView;
     let testView;
     let removeJob;
+    let removeRepo;
     let goBack;
     beforeEach(() => {
       repoInformation = {
@@ -285,12 +286,13 @@ describe('StatusView', () => {
       repoToView = 'someRepo';
       removeJob = jest.fn();
       goBack = jest.fn();
+      removeRepo = jest.fn();
       testView = (mount(
         <StatusView
           repos={repoInformation}
           addRepoClickHandler={() => {}}
           noRepos={() => {}}
-          removeRepo={() => {}}
+          removeRepo={removeRepo}
           viewJobs={() => {}}
           repoToView={repoToView}
           removeJob={removeJob}
@@ -347,6 +349,18 @@ describe('StatusView', () => {
         buttons.at(5).simulate('click');
         expect(goBack).toHaveBeenCalled();
         expect(goBack).toHaveBeenCalledTimes(1);
+      });
+    });
+    describe('Remove Repo Button', () => {
+      it('should remove repo and go back to repo view', () => {
+        expect(testView).toMatchSnapshot();
+        const buttons = testView.find('Button');
+        expect(buttons.length).toEqual(7);
+        buttons.at(6).simulate('click');
+        expect(goBack).toHaveBeenCalled();
+        expect(goBack).toHaveBeenCalledTimes(1);
+        expect(removeRepo).toHaveBeenCalled();
+        expect(removeRepo).toHaveBeenCalledTimes(1);
       });
     });
   });
