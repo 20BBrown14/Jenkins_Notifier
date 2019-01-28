@@ -39,6 +39,8 @@ const propTypes = {
   informationConfirmed: PropTypes.func,
   /** Function for when the cancel button is clicked */
   cancelClickHandler: PropTypes.func.isRequired,
+  /** Bool for if the app is loading or not */
+  isLoading: PropTypes.bool.isRequired,
 };
 
 /* eslint-disable-next-line react/prefer-stateless-function */
@@ -69,6 +71,7 @@ export class AddRepoContainer extends React.Component {
       validated,
       confirmed,
       cancelClickHandler,
+      isLoading,
     } = this.props;
 
     const validateClick = () => {
@@ -93,6 +96,7 @@ export class AddRepoContainer extends React.Component {
         validated={validated}
         confirmed={confirmed && validated}
         cancelClickHandler={cancelClickHandler}
+        isLoading={isLoading}
       />
     );
   }
@@ -106,6 +110,7 @@ const mapStateToProps = state => ({
   errorMessage: state[POPUP_STATE].errorMessage,
   validated: state[POPUP_STATE].validated,
   confirmed: state[POPUP_STATE].confirmed,
+  isLoading: state[POPUP_STATE].isLoading,
 });
 
 export const mapDispatchToProps = dispatch => ({
@@ -119,10 +124,10 @@ export const mapDispatchToProps = dispatch => ({
     dispatch(validateRepoURL(repoURL));
   },
   confirmClickHandler: (validated, repoURL) => {
+    dispatch({ type: A_CONFIRM_BUTTON_CLICKED });
     if (!validated) {
       dispatch(validateRepoURL(repoURL));
     }
-    dispatch({ type: A_CONFIRM_BUTTON_CLICKED });
   },
   informationConfirmed: (repoName) => {
     dispatch({ type: A_INFORMATION_CONFIRMED, data: { repoName } });

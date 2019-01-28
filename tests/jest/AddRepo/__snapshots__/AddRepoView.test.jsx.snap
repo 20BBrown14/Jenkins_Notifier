@@ -21,6 +21,7 @@ exports[`AddRepoView should render a default view 1`] = `
     URLFieldChange={[Function]}
     errorMessage="someMessage"
     formInvalid={false}
+    isLoading={false}
     nameFieldChanged={[Function]}
     repoName=""
     repoURL=""

@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import Button from 'terra-button';
 import Text from 'terra-text';
 import IconSuccess from 'terra-icon/lib/icon/IconSuccess';
+import Image from 'terra-image';
 import RepoInputComponent from './RepoInputComponent';
 import './AddRepoView.scss';
+import loadingSpinner from '../assets/loading_Spinner.gif';
 
 const propTypes = {
   /** Error message for input */
@@ -31,6 +33,8 @@ const propTypes = {
   confirmed: PropTypes.bool,
   /** Function for when the cancel button is clicked */
   cancelClickHandler: PropTypes.func.isRequired,
+  /** Bool to determine if the app is loading or not */
+  isLoading: PropTypes.bool.isRequired,
 };
 
 const defaultProps = {
@@ -51,11 +55,20 @@ const AddRepoView = (props) => {
     validated,
     confirmed,
     cancelClickHandler,
+    isLoading,
   } = props;
 
   return (
     <div className="AddRepoview-Window">
       <Text style={{ margin: '12px 0px 0px 25px' }} fontSize={32}>Track a New Repo</Text>
+      {(isLoading) && (
+        <Image
+          src={loadingSpinner}
+          height="60"
+          width="60"
+          style={{ top: '7px', position: 'absolute' }}
+        />
+      )}
       <RepoInputComponent
         errorMessage={errorMessage}
         formInvalid={formInvalid}
@@ -64,18 +77,19 @@ const AddRepoView = (props) => {
         helpMessage={helpMessage}
         repoURL={repoURL}
         repoName={repoName}
+        isLoading={isLoading}
       />
       <Button
         style={{ margin: '0px 5px 0px 25px' }}
         text="Validate"
         onClick={validateClickHandler}
-        isDisabled={validated}
+        isDisabled={validated || isLoading}
       />
       <Button
         style={{ margin: '0px 5px 0px 5px' }}
         text="Confirm"
         onClick={confirmClickHandler}
-        isDisabled={confirmed}
+        isDisabled={confirmed || isLoading}
       />
       <Button
         style={{ margin: '0px 5px 0px 5px' }}

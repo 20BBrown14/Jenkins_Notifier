@@ -18,6 +18,8 @@ const propTypes = {
   repoURL: PropTypes.string.isRequired,
   /** Value of the repo name input field */
   repoName: PropTypes.string.isRequired,
+  /** Whether or not the view is loading */
+  isLoading: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -33,8 +35,8 @@ const RepoInputComponent = (props) => {
     repoURL,
     repoName,
     nameFieldChanged,
+    isLoading,
   } = props;
-
   return (
     <div>
       <InputField
@@ -44,6 +46,7 @@ const RepoInputComponent = (props) => {
         value={repoName}
         onChange={nameFieldChanged}
         help="Input no name to use name on Jenkins"
+        inputAttrs={{ disabled: isLoading }}
       />
       <InputField
         style={{ margin: '12.5px 25px 12.5px 25px' }}
@@ -54,6 +57,7 @@ const RepoInputComponent = (props) => {
         isInvalid={formInvalid}
         onChange={URLFieldChange}
         value={repoURL}
+        inputAttrs={{ disabled: isLoading }}
       />
     </div>
   );

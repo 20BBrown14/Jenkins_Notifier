@@ -12,7 +12,11 @@ exports[`RepoInputComponent should render a default view 1`] = `
     }
     help="Input no name to use name on Jenkins"
     hideRequired={false}
-    inputAttrs={Object {}}
+    inputAttrs={
+      Object {
+        "disabled": undefined,
+      }
+    }
     inputId="repoNameInput"
     isInline={false}
     isInvalid={false}
@@ -39,7 +43,11 @@ exports[`RepoInputComponent should render a default view 1`] = `
     }
     help={null}
     hideRequired={false}
-    inputAttrs={Object {}}
+    inputAttrs={
+      Object {
+        "disabled": undefined,
+      }
+    }
     inputId="repoURLInput"
     isInline={false}
     isInvalid={false}
