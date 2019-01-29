@@ -1,5 +1,5 @@
-import { put, call, takeLatest } from 'redux-saga/effects';
-import { A_VALIDATE_REPO_URL, invalidRepoURL, A_VALID_REPO_URL } from './actions';
+import { put, call, takeLatest, take, race } from 'redux-saga/effects';
+import { A_VALIDATE_REPO_URL, invalidRepoURL, A_VALID_REPO_URL, A_CANCEL_CLICKED } from './actions';
 import request from '../modules/dataLoadSagas';
 
 /**
@@ -13,11 +13,16 @@ export function* validateRepo(action) {
       yield put(invalidRepoURL('URL should be appended with \'/api/json\''));
       return;
     }
-    const json = yield call(request, action.data.URL);
-    if (json.data) {
-      yield put({ type: A_VALID_REPO_URL, data: { jsonData: json.data } });
-    } else {
-      yield put(invalidRepoURL(json.err.message));
+    const { response } = yield race({
+      response: call(request, action.data.URL),
+      cancel: take(A_CANCEL_CLICKED),
+    });
+    if (response) {
+      if (response.data) {
+        yield put({ type: A_VALID_REPO_URL, data: { jsonData: response.data } });
+      } else {
+        yield put(invalidRepoURL(response.err.message));
+      }
     }
   } catch (e) {
     yield put(invalidRepoURL('Error making network request'));

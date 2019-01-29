@@ -12,7 +12,7 @@ describe('Repo Validation Sagas', () => {
         };
         const validate = validateRepo(action);
         validate.next();
-        const result = validate.next({ data: 1 });
+        const result = validate.next({ response: { data: 1 } });
         expect(result.value).toEqual(put({ type: A_VALID_REPO_URL, data: { jsonData: 1 } }));
       });
     });
@@ -30,7 +30,7 @@ describe('Repo Validation Sagas', () => {
         };
         const validate = validateRepo(action);
         validate.next();
-        const result = validate.next({ err: { message: 'someMessage' } });
+        const result = validate.next({ response: { err: { message: 'someMessage' } } });
         expect(result.value).toEqual(put(expectedAction));
       });
     });

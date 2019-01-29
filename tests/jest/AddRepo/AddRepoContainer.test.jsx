@@ -24,6 +24,7 @@ describe('AddRepoContainer', () => {
           errorMessage=""
           validated={false}
           confirmed={false}
+          isLoading={false}
         />,
       ));
       expect(testContainer).toMatchSnapshot();
@@ -102,13 +103,13 @@ describe('AddRepoContainer', () => {
       describe('URL not already validated', () => {
         it('dispatches a validate URL action', () => {
           mapDispatchToProps(mockDispatch).confirmClickHandler(false, 'someURL');
-          expect(mockDispatch.mock.calls[0][0].type).toEqual(A_VALIDATE_REPO_URL);
-          expect(mockDispatch.mock.calls[0][0].data).toEqual({ URL: 'someURL' });
+          expect(mockDispatch.mock.calls[1][0].type).toEqual(A_VALIDATE_REPO_URL);
+          expect(mockDispatch.mock.calls[1][0].data).toEqual({ URL: 'someURL' });
           expect(mockDispatch).toHaveBeenCalledTimes(2);
         });
         it('dispatches a confirm button clicked action', () => {
           mapDispatchToProps(mockDispatch).confirmClickHandler(false);
-          expect(mockDispatch.mock.calls[1][0].type).toEqual(A_CONFIRM_BUTTON_CLICKED);
+          expect(mockDispatch.mock.calls[0][0].type).toEqual(A_CONFIRM_BUTTON_CLICKED);
           expect(mockDispatch).toHaveBeenCalledTimes(2);
         });
       });
@@ -128,6 +129,7 @@ describe('AddRepoContainer', () => {
         informationConfirmed: jest.fn(),
         validated: true,
         confirmed: false,
+        isLoading: false,
       };
       const wrapper = shallow(<AddRepoContainer {...props} />);
       wrapper.setProps({ confirmed: true });

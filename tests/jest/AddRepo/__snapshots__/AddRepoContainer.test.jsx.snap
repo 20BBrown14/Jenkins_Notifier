@@ -9,6 +9,7 @@ exports[`AddRepoContainer Initialization should render a default view 1`] = `
   errorMessage=""
   formInvalid={false}
   helpMessage=""
+  isLoading={false}
   nameFieldChanged={[Function]}
   repoName=""
   repoURL=""

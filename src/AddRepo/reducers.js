@@ -5,6 +5,7 @@ import {
   A_NAME_INPUT_DATA_CHANGED,
   A_CONFIRM_BUTTON_CLICKED,
   A_CANCEL_CLICKED,
+  A_VALIDATE_REPO_URL,
 } from './actions';
 
 export const POPUP_STATE = 'popupState';
@@ -17,6 +18,7 @@ const INITIAL_STATE = {
   errorMessage: undefined,
   validated: false,
   confirmed: false,
+  isLoading: false,
 };
 
 const reduceURLInputDataChanged = (state, action) => (
@@ -45,6 +47,7 @@ const reduceValidRepoURL = (state, action) => (
     jsonData: action.data.jsonData,
     helpMessage: 'Jenkins URL is valid!',
     validated: true,
+    isLoading: false,
   }
 );
 
@@ -54,6 +57,7 @@ const reduceInvalidRepoURL = (state, action) => (
     formInvalid: true,
     errorMessage: action.data.errorMessage,
     validated: false,
+    isLoading: false,
   }
 );
 
@@ -83,7 +87,9 @@ const reduceAddRepo = (state = INITIAL_STATE, action) => {
     case A_INVALID_REPO_URL:
       return reduceInvalidRepoURL(state, action);
     case A_CONFIRM_BUTTON_CLICKED:
-      return { ...state, confirmed: true };
+      return { ...state, confirmed: true, isLoading: true };
+    case A_VALIDATE_REPO_URL:
+      return { ...state, isLoading: true };
     case A_CANCEL_CLICKED:
       return INITIAL_STATE;
     default:

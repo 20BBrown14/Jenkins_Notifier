@@ -6,6 +6,7 @@ import {
   A_NAME_INPUT_DATA_CHANGED,
   A_CONFIRM_BUTTON_CLICKED,
   A_CANCEL_CLICKED,
+  A_VALIDATE_REPO_URL,
 } from '../../../src/AddRepo/actions';
 
 describe('Popup reducers', () => {
@@ -14,6 +15,24 @@ describe('Popup reducers', () => {
       const state = reducers[REDUCER_KEY](undefined, {});
       expect(state).not.toBeNull();
       expect(state).toBeTruthy();
+      const {
+        repoURL,
+        repoName,
+        helpMessage,
+        formInvalid,
+        errorMessage,
+        validated,
+        confirmed,
+        isLoading,
+      } = state;
+      expect(repoURL).toEqual('');
+      expect(repoName).toEqual('');
+      expect(helpMessage).toEqual('Repo URL should be appended with \'/api/json\'');
+      expect(formInvalid).toEqual(false);
+      expect(errorMessage).toBeUndefined();
+      expect(validated).toEqual(false);
+      expect(confirmed).toEqual(false);
+      expect(isLoading).toEqual(false);
     });
   });
   describe('When reducing A_URL_INPUT_DATA_CHANGED', () => {
@@ -77,11 +96,18 @@ describe('Popup reducers', () => {
   describe('When reducing A_VALID_REPO_URL', () => {
     let newState;
     beforeAll(() => {
+      const oldState = {
+        isLoading: true,
+      };
+
       const action = {
         type: A_VALID_REPO_URL,
         data: { jsonData: 'json' },
       };
-      newState = reducers[REDUCER_KEY](undefined, action);
+      newState = reducers[REDUCER_KEY](oldState, action);
+    });
+    beforeEach(() => {
+      expect(newState).toBeDefined();
     });
     it('should add network response to state', () => {
       expect(newState.jsonData).not.toBeUndefined();
@@ -89,6 +115,9 @@ describe('Popup reducers', () => {
     });
     it('should update helpMessage', () => {
       expect(newState.helpMessage).not.toBeUndefined();
+    });
+    it('should update isLoading to false', () => {
+      expect(newState.isLoading).toBeFalsy();
     });
   });
   describe('When reducing A_INVALID_REPO_URL', () => {
@@ -102,6 +131,7 @@ describe('Popup reducers', () => {
       };
       const oldState = {
         validated: true,
+        isLoading: true,
       };
       newState = reducers[REDUCER_KEY](oldState, action);
     });
@@ -113,6 +143,9 @@ describe('Popup reducers', () => {
     });
     it('updates validated to false', () => {
       expect(newState.validated).toBeFalsy();
+    });
+    it('updates isLoading to false', () => {
+      expect(newState.isLoading).toBeFalsy();
     });
   });
   describe('When reducing A_CONFIRM_BUTTON_CLICKED', () => {
@@ -143,6 +176,22 @@ describe('Popup reducers', () => {
       expect(newState.errorMessage).toBeUndefined();
       expect(newState.validated).toBeFalsy();
       expect(newState.confirmed).toBeFalsy();
+    });
+  });
+  describe('When reducing A_VALIDATE_REPO_URL', () => {
+    let newState;
+    beforeAll(() => {
+      const action = {
+        type: A_VALIDATE_REPO_URL,
+      };
+      newState = reducers[REDUCER_KEY](undefined, action);
+    });
+    afterEach(() => {
+      expect(newState).toBeDefined();
+    });
+    it('should set isLoading to true', () => {
+      expect(newState.isLoading).toBeDefined();
+      expect(newState.isLoading).toBeTruthy();
     });
   });
 });
