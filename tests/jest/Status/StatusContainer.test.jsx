@@ -38,14 +38,6 @@ describe('StatusContainer', () => {
       dispatchProps.addNewRepoClicked();
       expect(mockDispatch).toHaveBeenCalledTimes(1);
     });
-    it('dispatches an add new repo clicked action', () => {
-      mockDispatch = jest.fn((action) => {
-        expect(action.type).toEqual(A_ADD_NEW_REPO_CLICKED);
-      });
-      const dispatchProps = mapDispatchToProps(mockDispatch);
-      dispatchProps.noRepos();
-      expect(mockDispatch).toHaveBeenCalledTimes(1);
-    });
     it('dispatches a remove repo action', () => {
       mockDispatch = jest.fn((action) => {
         expect(action.type).toEqual(A_REMOVE_REPO);
@@ -79,42 +71,6 @@ describe('StatusContainer', () => {
       const dispatchProps = mapDispatchToProps(mockDispatch);
       dispatchProps.goBackToRepoView();
       expect(mockDispatch).toHaveBeenCalledTimes(1);
-    });
-  });
-  describe('Component Did Mount', () => {
-    it('should call noRepos when there are no repos in state', () => {
-      const wrapper = shallow(
-        <StatusContainer
-          repos={null}
-          addNewRepoClicked={() => {}}
-          noRepos={jest.fn()}
-          removeRepo={() => {}}
-          viewJobs={() => {}}
-          removeJob={() => {}}
-          goBackToRepoView={() => {}}
-        />,
-      );
-      expect(wrapper.instance().props.noRepos).toHaveBeenCalled();
-      expect(wrapper.instance().props.noRepos).toHaveBeenCalledTimes(1);
-    });
-  });
-
-  describe('Component did update', () => {
-    it('should call noRepos when there are no repos in state', () => {
-      const wrapper = shallow(
-        <StatusContainer
-          repos={null}
-          addNewRepoClicked={() => {}}
-          noRepos={() => {}}
-          removeRepo={() => {}}
-          viewJobs={() => {}}
-          removeJob={() => {}}
-          goBackToRepoView={() => {}}
-        />,
-      );
-      wrapper.setProps({ repos: undefined, noRepos: jest.fn() });
-      expect(wrapper.instance().props.noRepos).toHaveBeenCalled();
-      expect(wrapper.instance().props.noRepos).toHaveBeenCalledTimes(1);
     });
   });
 });
