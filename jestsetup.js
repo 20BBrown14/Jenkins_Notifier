@@ -8,6 +8,7 @@ Enzyme.configure({ adapter: new Adapter() });
 global.shallow = shallow;
 global.render = render;
 global.mount = mount;
+global.chrome = { storage: { sync: { get: jest.fn(), set: jest.fn() } } };
 /* eslint-disable import/no-extraneous-dependencies */
 global.fetch = require('jest-fetch-mock');
 /* eslint-enable import/no-extraneous-dependencies */

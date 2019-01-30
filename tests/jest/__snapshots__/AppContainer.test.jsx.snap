@@ -1,7 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`AppContainer Component did update should set repos in storage 1`] = `
+<div>
+  <AppView
+    repos={null}
+    viewKey="someOtherViewKey"
+  />
+</div>
+`;
+
 exports[`AppContainer Initialization should render a default view 1`] = `
 <AppContainer
+  loadAppState={[Function]}
+  repos={Object {}}
+  viewKey="someViewKey"
+>
+  <div>
+    <AppView
+      repos={Object {}}
+      viewKey="someViewKey"
+    >
+      <div />
+    </AppView>
+  </div>
+</AppContainer>
+`;
+
+exports[`AppContainer Initialization should trigger componentwillmount life cycle event 1`] = `
+<AppContainer
+  loadAppState={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          undefined,
+        ],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
+    }
+  }
   repos={Object {}}
   viewKey="someViewKey"
 >

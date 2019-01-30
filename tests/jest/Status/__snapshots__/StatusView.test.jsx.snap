@@ -9,22 +9,75 @@ exports[`StatusView Error should render an error view 1`] = `
   removeRepo={[Function]}
   viewJobs={[Function]}
 >
-  <Text
-    color="inherit"
-    isItalic={false}
-    isVisuallyHidden={false}
-  >
-    <span
-      className="text"
+  <div>
+    <Text
+      className="titleText"
+      color="inherit"
+      fontSize={20}
+      isItalic={false}
+      isVisuallyHidden={false}
+      weight={700}
+    >
+      <span
+        className="text font-size-20 font-weight-700 titleText"
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        Tracked Repos (
+        0
+        ) 
+      </span>
+    </Text>
+    <div
+      className="StatusView-Window"
+    />
+    <Button
+      isBlock={false}
+      isCompact={false}
+      isDisabled={false}
+      isIconOnly={false}
+      isReversed={false}
+      onClick={[Function]}
       style={
         Object {
-          "color": "inherit",
+          "margin": "6px 5px 0px 5px",
         }
       }
+      text="Add New Repo"
+      type="button"
+      variant="neutral"
     >
-      error
-    </span>
-  </Text>
+      <button
+        aria-disabled={false}
+        aria-label={null}
+        className="button neutral"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        style={
+          Object {
+            "margin": "6px 5px 0px 5px",
+          }
+        }
+        type="button"
+      >
+        <span
+          className="button-label text-only"
+        >
+          <span
+            className=""
+          >
+            Add New Repo
+          </span>
+        </span>
+      </button>
+    </Button>
+  </div>
 </StatusView>
 `;
 
@@ -71,7 +124,7 @@ exports[`StatusView Job Click handlers Back Button should call back button handl
 >
   <div>
     <Text
-      className="jobTitleText"
+      className="titleText"
       color="inherit"
       fontSize={20}
       isItalic={false}
@@ -79,7 +132,7 @@ exports[`StatusView Job Click handlers Back Button should call back button handl
       weight={700}
     >
       <span
-        className="text font-size-20 font-weight-700 jobTitleText"
+        className="text font-size-20 font-weight-700 titleText"
         style={
           Object {
             "color": "inherit",
@@ -642,7 +695,7 @@ exports[`StatusView Job Click handlers Remove Repo Button should remove repo and
 >
   <div>
     <Text
-      className="jobTitleText"
+      className="titleText"
       color="inherit"
       fontSize={20}
       isItalic={false}
@@ -650,7 +703,7 @@ exports[`StatusView Job Click handlers Remove Repo Button should remove repo and
       weight={700}
     >
       <span
-        className="text font-size-20 font-weight-700 jobTitleText"
+        className="text font-size-20 font-weight-700 titleText"
         style={
           Object {
             "color": "inherit",
@@ -1213,7 +1266,7 @@ exports[`StatusView Job Click handlers Remove job button should call removeJob p
 >
   <div>
     <Text
-      className="jobTitleText"
+      className="titleText"
       color="inherit"
       fontSize={20}
       isItalic={false}
@@ -1221,7 +1274,7 @@ exports[`StatusView Job Click handlers Remove job button should call removeJob p
       weight={700}
     >
       <span
-        className="text font-size-20 font-weight-700 jobTitleText"
+        className="text font-size-20 font-weight-700 titleText"
         style={
           Object {
             "color": "inherit",
@@ -1784,7 +1837,7 @@ exports[`StatusView Job Click handlers View Job Button should call open window f
 >
   <div>
     <Text
-      className="jobTitleText"
+      className="titleText"
       color="inherit"
       fontSize={20}
       isItalic={false}
@@ -1792,7 +1845,7 @@ exports[`StatusView Job Click handlers View Job Button should call open window f
       weight={700}
     >
       <span
-        className="text font-size-20 font-weight-700 jobTitleText"
+        className="text font-size-20 font-weight-700 titleText"
         style={
           Object {
             "color": "inherit",
@@ -2355,7 +2408,7 @@ exports[`StatusView Job Click handlers View Repo Button should call open window 
 >
   <div>
     <Text
-      className="jobTitleText"
+      className="titleText"
       color="inherit"
       fontSize={20}
       isItalic={false}
@@ -2363,7 +2416,7 @@ exports[`StatusView Job Click handlers View Repo Button should call open window 
       weight={700}
     >
       <span
-        className="text font-size-20 font-weight-700 jobTitleText"
+        className="text font-size-20 font-weight-700 titleText"
         style={
           Object {
             "color": "inherit",
@@ -2922,7 +2975,7 @@ exports[`StatusView Jobs should render a view 1`] = `
 >
   <div>
     <Text
-      className="jobTitleText"
+      className="titleText"
       color="inherit"
       fontSize={20}
       isItalic={false}
@@ -2930,7 +2983,7 @@ exports[`StatusView Jobs should render a view 1`] = `
       weight={700}
     >
       <span
-        className="text font-size-20 font-weight-700 jobTitleText"
+        className="text font-size-20 font-weight-700 titleText"
         style={
           Object {
             "color": "inherit",
@@ -3497,6 +3550,27 @@ exports[`StatusView Repo Click handlers Remove repo button should call remove re
   viewJobs={[MockFunction]}
 >
   <div>
+    <Text
+      className="titleText"
+      color="inherit"
+      fontSize={20}
+      isItalic={false}
+      isVisuallyHidden={false}
+      weight={700}
+    >
+      <span
+        className="text font-size-20 font-weight-700 titleText"
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        Tracked Repos (
+        3
+        ) 
+      </span>
+    </Text>
     <div
       className="StatusView-Window"
     >
@@ -4116,7 +4190,7 @@ exports[`StatusView Repo Click handlers Remove repo button should call remove re
       onClick={[Function]}
       style={
         Object {
-          "margin": "12.5px 5px 0px 5px",
+          "margin": "6px 5px 0px 5px",
         }
       }
       text="Add New Repo"
@@ -4134,7 +4208,7 @@ exports[`StatusView Repo Click handlers Remove repo button should call remove re
         onKeyUp={[Function]}
         style={
           Object {
-            "margin": "12.5px 5px 0px 5px",
+            "margin": "6px 5px 0px 5px",
           }
         }
         type="button"
@@ -4201,6 +4275,27 @@ exports[`StatusView Repo Click handlers View Jobs Button should call view jobs p
   viewJobs={[MockFunction]}
 >
   <div>
+    <Text
+      className="titleText"
+      color="inherit"
+      fontSize={20}
+      isItalic={false}
+      isVisuallyHidden={false}
+      weight={700}
+    >
+      <span
+        className="text font-size-20 font-weight-700 titleText"
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        Tracked Repos (
+        3
+        ) 
+      </span>
+    </Text>
     <div
       className="StatusView-Window"
     >
@@ -4820,7 +4915,7 @@ exports[`StatusView Repo Click handlers View Jobs Button should call view jobs p
       onClick={[Function]}
       style={
         Object {
-          "margin": "12.5px 5px 0px 5px",
+          "margin": "6px 5px 0px 5px",
         }
       }
       text="Add New Repo"
@@ -4838,7 +4933,7 @@ exports[`StatusView Repo Click handlers View Jobs Button should call view jobs p
         onKeyUp={[Function]}
         style={
           Object {
-            "margin": "12.5px 5px 0px 5px",
+            "margin": "6px 5px 0px 5px",
           }
         }
         type="button"
@@ -4905,6 +5000,27 @@ exports[`StatusView Repo Click handlers View Repo Button should open jenkins win
   viewJobs={[MockFunction]}
 >
   <div>
+    <Text
+      className="titleText"
+      color="inherit"
+      fontSize={20}
+      isItalic={false}
+      isVisuallyHidden={false}
+      weight={700}
+    >
+      <span
+        className="text font-size-20 font-weight-700 titleText"
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        Tracked Repos (
+        3
+        ) 
+      </span>
+    </Text>
     <div
       className="StatusView-Window"
     >
@@ -5524,7 +5640,7 @@ exports[`StatusView Repo Click handlers View Repo Button should open jenkins win
       onClick={[Function]}
       style={
         Object {
-          "margin": "12.5px 5px 0px 5px",
+          "margin": "6px 5px 0px 5px",
         }
       }
       text="Add New Repo"
@@ -5542,7 +5658,7 @@ exports[`StatusView Repo Click handlers View Repo Button should open jenkins win
         onKeyUp={[Function]}
         style={
           Object {
-            "margin": "12.5px 5px 0px 5px",
+            "margin": "6px 5px 0px 5px",
           }
         }
         type="button"
@@ -5609,6 +5725,27 @@ exports[`StatusView Repos should render a view 1`] = `
   viewJobs={[Function]}
 >
   <div>
+    <Text
+      className="titleText"
+      color="inherit"
+      fontSize={20}
+      isItalic={false}
+      isVisuallyHidden={false}
+      weight={700}
+    >
+      <span
+        className="text font-size-20 font-weight-700 titleText"
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        Tracked Repos (
+        3
+        ) 
+      </span>
+    </Text>
     <div
       className="StatusView-Window"
     >
@@ -6228,7 +6365,7 @@ exports[`StatusView Repos should render a view 1`] = `
       onClick={[Function]}
       style={
         Object {
-          "margin": "12.5px 5px 0px 5px",
+          "margin": "6px 5px 0px 5px",
         }
       }
       text="Add New Repo"
@@ -6246,7 +6383,7 @@ exports[`StatusView Repos should render a view 1`] = `
         onKeyUp={[Function]}
         style={
           Object {
-            "margin": "12.5px 5px 0px 5px",
+            "margin": "6px 5px 0px 5px",
           }
         }
         type="button"
@@ -6268,6 +6405,18 @@ exports[`StatusView Repos should render a view 1`] = `
 
 exports[`StatusView should render a default view 1`] = `
 <div>
+  <Text
+    className="titleText"
+    color="inherit"
+    fontSize={20}
+    isItalic={false}
+    isVisuallyHidden={false}
+    weight={700}
+  >
+    Tracked Repos (
+    2
+    ) 
+  </Text>
   <div
     className="StatusView-Window"
   >
@@ -6401,7 +6550,7 @@ exports[`StatusView should render a default view 1`] = `
     onClick={[Function]}
     style={
       Object {
-        "margin": "12.5px 5px 0px 5px",
+        "margin": "6px 5px 0px 5px",
       }
     }
     text="Add New Repo"

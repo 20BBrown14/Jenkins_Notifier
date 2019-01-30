@@ -97,7 +97,7 @@ const StatusView = (props) => {
         />,
       );
     }
-  } else if (repos) {
+  } else {
     view = 'repos';
     const keys = [];
     if (repos) {
@@ -153,19 +153,27 @@ const StatusView = (props) => {
         />,
       );
     }
-  } else {
-    console.log('error');
-    view = 'error';
-    return (
-      <Text>error</Text>
-    );
   }
   return (
     <div>
+      {view === 'repos' &&
+        (
+          <Text
+            className="titleText"
+            fontSize={20}
+            weight={700}
+          >
+            Tracked Repos
+            (
+              {repos ? `${Object.keys(repos).length}` : '0'}
+            )
+          </Text>
+        )
+      }
       {view === 'jobs' &&
         (
           <Text
-            className="jobTitleText"
+            className="titleText"
             fontSize={20}
             weight={700}
           >
@@ -180,7 +188,7 @@ const StatusView = (props) => {
       {view === 'repos' &&
         (
           <Button
-            style={{ margin: '12.5px 5px 0px 5px' }}
+            style={{ margin: '6px 5px 0px 5px' }}
             text="Add New Repo"
             onClick={addRepoClickHandler}
           />

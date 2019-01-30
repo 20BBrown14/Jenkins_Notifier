@@ -8,7 +8,7 @@ const propTypes = {
   /** View key for the current view */
   viewKey: PropTypes.string.isRequired,
   /** Repo information stored */
-  repos: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  repos: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
 export const AppView = (props) => {

@@ -17,8 +17,6 @@ const propTypes = {
   repos: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   /** Function for when add new repo button is clicked */
   addNewRepoClicked: PropTypes.func.isRequired,
-  /** Function for when no repos are in the state when the app first loads */
-  noRepos: PropTypes.func.isRequired,
   /** Function to remove repo from app state */
   removeRepo: PropTypes.func.isRequired,
   /** Function to view jobs for a specific repo */
@@ -32,26 +30,6 @@ const propTypes = {
 };
 
 export class StatusContainer extends React.Component {
-  componentDidMount() {
-    const {
-      repos,
-      noRepos,
-    } = this.props;
-    if (!repos) {
-      noRepos();
-    }
-  }
-
-  componentDidUpdate() {
-    const {
-      repos,
-      noRepos,
-    } = this.props;
-    if (!repos) {
-      noRepos();
-    }
-  }
-
   render() {
     const {
       repos,
@@ -85,9 +63,6 @@ const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   addNewRepoClicked: () => {
-    dispatch({ type: A_ADD_NEW_REPO_CLICKED });
-  },
-  noRepos: () => {
     dispatch({ type: A_ADD_NEW_REPO_CLICKED });
   },
   removeRepo: (repoToRemove) => {
