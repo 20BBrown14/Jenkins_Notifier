@@ -1,45 +1,11 @@
 import { A_VALID_REPO_URL, A_INFORMATION_CONFIRMED, A_CANCEL_CLICKED } from './AddRepo/actions';
 import { VK_ADD_NEW_REPO, VK_REPOS } from './Navigation/viewKeys';
 import { A_ADD_NEW_REPO_CLICKED, A_REMOVE_REPO, A_REMOVE_JOB_CLICKED, A_GO_BACK_TO_REPO_VIEW } from './Status/actions';
-import { A_LOAD_APP_STATE } from './actions';
+import { A_REPO_IS_REFRESHED } from './actions';
 
 export const APP_STATE = 'app_state';
 
 const INITIAL_STATE = {
-
-  /* repos: {
-    patientKioskJS: {
-      URL: 'https://jenkins.cerner.com/ion/job/Revenue%20Cycle%20Patient%20Kiosk/job/patient-kiosk-js/',
-      jobs: {
-        0: {
-          color: 'blue',
-          name: 'dev',
-          url: 'https://jenkins.cerner.com/ion/job/Revenue%20Cycle%20Patient%20Kiosk/job/patient-kiosk-js/job/dev/',
-        },
-        1: {
-          color: 'red',
-          name: 'cheese',
-          url: 'https://jenkins.cerner.com/ion/job/Revenue%20Cycle%20Patient%20Kiosk/job/patient-kiosk-js/job/feature%252FREVCYCSCH-3884/'
-        },
-      },
-    },
-    kioskServer: {
-      URL: 'https://jenkins.cerner.com/ion/job/Revenue%20Cycle%20Patient%20Kiosk/job/kiosk_server/',
-      jobs: {
-        0: {
-          color: 'blue',
-          name: 'dev',
-          url: 'https://jenkins.cerner.com/ion/job/Revenue%20Cycle%20Patient%20Kiosk/job/patient-kiosk-js/job/dev/',
-        },
-        1: {
-          color: 'red',
-          name: 'cheese',
-          url: 'https://jenkins.cerner.com/ion/job/Revenue%20Cycle%20Patient%20Kiosk/job/patient-kiosk-js/job/feature%252FREVCYCSCH-3884/'
-        },
-      },
-    },
-  }, */
-
   repos: undefined,
   viewKey: VK_REPOS,
 };
@@ -107,6 +73,8 @@ const reduceRemoveJob = (state, action) => {
  */
 const reduceApp = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case A_REPO_IS_REFRESHED:
+      return reduceInformationConfirmed({ ...state, jsonData: action.data.data }, action);
     case A_INFORMATION_CONFIRMED:
       return reduceInformationConfirmed(state, action);
     case A_VALID_REPO_URL:
@@ -121,8 +89,6 @@ const reduceApp = (state = INITIAL_STATE, action) => {
       return reduceRemoveJob(state, action);
     case A_GO_BACK_TO_REPO_VIEW:
       return { ...state, viewKey: VK_REPOS };
-    case A_LOAD_APP_STATE:
-      return { ...state, repos: action.data.repos };
     default:
       return state;
   }

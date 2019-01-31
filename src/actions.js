@@ -1,9 +1,18 @@
-/** @const action to load the app state from storage when it starts */
-export const A_LOAD_APP_STATE = 'load_app_state';
+/** @const action to refresh repo */
+export const A_REFRESH_REPO = 'refresh_repo';
+/** @const action to indicate a repo has been refreshed */
+export const A_REPO_IS_REFRESHED = 'repo_is_refreshed';
 
-export const loadAppStateAction = repos => (
+export const refreshRepoAction = url => (
   {
-    type: A_LOAD_APP_STATE,
-    data: { repos },
+    type: A_REFRESH_REPO,
+    data: { url },
+  }
+);
+
+export const repoIsRefreshedAction = (data, repoName) => (
+  {
+    type: A_REPO_IS_REFRESHED,
+    data: { data, repoName },
   }
 );

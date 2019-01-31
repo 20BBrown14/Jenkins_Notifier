@@ -7,7 +7,7 @@ import {
   A_GO_BACK_TO_REPO_VIEW,
 } from '../../src/Status/actions';
 import { VK_ADD_NEW_REPO, VK_REPOS } from '../../src/Navigation/viewKeys';
-import { A_LOAD_APP_STATE } from '../../src/actions';
+import { A_REPO_IS_REFRESHED } from '../../src/actions';
 
 describe('App Reducers', () => {
   describe('When initialized', () => {
@@ -222,16 +222,47 @@ describe('App Reducers', () => {
       expect(newState.viewKey).toEqual(VK_REPOS);
     });
   });
-  describe('When reducing A_LOAD_APP_STATE', () => {
-    it('should set repos', () => {
+  describe('When reducing A_REPO_IS_REFRESHED', () => {
+    it('should add jsonData to state', () => {
       const action = {
-        type: A_LOAD_APP_STATE,
-        data: { repos: 'someRepos' },
+        type: A_REPO_IS_REFRESHED,
+        data: {
+          data: {
+            url: 'someUrl',
+            jobs: {
+              job1: 'someJob',
+            },
+          },
+          repoName: 'someName',
+        },
+      };
+      const newState = reducers[REDUCER_KEY](undefined, action);
+      expect(newState).toBeDefined();
+      expect(newState.jsonData).toBeDefined();
+      expect(newState.jsonData).toEqual({
+        url: 'someUrl',
+        jobs: {
+          job1: 'someJob',
+        },
+      });
+    });
+    it('should update repo information', () => {
+      const action = {
+        type: A_REPO_IS_REFRESHED,
+        data: {
+          data: {
+            url: 'someUrl',
+            jobs: {
+              job1: 'someJob',
+            },
+          },
+          repoName: 'someName',
+        },
       };
       const newState = reducers[REDUCER_KEY](undefined, action);
       expect(newState).toBeDefined();
       expect(newState.repos).toBeDefined();
-      expect(newState.repos).toEqual('someRepos');
+      expect(newState.repos.someName).toBeDefined();
     });
   });
 });

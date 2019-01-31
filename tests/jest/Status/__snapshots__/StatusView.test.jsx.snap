@@ -28,7 +28,7 @@ exports[`StatusView Error should render an error view 1`] = `
       >
         Tracked Repos (
         0
-        ) 
+        )
       </span>
     </Text>
     <div
@@ -3568,7 +3568,7 @@ exports[`StatusView Repo Click handlers Remove repo button should call remove re
       >
         Tracked Repos (
         3
-        ) 
+        )
       </span>
     </Text>
     <div
@@ -4293,7 +4293,7 @@ exports[`StatusView Repo Click handlers View Jobs Button should call view jobs p
       >
         Tracked Repos (
         3
-        ) 
+        )
       </span>
     </Text>
     <div
@@ -5018,7 +5018,7 @@ exports[`StatusView Repo Click handlers View Repo Button should open jenkins win
       >
         Tracked Repos (
         3
-        ) 
+        )
       </span>
     </Text>
     <div
@@ -5743,7 +5743,7 @@ exports[`StatusView Repos should render a view 1`] = `
       >
         Tracked Repos (
         3
-        ) 
+        )
       </span>
     </Text>
     <div
@@ -6415,7 +6415,7 @@ exports[`StatusView should render a default view 1`] = `
   >
     Tracked Repos (
     2
-    ) 
+    )
   </Text>
   <div
     className="StatusView-Window"

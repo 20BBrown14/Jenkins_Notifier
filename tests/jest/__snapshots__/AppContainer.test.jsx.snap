@@ -3,7 +3,13 @@
 exports[`AppContainer Component did update should set repos in storage 1`] = `
 <div>
   <AppView
-    repos={null}
+    repos={
+      Object {
+        "someKey": Object {
+          "URL": "someURL",
+        },
+      }
+    }
     viewKey="someOtherViewKey"
   />
 </div>
@@ -11,7 +17,7 @@ exports[`AppContainer Component did update should set repos in storage 1`] = `
 
 exports[`AppContainer Initialization should render a default view 1`] = `
 <AppContainer
-  loadAppState={[Function]}
+  refreshRepo={[Function]}
   repos={Object {}}
   viewKey="someViewKey"
 >
@@ -28,11 +34,12 @@ exports[`AppContainer Initialization should render a default view 1`] = `
 
 exports[`AppContainer Initialization should trigger componentwillmount life cycle event 1`] = `
 <AppContainer
-  loadAppState={
+  refreshRepo={
     [MockFunction] {
       "calls": Array [
         Array [
-          undefined,
+          "whatever",
+          "someKey",
         ],
       ],
       "results": Array [
