@@ -11,6 +11,7 @@ import {
 } from './actions';
 import { APP_STATE } from '../reducers';
 import { STATUS_STATE } from './reducers';
+import { refreshRepoAction } from '../actions';
 
 const propTypes = {
   /** Repo information stored */
@@ -27,6 +28,8 @@ const propTypes = {
   removeJob: PropTypes.func.isRequired,
   /** Function to go back to repo view from jobs view */
   goBackToRepoView: PropTypes.func.isRequired,
+  /** Function to refersh repos */
+  refreshRepo: PropTypes.func.isRequired,
 };
 
 export class StatusContainer extends React.Component {
@@ -39,6 +42,7 @@ export class StatusContainer extends React.Component {
       repoToView,
       removeJob,
       goBackToRepoView,
+      refreshRepo,
     } = this.props;
     return (
       <div>
@@ -50,6 +54,7 @@ export class StatusContainer extends React.Component {
           repoToView={repoToView}
           removeJob={removeJob}
           goBack={goBackToRepoView}
+          refreshRepo={refreshRepo}
         />
       </div>
     );
@@ -76,6 +81,9 @@ export const mapDispatchToProps = dispatch => ({
   },
   goBackToRepoView: () => {
     dispatch({ type: A_GO_BACK_TO_REPO_VIEW });
+  },
+  refreshRepo: (url) => {
+    dispatch(refreshRepoAction(url));
   },
 });
 

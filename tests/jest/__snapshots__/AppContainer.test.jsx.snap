@@ -1,20 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppContainer Component did update should set repos in storage 1`] = `
-<div>
-  <AppView
-    repos={
-      Object {
-        "someKey": Object {
-          "URL": "someURL",
-        },
-      }
-    }
-    viewKey="someOtherViewKey"
-  />
-</div>
-`;
-
 exports[`AppContainer Initialization should render a default view 1`] = `
 <AppContainer
   refreshRepo={[Function]}

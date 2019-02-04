@@ -8,6 +8,7 @@ import {
 } from '../../src/Status/actions';
 import { VK_ADD_NEW_REPO, VK_REPOS } from '../../src/Navigation/viewKeys';
 import { A_REPO_IS_REFRESHED } from '../../src/actions';
+const google = require('../../src/modules/googleStorageHelpers');
 
 describe('App Reducers', () => {
   describe('When initialized', () => {
@@ -45,6 +46,15 @@ describe('App Reducers', () => {
   });
 
   describe('When reducing A_INFORMATION_CONFIRMED', () => {
+    let spy;
+    beforeEach(() => {
+      spy = jest.spyOn(google, 'googleStorageReposSet');
+    });
+    afterEach(() => {
+      expect(spy).toHaveBeenCalled();
+      expect(spy).toHaveBeenCalledTimes(1);
+      jest.clearAllMocks();
+    });
     describe('Repo name was defined', () => {
       describe('Repo URL not already in state', () => {
         it('should add repo to state', () => {
@@ -141,6 +151,7 @@ describe('App Reducers', () => {
   });
   describe('When reducing A_REMOVE_REPO', () => {
     it('should delete the given repo from state', () => {
+      const spy = jest.spyOn(google, 'googleStorageReposSet');
       const action = {
         type: A_REMOVE_REPO,
         data: { repoToRemove: 'someRepo' },
@@ -157,6 +168,8 @@ describe('App Reducers', () => {
       expect(newState.repos.aRepo).toBeDefined();
       expect(newState.repos.anotherRepo).toBeDefined();
       expect(newState.repos.someRepo).toBeUndefined();
+      expect(spy).toHaveBeenCalled();
+      expect(spy).toHaveBeenCalledTimes(1);
     });
   });
   describe('When reducing A_REMOVE_JOB_CLICKED', () => {
@@ -223,6 +236,15 @@ describe('App Reducers', () => {
     });
   });
   describe('When reducing A_REPO_IS_REFRESHED', () => {
+    let spy;
+    beforeEach(() => {
+      spy = jest.spyOn(google, 'googleStorageReposSet');
+    });
+    afterEach(() => {
+      expect(spy).toHaveBeenCalled();
+      expect(spy).toHaveBeenCalledTimes(1);
+      spy = undefined;
+    });
     it('should add jsonData to state', () => {
       const action = {
         type: A_REPO_IS_REFRESHED,

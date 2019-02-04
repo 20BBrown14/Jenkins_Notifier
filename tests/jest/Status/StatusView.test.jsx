@@ -18,6 +18,7 @@ describe('StatusView', () => {
         viewJobs={() => {}}
         removeJob={() => {}}
         goBack={() => {}}
+        refreshRepo={() => {}}
       />,
     ));
     expect(testView).toMatchSnapshot();
@@ -68,10 +69,11 @@ describe('StatusView', () => {
           viewJobs={() => {}}
           removeJob={() => {}}
           goBack={() => {}}
+          refreshRepo={() => {}}
         />,
       ));
       expect(testView).toMatchSnapshot();
-      expect(testView.find('Button').length).toEqual(10);
+      expect(testView.find('Button').length).toEqual(11);
       expect(testView.find('Arrange').length).toEqual(3);
     });
   });
@@ -115,6 +117,7 @@ describe('StatusView', () => {
           repoToView={repoToView}
           removeJob={() => {}}
           goBack={() => {}}
+          refreshRepo={() => {}}
         />,
       ));
       expect(testView).toMatchSnapshot();
@@ -134,6 +137,7 @@ describe('StatusView', () => {
           repoToView={undefined}
           removeJob={() => {}}
           goBack={() => {}}
+          refreshRepo={() => {}}
         />,
       ));
       expect(testView).toMatchSnapshot();
@@ -145,6 +149,7 @@ describe('StatusView', () => {
     let testView;
     let viewJobs;
     let removeRepo;
+    let refreshRepo;
     beforeEach(() => {
       repoInformation = {
         someRepo: {
@@ -183,6 +188,7 @@ describe('StatusView', () => {
       };
       viewJobs = jest.fn();
       removeRepo = jest.fn();
+      refreshRepo = jest.fn();
       testView = (mount(
         <StatusView
           repos={repoInformation}
@@ -192,56 +198,66 @@ describe('StatusView', () => {
           viewJobs={viewJobs}
           removeJob={() => {}}
           goBack={() => {}}
+          refreshRepo={refreshRepo}
         />,
       ));
+    });
+    afterAll(() => {
+      expect(testView).toMatchSnapshot();
     });
     describe('View Repo Button', () => {
       it('should open jenkins window', () => {
         global.open = jest.fn();
-        expect(testView).toMatchSnapshot();
         const buttons = testView.find('Button');
-        expect(buttons.length).toEqual(10);
-        buttons.at(0).simulate('click');
+        expect(buttons.length).toEqual(11);
+        buttons.at(1).simulate('click');
         expect(global.open).toHaveBeenCalledTimes(1);
         expect(global.open.mock.calls[0][0]).toEqual('someUrl');
-        buttons.at(3).simulate('click');
+        buttons.at(4).simulate('click');
         expect(global.open).toHaveBeenCalledTimes(2);
         expect(global.open.mock.calls[1][0]).toEqual('anotherUrl');
-        buttons.at(6).simulate('click');
+        buttons.at(7).simulate('click');
         expect(global.open).toHaveBeenCalledTimes(3);
         expect(global.open.mock.calls[2][0]).toEqual('andAnotherUrl');
       });
     });
     describe('View Jobs Button', () => {
       it('should call view jobs prop function', () => {
-        expect(testView).toMatchSnapshot();
         const buttons = testView.find('Button');
-        expect(buttons.length).toEqual(10);
-        buttons.at(1).simulate('click');
+        expect(buttons.length).toEqual(11);
+        buttons.at(2).simulate('click');
         expect(viewJobs).toHaveBeenCalledTimes(1);
         expect(viewJobs.mock.calls[0][0]).toEqual('someRepo');
-        buttons.at(4).simulate('click');
+        buttons.at(5).simulate('click');
         expect(viewJobs).toHaveBeenCalledTimes(2);
         expect(viewJobs.mock.calls[1][0]).toEqual('anotherRepo');
-        buttons.at(7).simulate('click');
+        buttons.at(8).simulate('click');
         expect(viewJobs).toHaveBeenCalledTimes(3);
         expect(viewJobs.mock.calls[2][0]).toEqual('andAnotherRepo');
       });
     });
     describe('Remove repo button', () => {
       it('should call remove repo prop function', () => {
-        expect(testView).toMatchSnapshot();
         const buttons = testView.find('Button');
-        expect(buttons.length).toEqual(10);
-        buttons.at(2).simulate('click');
+        expect(buttons.length).toEqual(11);
+        buttons.at(3).simulate('click');
         expect(removeRepo).toHaveBeenCalledTimes(1);
         expect(removeRepo.mock.calls[0][0]).toEqual('someRepo');
-        buttons.at(5).simulate('click');
+        buttons.at(6).simulate('click');
         expect(removeRepo).toHaveBeenCalledTimes(2);
         expect(removeRepo.mock.calls[1][0]).toEqual('anotherRepo');
-        buttons.at(8).simulate('click');
+        buttons.at(9).simulate('click');
         expect(removeRepo).toHaveBeenCalledTimes(3);
         expect(removeRepo.mock.calls[2][0]).toEqual('andAnotherRepo');
+      });
+    });
+    describe('Refresh button', () => {
+      it('should call refresh repo function', () => {
+        const buttons = testView.find('Button');
+        expect(buttons.length).toEqual(11);
+        buttons.at(0).simulate('click');
+        expect(refreshRepo).toHaveBeenCalled();
+        expect(refreshRepo).toHaveBeenCalledTimes(3);
       });
     });
   });
@@ -297,13 +313,16 @@ describe('StatusView', () => {
           repoToView={repoToView}
           removeJob={removeJob}
           goBack={goBack}
+          refreshRepo={() => {}}
         />,
       ));
+    });
+    afterAll(() => {
+      expect(testView).toMatchSnapshot();
     });
     describe('View Job Button', () => {
       it('should call open window function', () => {
         global.open = jest.fn();
-        expect(testView).toMatchSnapshot();
         const buttons = testView.find('Button');
         expect(buttons.length).toEqual(7);
         buttons.at(0).simulate('click');
@@ -316,7 +335,6 @@ describe('StatusView', () => {
     });
     describe('Remove job button', () => {
       it('should call removeJob prop function', () => {
-        expect(testView).toMatchSnapshot();
         const buttons = testView.find('Button');
         expect(buttons.length).toEqual(7);
         buttons.at(1).simulate('click');
@@ -333,7 +351,6 @@ describe('StatusView', () => {
     describe('View Repo Button', () => {
       it('should call open window function', () => {
         global.open = jest.fn();
-        expect(testView).toMatchSnapshot();
         const buttons = testView.find('Button');
         expect(buttons.length).toEqual(7);
         buttons.at(4).simulate('click');
@@ -343,7 +360,6 @@ describe('StatusView', () => {
     });
     describe('Back Button', () => {
       it('should call back button handler', () => {
-        expect(testView).toMatchSnapshot();
         const buttons = testView.find('Button');
         expect(buttons.length).toEqual(7);
         buttons.at(5).simulate('click');
@@ -353,7 +369,6 @@ describe('StatusView', () => {
     });
     describe('Remove Repo Button', () => {
       it('should remove repo and go back to repo view', () => {
-        expect(testView).toMatchSnapshot();
         const buttons = testView.find('Button');
         expect(buttons.length).toEqual(7);
         buttons.at(6).simulate('click');

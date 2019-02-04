@@ -5,32 +5,105 @@ exports[`StatusView Error should render an error view 1`] = `
   addRepoClickHandler={[Function]}
   goBack={[Function]}
   noRepos={[Function]}
+  refreshRepo={[Function]}
   removeJob={[Function]}
   removeRepo={[Function]}
   viewJobs={[Function]}
 >
   <div>
-    <Text
-      className="titleText"
-      color="inherit"
-      fontSize={20}
-      isItalic={false}
-      isVisuallyHidden={false}
-      weight={700}
-    >
-      <span
-        className="text font-size-20 font-weight-700 titleText"
-        style={
-          Object {
-            "color": "inherit",
-          }
-        }
+    <div>
+      <Text
+        className="titleText"
+        color="inherit"
+        fontSize={20}
+        isItalic={false}
+        isVisuallyHidden={false}
+        weight={700}
       >
-        Tracked Repos (
-        0
-        )
-      </span>
-    </Text>
+        <span
+          className="text font-size-20 font-weight-700 titleText"
+          style={
+            Object {
+              "color": "inherit",
+            }
+          }
+        >
+          Tracked Repos (
+          0
+          )
+        </span>
+      </Text>
+      <Button
+        className="refreshButton"
+        icon={
+          <IconReload
+            viewBox="0 0 48 48"
+            xmlns="http://www.w3.org/2000/svg"
+          />
+        }
+        isBlock={false}
+        isCompact={false}
+        isDisabled={false}
+        isIconOnly={true}
+        isReversed={false}
+        onClick={[Function]}
+        text="Refresh"
+        type="button"
+        variant="neutral"
+      >
+        <button
+          aria-disabled={false}
+          aria-label="Refresh"
+          className="button neutral refreshButton"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          type="button"
+        >
+          <span
+            className="button-label icon-only"
+          >
+            <span
+              className="icon"
+            >
+              <IconReload
+                className="icon-svg"
+                viewBox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <IconBase
+                  ariaLabel={null}
+                  className="icon-svg"
+                  focusable="false"
+                  height="1em"
+                  isBidi={false}
+                  isSpin={false}
+                  viewBox="0 0 48 48"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="icon icon-svg"
+                    focusable="false"
+                    height="1em"
+                    viewBox="0 0 48 48"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M48 18V3.4l-5.4 5.4C38.2 3.4 31.5 0 24 0 10.7 0 0 10.7 0 24s10.7 24 24 24c6.9 0 13.1-2.9 17.5-7.6L38 36.9c-3.5 3.8-8.4 6.1-14 6.1-10.5 0-19-8.5-19-19S13.5 5 24 5c6.1 0 11.5 2.9 15 7.4L33.4 18H48z"
+                    />
+                  </svg>
+                </IconBase>
+              </IconReload>
+            </span>
+          </span>
+        </button>
+      </Button>
+    </div>
     <div
       className="StatusView-Window"
     />
@@ -81,584 +154,40 @@ exports[`StatusView Error should render an error view 1`] = `
 </StatusView>
 `;
 
-exports[`StatusView Job Click handlers Back Button should call back button handler 1`] = `
-<StatusView
-  addRepoClickHandler={[Function]}
-  goBack={[MockFunction]}
-  noRepos={[Function]}
-  removeJob={[MockFunction]}
-  removeRepo={[MockFunction]}
-  repoToView="someRepo"
-  repos={
-    Object {
-      "anotherRepo": Object {
-        "jobs": Object {
-          "firstKeyb": Object {
-            "name": "firstKeyb",
-            "url": "firstKeyUrlb",
-          },
-          "secondKey": Object {
-            "name": "secondKeyb",
-            "url": "secondKeyUrlb",
-          },
-        },
-        "url": "anotherUrl",
-      },
-      "someRepo": Object {
-        "jobs": Object {
-          "firstKeya": Object {
-            "color": "blue",
-            "name": "firstKeya",
-            "url": "firstKeyUrla",
-          },
-          "secondKeya": Object {
-            "name": "secondKeya",
-            "url": "secondKeyUrla",
-          },
-        },
-        "url": "someUrl",
-      },
-    }
-  }
-  viewJobs={[Function]}
->
-  <div>
-    <Text
-      className="titleText"
-      color="inherit"
-      fontSize={20}
-      isItalic={false}
-      isVisuallyHidden={false}
-      weight={700}
-    >
-      <span
-        className="text font-size-20 font-weight-700 titleText"
-        style={
-          Object {
-            "color": "inherit",
-          }
-        }
-      >
-        someRepo
-      </span>
-    </Text>
-    <div
-      className="StatusView-Window"
-    >
-      <Arrange
-        alignFill="center"
-        alignFitEnd="center"
-        alignFitStart="center"
-        className="statusArrange"
-        fill={
-          <Text
-            className="textCenter"
-            color="inherit"
-            fontSize={16}
-            isItalic={false}
-            isVisuallyHidden={false}
-          >
-            firstKeya
-          </Text>
-        }
-        fitEnd={
-          <div>
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View on Jenkins"
-              type="button"
-              variant="neutral"
-            />
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="Remove"
-              type="button"
-              variant="neutral"
-            />
-          </div>
-        }
-        fitStart={
-          <Image
-            alt=" "
-            isFluid={false}
-            src="successful"
-            variant="default"
-          />
-        }
-        key="firstKeya arrange"
-      >
-        <div
-          className="arrange statusArrange"
-        >
-          <div
-            className="fit center"
-          >
-            <Image
-              alt=" "
-              isFluid={false}
-              src="successful"
-              variant="default"
-            >
-              <img
-                alt=" "
-                className="image default"
-                onError={[Function]}
-                onLoad={[Function]}
-                src="successful"
-              />
-            </Image>
-          </div>
-          <div
-            className="fill center"
-          >
-            <Text
-              className="textCenter"
-              color="inherit"
-              fontSize={16}
-              isItalic={false}
-              isVisuallyHidden={false}
-            >
-              <span
-                className="text font-size-16 textCenter"
-                style={
-                  Object {
-                    "color": "inherit",
-                  }
-                }
-              >
-                firstKeya
-              </span>
-            </Text>
-          </div>
-          <div
-            className="fit center"
-          >
-            <div>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="firstKeya view"
-                onClick={[Function]}
-                text="View on Jenkins"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View on Jenkins
-                    </span>
-                  </span>
-                </button>
-              </Button>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="firstKeya remove"
-                onClick={[Function]}
-                text="Remove"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      Remove
-                    </span>
-                  </span>
-                </button>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Arrange>
-      <Arrange
-        alignFill="center"
-        alignFitEnd="center"
-        alignFitStart="center"
-        className="statusArrange"
-        fill={
-          <Text
-            className="textCenter"
-            color="inherit"
-            fontSize={16}
-            isItalic={false}
-            isVisuallyHidden={false}
-          >
-            secondKeya
-          </Text>
-        }
-        fitEnd={
-          <div>
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View on Jenkins"
-              type="button"
-              variant="neutral"
-            />
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="Remove"
-              type="button"
-              variant="neutral"
-            />
-          </div>
-        }
-        fitStart={
-          <IconXSymbol
-            viewBox="0 0 48 48"
-            xmlns="http://www.w3.org/2000/svg"
-          />
-        }
-        key="secondKeya arrange"
-      >
-        <div
-          className="arrange statusArrange"
-        >
-          <div
-            className="fit center"
-          >
-            <IconXSymbol
-              viewBox="0 0 48 48"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <IconBase
-                ariaLabel={null}
-                focusable="false"
-                height="1em"
-                isBidi={false}
-                isSpin={false}
-                viewBox="0 0 48 48"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="icon"
-                  focusable="false"
-                  height="1em"
-                  viewBox="0 0 48 48"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 12L12 0l12 12L36 0l12 12-12 12 12 12-12 12-12-12-12 12L0 36l12-12L0 12z"
-                  />
-                </svg>
-              </IconBase>
-            </IconXSymbol>
-          </div>
-          <div
-            className="fill center"
-          >
-            <Text
-              className="textCenter"
-              color="inherit"
-              fontSize={16}
-              isItalic={false}
-              isVisuallyHidden={false}
-            >
-              <span
-                className="text font-size-16 textCenter"
-                style={
-                  Object {
-                    "color": "inherit",
-                  }
-                }
-              >
-                secondKeya
-              </span>
-            </Text>
-          </div>
-          <div
-            className="fit center"
-          >
-            <div>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="secondKeya view"
-                onClick={[Function]}
-                text="View on Jenkins"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View on Jenkins
-                    </span>
-                  </span>
-                </button>
-              </Button>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="secondKeya remove"
-                onClick={[Function]}
-                text="Remove"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      Remove
-                    </span>
-                  </span>
-                </button>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Arrange>
-    </div>
-    <div>
-      <Button
-        isBlock={false}
-        isCompact={false}
-        isDisabled={false}
-        isIconOnly={false}
-        isReversed={false}
-        onClick={[Function]}
-        style={
-          Object {
-            "margin": "7px 5px 0px 5px",
-          }
-        }
-        text="View Repo on Jenkins"
-        type="button"
-        variant="neutral"
-      >
-        <button
-          aria-disabled={false}
-          aria-label={null}
-          className="button neutral"
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          style={
-            Object {
-              "margin": "7px 5px 0px 5px",
-            }
-          }
-          type="button"
-        >
-          <span
-            className="button-label text-only"
-          >
-            <span
-              className=""
-            >
-              View Repo on Jenkins
-            </span>
-          </span>
-        </button>
-      </Button>
-      <div
-        style={
-          Object {
-            "float": "right",
-          }
-        }
-      >
-        <Button
-          isBlock={false}
-          isCompact={false}
-          isDisabled={false}
-          isIconOnly={false}
-          isReversed={false}
-          onClick={[MockFunction]}
-          style={
-            Object {
-              "margin": "7px 5px 0px 5px",
-            }
-          }
-          text="Back"
-          type="button"
-          variant="neutral"
-        >
-          <button
-            aria-disabled={false}
-            aria-label={null}
-            className="button neutral"
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[MockFunction]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            style={
-              Object {
-                "margin": "7px 5px 0px 5px",
-              }
-            }
-            type="button"
-          >
-            <span
-              className="button-label text-only"
-            >
-              <span
-                className=""
-              >
-                Back
-              </span>
-            </span>
-          </button>
-        </Button>
-        <Button
-          isBlock={false}
-          isCompact={false}
-          isDisabled={false}
-          isIconOnly={false}
-          isReversed={false}
-          onClick={[Function]}
-          style={
-            Object {
-              "margin": "7px 5px 0px 5px",
-            }
-          }
-          text="Remove Repo"
-          type="button"
-          variant="neutral"
-        >
-          <button
-            aria-disabled={false}
-            aria-label={null}
-            className="button neutral"
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            style={
-              Object {
-                "margin": "7px 5px 0px 5px",
-              }
-            }
-            type="button"
-          >
-            <span
-              className="button-label text-only"
-            >
-              <span
-                className=""
-              >
-                Remove Repo
-              </span>
-            </span>
-          </button>
-        </Button>
-      </div>
-    </div>
-  </div>
-</StatusView>
-`;
-
 exports[`StatusView Job Click handlers Remove Repo Button should remove repo and go back to repo view 1`] = `
 <StatusView
   addRepoClickHandler={[Function]}
-  goBack={[MockFunction]}
+  goBack={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
+    }
+  }
   noRepos={[Function]}
+  refreshRepo={[Function]}
   removeJob={[MockFunction]}
-  removeRepo={[MockFunction]}
+  removeRepo={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "someRepo",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
+    }
+  }
   repoToView="someRepo"
   repos={
     Object {
@@ -1137,7 +666,19 @@ exports[`StatusView Job Click handlers Remove Repo Button should remove repo and
           isDisabled={false}
           isIconOnly={false}
           isReversed={false}
-          onClick={[MockFunction]}
+          onClick={
+            [MockFunction] {
+              "calls": Array [
+                Array [],
+              ],
+              "results": Array [
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+              ],
+            }
+          }
           style={
             Object {
               "margin": "7px 5px 0px 5px",
@@ -1153,1720 +694,19 @@ exports[`StatusView Job Click handlers Remove Repo Button should remove repo and
             className="button neutral"
             disabled={false}
             onBlur={[Function]}
-            onClick={[MockFunction]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            style={
-              Object {
-                "margin": "7px 5px 0px 5px",
+            onClick={
+              [MockFunction] {
+                "calls": Array [
+                  Array [],
+                ],
+                "results": Array [
+                  Object {
+                    "isThrow": false,
+                    "value": undefined,
+                  },
+                ],
               }
             }
-            type="button"
-          >
-            <span
-              className="button-label text-only"
-            >
-              <span
-                className=""
-              >
-                Back
-              </span>
-            </span>
-          </button>
-        </Button>
-        <Button
-          isBlock={false}
-          isCompact={false}
-          isDisabled={false}
-          isIconOnly={false}
-          isReversed={false}
-          onClick={[Function]}
-          style={
-            Object {
-              "margin": "7px 5px 0px 5px",
-            }
-          }
-          text="Remove Repo"
-          type="button"
-          variant="neutral"
-        >
-          <button
-            aria-disabled={false}
-            aria-label={null}
-            className="button neutral"
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            style={
-              Object {
-                "margin": "7px 5px 0px 5px",
-              }
-            }
-            type="button"
-          >
-            <span
-              className="button-label text-only"
-            >
-              <span
-                className=""
-              >
-                Remove Repo
-              </span>
-            </span>
-          </button>
-        </Button>
-      </div>
-    </div>
-  </div>
-</StatusView>
-`;
-
-exports[`StatusView Job Click handlers Remove job button should call removeJob prop function 1`] = `
-<StatusView
-  addRepoClickHandler={[Function]}
-  goBack={[MockFunction]}
-  noRepos={[Function]}
-  removeJob={[MockFunction]}
-  removeRepo={[MockFunction]}
-  repoToView="someRepo"
-  repos={
-    Object {
-      "anotherRepo": Object {
-        "jobs": Object {
-          "firstKeyb": Object {
-            "name": "firstKeyb",
-            "url": "firstKeyUrlb",
-          },
-          "secondKey": Object {
-            "name": "secondKeyb",
-            "url": "secondKeyUrlb",
-          },
-        },
-        "url": "anotherUrl",
-      },
-      "someRepo": Object {
-        "jobs": Object {
-          "firstKeya": Object {
-            "color": "blue",
-            "name": "firstKeya",
-            "url": "firstKeyUrla",
-          },
-          "secondKeya": Object {
-            "name": "secondKeya",
-            "url": "secondKeyUrla",
-          },
-        },
-        "url": "someUrl",
-      },
-    }
-  }
-  viewJobs={[Function]}
->
-  <div>
-    <Text
-      className="titleText"
-      color="inherit"
-      fontSize={20}
-      isItalic={false}
-      isVisuallyHidden={false}
-      weight={700}
-    >
-      <span
-        className="text font-size-20 font-weight-700 titleText"
-        style={
-          Object {
-            "color": "inherit",
-          }
-        }
-      >
-        someRepo
-      </span>
-    </Text>
-    <div
-      className="StatusView-Window"
-    >
-      <Arrange
-        alignFill="center"
-        alignFitEnd="center"
-        alignFitStart="center"
-        className="statusArrange"
-        fill={
-          <Text
-            className="textCenter"
-            color="inherit"
-            fontSize={16}
-            isItalic={false}
-            isVisuallyHidden={false}
-          >
-            firstKeya
-          </Text>
-        }
-        fitEnd={
-          <div>
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View on Jenkins"
-              type="button"
-              variant="neutral"
-            />
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="Remove"
-              type="button"
-              variant="neutral"
-            />
-          </div>
-        }
-        fitStart={
-          <Image
-            alt=" "
-            isFluid={false}
-            src="successful"
-            variant="default"
-          />
-        }
-        key="firstKeya arrange"
-      >
-        <div
-          className="arrange statusArrange"
-        >
-          <div
-            className="fit center"
-          >
-            <Image
-              alt=" "
-              isFluid={false}
-              src="successful"
-              variant="default"
-            >
-              <img
-                alt=" "
-                className="image default"
-                onError={[Function]}
-                onLoad={[Function]}
-                src="successful"
-              />
-            </Image>
-          </div>
-          <div
-            className="fill center"
-          >
-            <Text
-              className="textCenter"
-              color="inherit"
-              fontSize={16}
-              isItalic={false}
-              isVisuallyHidden={false}
-            >
-              <span
-                className="text font-size-16 textCenter"
-                style={
-                  Object {
-                    "color": "inherit",
-                  }
-                }
-              >
-                firstKeya
-              </span>
-            </Text>
-          </div>
-          <div
-            className="fit center"
-          >
-            <div>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="firstKeya view"
-                onClick={[Function]}
-                text="View on Jenkins"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View on Jenkins
-                    </span>
-                  </span>
-                </button>
-              </Button>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="firstKeya remove"
-                onClick={[Function]}
-                text="Remove"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      Remove
-                    </span>
-                  </span>
-                </button>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Arrange>
-      <Arrange
-        alignFill="center"
-        alignFitEnd="center"
-        alignFitStart="center"
-        className="statusArrange"
-        fill={
-          <Text
-            className="textCenter"
-            color="inherit"
-            fontSize={16}
-            isItalic={false}
-            isVisuallyHidden={false}
-          >
-            secondKeya
-          </Text>
-        }
-        fitEnd={
-          <div>
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View on Jenkins"
-              type="button"
-              variant="neutral"
-            />
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="Remove"
-              type="button"
-              variant="neutral"
-            />
-          </div>
-        }
-        fitStart={
-          <IconXSymbol
-            viewBox="0 0 48 48"
-            xmlns="http://www.w3.org/2000/svg"
-          />
-        }
-        key="secondKeya arrange"
-      >
-        <div
-          className="arrange statusArrange"
-        >
-          <div
-            className="fit center"
-          >
-            <IconXSymbol
-              viewBox="0 0 48 48"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <IconBase
-                ariaLabel={null}
-                focusable="false"
-                height="1em"
-                isBidi={false}
-                isSpin={false}
-                viewBox="0 0 48 48"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="icon"
-                  focusable="false"
-                  height="1em"
-                  viewBox="0 0 48 48"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 12L12 0l12 12L36 0l12 12-12 12 12 12-12 12-12-12-12 12L0 36l12-12L0 12z"
-                  />
-                </svg>
-              </IconBase>
-            </IconXSymbol>
-          </div>
-          <div
-            className="fill center"
-          >
-            <Text
-              className="textCenter"
-              color="inherit"
-              fontSize={16}
-              isItalic={false}
-              isVisuallyHidden={false}
-            >
-              <span
-                className="text font-size-16 textCenter"
-                style={
-                  Object {
-                    "color": "inherit",
-                  }
-                }
-              >
-                secondKeya
-              </span>
-            </Text>
-          </div>
-          <div
-            className="fit center"
-          >
-            <div>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="secondKeya view"
-                onClick={[Function]}
-                text="View on Jenkins"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View on Jenkins
-                    </span>
-                  </span>
-                </button>
-              </Button>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="secondKeya remove"
-                onClick={[Function]}
-                text="Remove"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      Remove
-                    </span>
-                  </span>
-                </button>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Arrange>
-    </div>
-    <div>
-      <Button
-        isBlock={false}
-        isCompact={false}
-        isDisabled={false}
-        isIconOnly={false}
-        isReversed={false}
-        onClick={[Function]}
-        style={
-          Object {
-            "margin": "7px 5px 0px 5px",
-          }
-        }
-        text="View Repo on Jenkins"
-        type="button"
-        variant="neutral"
-      >
-        <button
-          aria-disabled={false}
-          aria-label={null}
-          className="button neutral"
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          style={
-            Object {
-              "margin": "7px 5px 0px 5px",
-            }
-          }
-          type="button"
-        >
-          <span
-            className="button-label text-only"
-          >
-            <span
-              className=""
-            >
-              View Repo on Jenkins
-            </span>
-          </span>
-        </button>
-      </Button>
-      <div
-        style={
-          Object {
-            "float": "right",
-          }
-        }
-      >
-        <Button
-          isBlock={false}
-          isCompact={false}
-          isDisabled={false}
-          isIconOnly={false}
-          isReversed={false}
-          onClick={[MockFunction]}
-          style={
-            Object {
-              "margin": "7px 5px 0px 5px",
-            }
-          }
-          text="Back"
-          type="button"
-          variant="neutral"
-        >
-          <button
-            aria-disabled={false}
-            aria-label={null}
-            className="button neutral"
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[MockFunction]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            style={
-              Object {
-                "margin": "7px 5px 0px 5px",
-              }
-            }
-            type="button"
-          >
-            <span
-              className="button-label text-only"
-            >
-              <span
-                className=""
-              >
-                Back
-              </span>
-            </span>
-          </button>
-        </Button>
-        <Button
-          isBlock={false}
-          isCompact={false}
-          isDisabled={false}
-          isIconOnly={false}
-          isReversed={false}
-          onClick={[Function]}
-          style={
-            Object {
-              "margin": "7px 5px 0px 5px",
-            }
-          }
-          text="Remove Repo"
-          type="button"
-          variant="neutral"
-        >
-          <button
-            aria-disabled={false}
-            aria-label={null}
-            className="button neutral"
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            style={
-              Object {
-                "margin": "7px 5px 0px 5px",
-              }
-            }
-            type="button"
-          >
-            <span
-              className="button-label text-only"
-            >
-              <span
-                className=""
-              >
-                Remove Repo
-              </span>
-            </span>
-          </button>
-        </Button>
-      </div>
-    </div>
-  </div>
-</StatusView>
-`;
-
-exports[`StatusView Job Click handlers View Job Button should call open window function 1`] = `
-<StatusView
-  addRepoClickHandler={[Function]}
-  goBack={[MockFunction]}
-  noRepos={[Function]}
-  removeJob={[MockFunction]}
-  removeRepo={[MockFunction]}
-  repoToView="someRepo"
-  repos={
-    Object {
-      "anotherRepo": Object {
-        "jobs": Object {
-          "firstKeyb": Object {
-            "name": "firstKeyb",
-            "url": "firstKeyUrlb",
-          },
-          "secondKey": Object {
-            "name": "secondKeyb",
-            "url": "secondKeyUrlb",
-          },
-        },
-        "url": "anotherUrl",
-      },
-      "someRepo": Object {
-        "jobs": Object {
-          "firstKeya": Object {
-            "color": "blue",
-            "name": "firstKeya",
-            "url": "firstKeyUrla",
-          },
-          "secondKeya": Object {
-            "name": "secondKeya",
-            "url": "secondKeyUrla",
-          },
-        },
-        "url": "someUrl",
-      },
-    }
-  }
-  viewJobs={[Function]}
->
-  <div>
-    <Text
-      className="titleText"
-      color="inherit"
-      fontSize={20}
-      isItalic={false}
-      isVisuallyHidden={false}
-      weight={700}
-    >
-      <span
-        className="text font-size-20 font-weight-700 titleText"
-        style={
-          Object {
-            "color": "inherit",
-          }
-        }
-      >
-        someRepo
-      </span>
-    </Text>
-    <div
-      className="StatusView-Window"
-    >
-      <Arrange
-        alignFill="center"
-        alignFitEnd="center"
-        alignFitStart="center"
-        className="statusArrange"
-        fill={
-          <Text
-            className="textCenter"
-            color="inherit"
-            fontSize={16}
-            isItalic={false}
-            isVisuallyHidden={false}
-          >
-            firstKeya
-          </Text>
-        }
-        fitEnd={
-          <div>
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View on Jenkins"
-              type="button"
-              variant="neutral"
-            />
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="Remove"
-              type="button"
-              variant="neutral"
-            />
-          </div>
-        }
-        fitStart={
-          <Image
-            alt=" "
-            isFluid={false}
-            src="successful"
-            variant="default"
-          />
-        }
-        key="firstKeya arrange"
-      >
-        <div
-          className="arrange statusArrange"
-        >
-          <div
-            className="fit center"
-          >
-            <Image
-              alt=" "
-              isFluid={false}
-              src="successful"
-              variant="default"
-            >
-              <img
-                alt=" "
-                className="image default"
-                onError={[Function]}
-                onLoad={[Function]}
-                src="successful"
-              />
-            </Image>
-          </div>
-          <div
-            className="fill center"
-          >
-            <Text
-              className="textCenter"
-              color="inherit"
-              fontSize={16}
-              isItalic={false}
-              isVisuallyHidden={false}
-            >
-              <span
-                className="text font-size-16 textCenter"
-                style={
-                  Object {
-                    "color": "inherit",
-                  }
-                }
-              >
-                firstKeya
-              </span>
-            </Text>
-          </div>
-          <div
-            className="fit center"
-          >
-            <div>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="firstKeya view"
-                onClick={[Function]}
-                text="View on Jenkins"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View on Jenkins
-                    </span>
-                  </span>
-                </button>
-              </Button>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="firstKeya remove"
-                onClick={[Function]}
-                text="Remove"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      Remove
-                    </span>
-                  </span>
-                </button>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Arrange>
-      <Arrange
-        alignFill="center"
-        alignFitEnd="center"
-        alignFitStart="center"
-        className="statusArrange"
-        fill={
-          <Text
-            className="textCenter"
-            color="inherit"
-            fontSize={16}
-            isItalic={false}
-            isVisuallyHidden={false}
-          >
-            secondKeya
-          </Text>
-        }
-        fitEnd={
-          <div>
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View on Jenkins"
-              type="button"
-              variant="neutral"
-            />
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="Remove"
-              type="button"
-              variant="neutral"
-            />
-          </div>
-        }
-        fitStart={
-          <IconXSymbol
-            viewBox="0 0 48 48"
-            xmlns="http://www.w3.org/2000/svg"
-          />
-        }
-        key="secondKeya arrange"
-      >
-        <div
-          className="arrange statusArrange"
-        >
-          <div
-            className="fit center"
-          >
-            <IconXSymbol
-              viewBox="0 0 48 48"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <IconBase
-                ariaLabel={null}
-                focusable="false"
-                height="1em"
-                isBidi={false}
-                isSpin={false}
-                viewBox="0 0 48 48"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="icon"
-                  focusable="false"
-                  height="1em"
-                  viewBox="0 0 48 48"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 12L12 0l12 12L36 0l12 12-12 12 12 12-12 12-12-12-12 12L0 36l12-12L0 12z"
-                  />
-                </svg>
-              </IconBase>
-            </IconXSymbol>
-          </div>
-          <div
-            className="fill center"
-          >
-            <Text
-              className="textCenter"
-              color="inherit"
-              fontSize={16}
-              isItalic={false}
-              isVisuallyHidden={false}
-            >
-              <span
-                className="text font-size-16 textCenter"
-                style={
-                  Object {
-                    "color": "inherit",
-                  }
-                }
-              >
-                secondKeya
-              </span>
-            </Text>
-          </div>
-          <div
-            className="fit center"
-          >
-            <div>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="secondKeya view"
-                onClick={[Function]}
-                text="View on Jenkins"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View on Jenkins
-                    </span>
-                  </span>
-                </button>
-              </Button>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="secondKeya remove"
-                onClick={[Function]}
-                text="Remove"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      Remove
-                    </span>
-                  </span>
-                </button>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Arrange>
-    </div>
-    <div>
-      <Button
-        isBlock={false}
-        isCompact={false}
-        isDisabled={false}
-        isIconOnly={false}
-        isReversed={false}
-        onClick={[Function]}
-        style={
-          Object {
-            "margin": "7px 5px 0px 5px",
-          }
-        }
-        text="View Repo on Jenkins"
-        type="button"
-        variant="neutral"
-      >
-        <button
-          aria-disabled={false}
-          aria-label={null}
-          className="button neutral"
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          style={
-            Object {
-              "margin": "7px 5px 0px 5px",
-            }
-          }
-          type="button"
-        >
-          <span
-            className="button-label text-only"
-          >
-            <span
-              className=""
-            >
-              View Repo on Jenkins
-            </span>
-          </span>
-        </button>
-      </Button>
-      <div
-        style={
-          Object {
-            "float": "right",
-          }
-        }
-      >
-        <Button
-          isBlock={false}
-          isCompact={false}
-          isDisabled={false}
-          isIconOnly={false}
-          isReversed={false}
-          onClick={[MockFunction]}
-          style={
-            Object {
-              "margin": "7px 5px 0px 5px",
-            }
-          }
-          text="Back"
-          type="button"
-          variant="neutral"
-        >
-          <button
-            aria-disabled={false}
-            aria-label={null}
-            className="button neutral"
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[MockFunction]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            style={
-              Object {
-                "margin": "7px 5px 0px 5px",
-              }
-            }
-            type="button"
-          >
-            <span
-              className="button-label text-only"
-            >
-              <span
-                className=""
-              >
-                Back
-              </span>
-            </span>
-          </button>
-        </Button>
-        <Button
-          isBlock={false}
-          isCompact={false}
-          isDisabled={false}
-          isIconOnly={false}
-          isReversed={false}
-          onClick={[Function]}
-          style={
-            Object {
-              "margin": "7px 5px 0px 5px",
-            }
-          }
-          text="Remove Repo"
-          type="button"
-          variant="neutral"
-        >
-          <button
-            aria-disabled={false}
-            aria-label={null}
-            className="button neutral"
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            style={
-              Object {
-                "margin": "7px 5px 0px 5px",
-              }
-            }
-            type="button"
-          >
-            <span
-              className="button-label text-only"
-            >
-              <span
-                className=""
-              >
-                Remove Repo
-              </span>
-            </span>
-          </button>
-        </Button>
-      </div>
-    </div>
-  </div>
-</StatusView>
-`;
-
-exports[`StatusView Job Click handlers View Repo Button should call open window function 1`] = `
-<StatusView
-  addRepoClickHandler={[Function]}
-  goBack={[MockFunction]}
-  noRepos={[Function]}
-  removeJob={[MockFunction]}
-  removeRepo={[MockFunction]}
-  repoToView="someRepo"
-  repos={
-    Object {
-      "anotherRepo": Object {
-        "jobs": Object {
-          "firstKeyb": Object {
-            "name": "firstKeyb",
-            "url": "firstKeyUrlb",
-          },
-          "secondKey": Object {
-            "name": "secondKeyb",
-            "url": "secondKeyUrlb",
-          },
-        },
-        "url": "anotherUrl",
-      },
-      "someRepo": Object {
-        "jobs": Object {
-          "firstKeya": Object {
-            "color": "blue",
-            "name": "firstKeya",
-            "url": "firstKeyUrla",
-          },
-          "secondKeya": Object {
-            "name": "secondKeya",
-            "url": "secondKeyUrla",
-          },
-        },
-        "url": "someUrl",
-      },
-    }
-  }
-  viewJobs={[Function]}
->
-  <div>
-    <Text
-      className="titleText"
-      color="inherit"
-      fontSize={20}
-      isItalic={false}
-      isVisuallyHidden={false}
-      weight={700}
-    >
-      <span
-        className="text font-size-20 font-weight-700 titleText"
-        style={
-          Object {
-            "color": "inherit",
-          }
-        }
-      >
-        someRepo
-      </span>
-    </Text>
-    <div
-      className="StatusView-Window"
-    >
-      <Arrange
-        alignFill="center"
-        alignFitEnd="center"
-        alignFitStart="center"
-        className="statusArrange"
-        fill={
-          <Text
-            className="textCenter"
-            color="inherit"
-            fontSize={16}
-            isItalic={false}
-            isVisuallyHidden={false}
-          >
-            firstKeya
-          </Text>
-        }
-        fitEnd={
-          <div>
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View on Jenkins"
-              type="button"
-              variant="neutral"
-            />
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="Remove"
-              type="button"
-              variant="neutral"
-            />
-          </div>
-        }
-        fitStart={
-          <Image
-            alt=" "
-            isFluid={false}
-            src="successful"
-            variant="default"
-          />
-        }
-        key="firstKeya arrange"
-      >
-        <div
-          className="arrange statusArrange"
-        >
-          <div
-            className="fit center"
-          >
-            <Image
-              alt=" "
-              isFluid={false}
-              src="successful"
-              variant="default"
-            >
-              <img
-                alt=" "
-                className="image default"
-                onError={[Function]}
-                onLoad={[Function]}
-                src="successful"
-              />
-            </Image>
-          </div>
-          <div
-            className="fill center"
-          >
-            <Text
-              className="textCenter"
-              color="inherit"
-              fontSize={16}
-              isItalic={false}
-              isVisuallyHidden={false}
-            >
-              <span
-                className="text font-size-16 textCenter"
-                style={
-                  Object {
-                    "color": "inherit",
-                  }
-                }
-              >
-                firstKeya
-              </span>
-            </Text>
-          </div>
-          <div
-            className="fit center"
-          >
-            <div>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="firstKeya view"
-                onClick={[Function]}
-                text="View on Jenkins"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View on Jenkins
-                    </span>
-                  </span>
-                </button>
-              </Button>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="firstKeya remove"
-                onClick={[Function]}
-                text="Remove"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      Remove
-                    </span>
-                  </span>
-                </button>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Arrange>
-      <Arrange
-        alignFill="center"
-        alignFitEnd="center"
-        alignFitStart="center"
-        className="statusArrange"
-        fill={
-          <Text
-            className="textCenter"
-            color="inherit"
-            fontSize={16}
-            isItalic={false}
-            isVisuallyHidden={false}
-          >
-            secondKeya
-          </Text>
-        }
-        fitEnd={
-          <div>
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View on Jenkins"
-              type="button"
-              variant="neutral"
-            />
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="Remove"
-              type="button"
-              variant="neutral"
-            />
-          </div>
-        }
-        fitStart={
-          <IconXSymbol
-            viewBox="0 0 48 48"
-            xmlns="http://www.w3.org/2000/svg"
-          />
-        }
-        key="secondKeya arrange"
-      >
-        <div
-          className="arrange statusArrange"
-        >
-          <div
-            className="fit center"
-          >
-            <IconXSymbol
-              viewBox="0 0 48 48"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <IconBase
-                ariaLabel={null}
-                focusable="false"
-                height="1em"
-                isBidi={false}
-                isSpin={false}
-                viewBox="0 0 48 48"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="icon"
-                  focusable="false"
-                  height="1em"
-                  viewBox="0 0 48 48"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 12L12 0l12 12L36 0l12 12-12 12 12 12-12 12-12-12-12 12L0 36l12-12L0 12z"
-                  />
-                </svg>
-              </IconBase>
-            </IconXSymbol>
-          </div>
-          <div
-            className="fill center"
-          >
-            <Text
-              className="textCenter"
-              color="inherit"
-              fontSize={16}
-              isItalic={false}
-              isVisuallyHidden={false}
-            >
-              <span
-                className="text font-size-16 textCenter"
-                style={
-                  Object {
-                    "color": "inherit",
-                  }
-                }
-              >
-                secondKeya
-              </span>
-            </Text>
-          </div>
-          <div
-            className="fit center"
-          >
-            <div>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="secondKeya view"
-                onClick={[Function]}
-                text="View on Jenkins"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View on Jenkins
-                    </span>
-                  </span>
-                </button>
-              </Button>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="secondKeya remove"
-                onClick={[Function]}
-                text="Remove"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      Remove
-                    </span>
-                  </span>
-                </button>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Arrange>
-    </div>
-    <div>
-      <Button
-        isBlock={false}
-        isCompact={false}
-        isDisabled={false}
-        isIconOnly={false}
-        isReversed={false}
-        onClick={[Function]}
-        style={
-          Object {
-            "margin": "7px 5px 0px 5px",
-          }
-        }
-        text="View Repo on Jenkins"
-        type="button"
-        variant="neutral"
-      >
-        <button
-          aria-disabled={false}
-          aria-label={null}
-          className="button neutral"
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          style={
-            Object {
-              "margin": "7px 5px 0px 5px",
-            }
-          }
-          type="button"
-        >
-          <span
-            className="button-label text-only"
-          >
-            <span
-              className=""
-            >
-              View Repo on Jenkins
-            </span>
-          </span>
-        </button>
-      </Button>
-      <div
-        style={
-          Object {
-            "float": "right",
-          }
-        }
-      >
-        <Button
-          isBlock={false}
-          isCompact={false}
-          isDisabled={false}
-          isIconOnly={false}
-          isReversed={false}
-          onClick={[MockFunction]}
-          style={
-            Object {
-              "margin": "7px 5px 0px 5px",
-            }
-          }
-          text="Back"
-          type="button"
-          variant="neutral"
-        >
-          <button
-            aria-disabled={false}
-            aria-label={null}
-            className="button neutral"
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[MockFunction]}
             onKeyDown={[Function]}
             onKeyUp={[Function]}
             style={
@@ -2941,6 +781,7 @@ exports[`StatusView Jobs should render a view 1`] = `
   addRepoClickHandler={[Function]}
   goBack={[Function]}
   noRepos={[Function]}
+  refreshRepo={[Function]}
   removeJob={[Function]}
   removeRepo={[Function]}
   repoToView="someRepo"
@@ -3503,11 +1344,43 @@ exports[`StatusView Jobs should render a view 1`] = `
 </StatusView>
 `;
 
-exports[`StatusView Repo Click handlers Remove repo button should call remove repo prop function 1`] = `
+exports[`StatusView Repo Click handlers Refresh button should call refresh repo function 1`] = `
 <StatusView
   addRepoClickHandler={[Function]}
   goBack={[Function]}
   noRepos={[Function]}
+  refreshRepo={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "someUrl",
+          "someRepo",
+        ],
+        Array [
+          "anotherUrl",
+          "anotherRepo",
+        ],
+        Array [
+          "andAnotherUrl",
+          "andAnotherRepo",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
+    }
+  }
   removeJob={[Function]}
   removeRepo={[MockFunction]}
   repos={
@@ -3550,1477 +1423,99 @@ exports[`StatusView Repo Click handlers Remove repo button should call remove re
   viewJobs={[MockFunction]}
 >
   <div>
-    <Text
-      className="titleText"
-      color="inherit"
-      fontSize={20}
-      isItalic={false}
-      isVisuallyHidden={false}
-      weight={700}
-    >
-      <span
-        className="text font-size-20 font-weight-700 titleText"
-        style={
-          Object {
-            "color": "inherit",
-          }
-        }
-      >
-        Tracked Repos (
-        3
-        )
-      </span>
-    </Text>
-    <div
-      className="StatusView-Window"
-    >
-      <Arrange
-        alignFill="center"
-        alignFitEnd="center"
-        alignFitStart="center"
-        className="statusArrange"
-        fill={
-          <Text
-            className="textCenter"
-            color="inherit"
-            fontSize={16}
-            isItalic={false}
-            isVisuallyHidden={false}
-          >
-            someRepo
-          </Text>
-        }
-        fitEnd={
-          <Button
-            className="arrangeButton"
-            isBlock={false}
-            isCompact={false}
-            isDisabled={false}
-            isIconOnly={false}
-            isReversed={false}
-            onClick={[Function]}
-            text="Remove Repo"
-            type="button"
-            variant="neutral"
-          />
-        }
-        fitStart={
-          <div>
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View on Jenkins"
-              type="button"
-              variant="neutral"
-            />
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View Jobs"
-              type="button"
-              variant="neutral"
-            />
-          </div>
-        }
-        key="someRepo arrange"
-      >
-        <div
-          className="arrange statusArrange"
-        >
-          <div
-            className="fit center"
-          >
-            <div>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="someRepo start Jenkins"
-                onClick={[Function]}
-                text="View on Jenkins"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View on Jenkins
-                    </span>
-                  </span>
-                </button>
-              </Button>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="someRepo start jobs"
-                onClick={[Function]}
-                text="View Jobs"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View Jobs
-                    </span>
-                  </span>
-                </button>
-              </Button>
-            </div>
-          </div>
-          <div
-            className="fill center"
-          >
-            <Text
-              className="textCenter"
-              color="inherit"
-              fontSize={16}
-              isItalic={false}
-              isVisuallyHidden={false}
-            >
-              <span
-                className="text font-size-16 textCenter"
-                style={
-                  Object {
-                    "color": "inherit",
-                  }
-                }
-              >
-                someRepo
-              </span>
-            </Text>
-          </div>
-          <div
-            className="fit center"
-          >
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              key="someRepo end"
-              onClick={[Function]}
-              text="Remove Repo"
-              type="button"
-              variant="neutral"
-            >
-              <button
-                aria-disabled={false}
-                aria-label={null}
-                className="button neutral arrangeButton"
-                disabled={false}
-                onBlur={[Function]}
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                type="button"
-              >
-                <span
-                  className="button-label text-only"
-                >
-                  <span
-                    className=""
-                  >
-                    Remove Repo
-                  </span>
-                </span>
-              </button>
-            </Button>
-          </div>
-        </div>
-      </Arrange>
-      <Arrange
-        alignFill="center"
-        alignFitEnd="center"
-        alignFitStart="center"
-        className="statusArrange"
-        fill={
-          <Text
-            className="textCenter"
-            color="inherit"
-            fontSize={16}
-            isItalic={false}
-            isVisuallyHidden={false}
-          >
-            anotherRepo
-          </Text>
-        }
-        fitEnd={
-          <Button
-            className="arrangeButton"
-            isBlock={false}
-            isCompact={false}
-            isDisabled={false}
-            isIconOnly={false}
-            isReversed={false}
-            onClick={[Function]}
-            text="Remove Repo"
-            type="button"
-            variant="neutral"
-          />
-        }
-        fitStart={
-          <div>
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View on Jenkins"
-              type="button"
-              variant="neutral"
-            />
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View Jobs"
-              type="button"
-              variant="neutral"
-            />
-          </div>
-        }
-        key="anotherRepo arrange"
-      >
-        <div
-          className="arrange statusArrange"
-        >
-          <div
-            className="fit center"
-          >
-            <div>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="anotherRepo start Jenkins"
-                onClick={[Function]}
-                text="View on Jenkins"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View on Jenkins
-                    </span>
-                  </span>
-                </button>
-              </Button>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="anotherRepo start jobs"
-                onClick={[Function]}
-                text="View Jobs"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View Jobs
-                    </span>
-                  </span>
-                </button>
-              </Button>
-            </div>
-          </div>
-          <div
-            className="fill center"
-          >
-            <Text
-              className="textCenter"
-              color="inherit"
-              fontSize={16}
-              isItalic={false}
-              isVisuallyHidden={false}
-            >
-              <span
-                className="text font-size-16 textCenter"
-                style={
-                  Object {
-                    "color": "inherit",
-                  }
-                }
-              >
-                anotherRepo
-              </span>
-            </Text>
-          </div>
-          <div
-            className="fit center"
-          >
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              key="anotherRepo end"
-              onClick={[Function]}
-              text="Remove Repo"
-              type="button"
-              variant="neutral"
-            >
-              <button
-                aria-disabled={false}
-                aria-label={null}
-                className="button neutral arrangeButton"
-                disabled={false}
-                onBlur={[Function]}
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                type="button"
-              >
-                <span
-                  className="button-label text-only"
-                >
-                  <span
-                    className=""
-                  >
-                    Remove Repo
-                  </span>
-                </span>
-              </button>
-            </Button>
-          </div>
-        </div>
-      </Arrange>
-      <Arrange
-        alignFill="center"
-        alignFitEnd="center"
-        alignFitStart="center"
-        className="statusArrange"
-        fill={
-          <Text
-            className="textCenter"
-            color="inherit"
-            fontSize={16}
-            isItalic={false}
-            isVisuallyHidden={false}
-          >
-            andAnotherRepo
-          </Text>
-        }
-        fitEnd={
-          <Button
-            className="arrangeButton"
-            isBlock={false}
-            isCompact={false}
-            isDisabled={false}
-            isIconOnly={false}
-            isReversed={false}
-            onClick={[Function]}
-            text="Remove Repo"
-            type="button"
-            variant="neutral"
-          />
-        }
-        fitStart={
-          <div>
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View on Jenkins"
-              type="button"
-              variant="neutral"
-            />
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View Jobs"
-              type="button"
-              variant="neutral"
-            />
-          </div>
-        }
-        key="andAnotherRepo arrange"
-      >
-        <div
-          className="arrange statusArrange"
-        >
-          <div
-            className="fit center"
-          >
-            <div>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="andAnotherRepo start Jenkins"
-                onClick={[Function]}
-                text="View on Jenkins"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View on Jenkins
-                    </span>
-                  </span>
-                </button>
-              </Button>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="andAnotherRepo start jobs"
-                onClick={[Function]}
-                text="View Jobs"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View Jobs
-                    </span>
-                  </span>
-                </button>
-              </Button>
-            </div>
-          </div>
-          <div
-            className="fill center"
-          >
-            <Text
-              className="textCenter"
-              color="inherit"
-              fontSize={16}
-              isItalic={false}
-              isVisuallyHidden={false}
-            >
-              <span
-                className="text font-size-16 textCenter"
-                style={
-                  Object {
-                    "color": "inherit",
-                  }
-                }
-              >
-                andAnotherRepo
-              </span>
-            </Text>
-          </div>
-          <div
-            className="fit center"
-          >
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              key="andAnotherRepo end"
-              onClick={[Function]}
-              text="Remove Repo"
-              type="button"
-              variant="neutral"
-            >
-              <button
-                aria-disabled={false}
-                aria-label={null}
-                className="button neutral arrangeButton"
-                disabled={false}
-                onBlur={[Function]}
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                type="button"
-              >
-                <span
-                  className="button-label text-only"
-                >
-                  <span
-                    className=""
-                  >
-                    Remove Repo
-                  </span>
-                </span>
-              </button>
-            </Button>
-          </div>
-        </div>
-      </Arrange>
-    </div>
-    <Button
-      isBlock={false}
-      isCompact={false}
-      isDisabled={false}
-      isIconOnly={false}
-      isReversed={false}
-      onClick={[Function]}
-      style={
-        Object {
-          "margin": "6px 5px 0px 5px",
-        }
-      }
-      text="Add New Repo"
-      type="button"
-      variant="neutral"
-    >
-      <button
-        aria-disabled={false}
-        aria-label={null}
-        className="button neutral"
-        disabled={false}
-        onBlur={[Function]}
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        style={
-          Object {
-            "margin": "6px 5px 0px 5px",
-          }
-        }
-        type="button"
+    <div>
+      <Text
+        className="titleText"
+        color="inherit"
+        fontSize={20}
+        isItalic={false}
+        isVisuallyHidden={false}
+        weight={700}
       >
         <span
-          className="button-label text-only"
-        >
-          <span
-            className=""
-          >
-            Add New Repo
-          </span>
-        </span>
-      </button>
-    </Button>
-  </div>
-</StatusView>
-`;
-
-exports[`StatusView Repo Click handlers View Jobs Button should call view jobs prop function 1`] = `
-<StatusView
-  addRepoClickHandler={[Function]}
-  goBack={[Function]}
-  noRepos={[Function]}
-  removeJob={[Function]}
-  removeRepo={[MockFunction]}
-  repos={
-    Object {
-      "andAnotherRepo": Object {
-        "URL": "andAnotherUrl",
-        "jobs": Object {
-          "firstKeyc": Object {
-            "name": "firstKeyc",
-          },
-          "secondKeyc": Object {
-            "name": "secondKeyc",
-          },
-        },
-      },
-      "anotherRepo": Object {
-        "URL": "anotherUrl",
-        "jobs": Object {
-          "firstKeyb": Object {
-            "name": "firstKeyb",
-          },
-          "secondKeyb": Object {
-            "name": "secondKeyb",
-          },
-        },
-      },
-      "someRepo": Object {
-        "URL": "someUrl",
-        "jobs": Object {
-          "firstKeya": Object {
-            "name": "firstKeya",
-          },
-          "secondKeya": Object {
-            "name": "secondKeya",
-          },
-        },
-      },
-    }
-  }
-  viewJobs={[MockFunction]}
->
-  <div>
-    <Text
-      className="titleText"
-      color="inherit"
-      fontSize={20}
-      isItalic={false}
-      isVisuallyHidden={false}
-      weight={700}
-    >
-      <span
-        className="text font-size-20 font-weight-700 titleText"
-        style={
-          Object {
-            "color": "inherit",
+          className="text font-size-20 font-weight-700 titleText"
+          style={
+            Object {
+              "color": "inherit",
+            }
           }
-        }
-      >
-        Tracked Repos (
-        3
-        )
-      </span>
-    </Text>
-    <div
-      className="StatusView-Window"
-    >
-      <Arrange
-        alignFill="center"
-        alignFitEnd="center"
-        alignFitStart="center"
-        className="statusArrange"
-        fill={
-          <Text
-            className="textCenter"
-            color="inherit"
-            fontSize={16}
-            isItalic={false}
-            isVisuallyHidden={false}
-          >
-            someRepo
-          </Text>
-        }
-        fitEnd={
-          <Button
-            className="arrangeButton"
-            isBlock={false}
-            isCompact={false}
-            isDisabled={false}
-            isIconOnly={false}
-            isReversed={false}
-            onClick={[Function]}
-            text="Remove Repo"
-            type="button"
-            variant="neutral"
+        >
+          Tracked Repos (
+          3
+          )
+        </span>
+      </Text>
+      <Button
+        className="refreshButton"
+        icon={
+          <IconReload
+            viewBox="0 0 48 48"
+            xmlns="http://www.w3.org/2000/svg"
           />
         }
-        fitStart={
-          <div>
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View on Jenkins"
-              type="button"
-              variant="neutral"
-            />
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View Jobs"
-              type="button"
-              variant="neutral"
-            />
-          </div>
-        }
-        key="someRepo arrange"
-      >
-        <div
-          className="arrange statusArrange"
-        >
-          <div
-            className="fit center"
-          >
-            <div>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="someRepo start Jenkins"
-                onClick={[Function]}
-                text="View on Jenkins"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View on Jenkins
-                    </span>
-                  </span>
-                </button>
-              </Button>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="someRepo start jobs"
-                onClick={[Function]}
-                text="View Jobs"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View Jobs
-                    </span>
-                  </span>
-                </button>
-              </Button>
-            </div>
-          </div>
-          <div
-            className="fill center"
-          >
-            <Text
-              className="textCenter"
-              color="inherit"
-              fontSize={16}
-              isItalic={false}
-              isVisuallyHidden={false}
-            >
-              <span
-                className="text font-size-16 textCenter"
-                style={
-                  Object {
-                    "color": "inherit",
-                  }
-                }
-              >
-                someRepo
-              </span>
-            </Text>
-          </div>
-          <div
-            className="fit center"
-          >
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              key="someRepo end"
-              onClick={[Function]}
-              text="Remove Repo"
-              type="button"
-              variant="neutral"
-            >
-              <button
-                aria-disabled={false}
-                aria-label={null}
-                className="button neutral arrangeButton"
-                disabled={false}
-                onBlur={[Function]}
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                type="button"
-              >
-                <span
-                  className="button-label text-only"
-                >
-                  <span
-                    className=""
-                  >
-                    Remove Repo
-                  </span>
-                </span>
-              </button>
-            </Button>
-          </div>
-        </div>
-      </Arrange>
-      <Arrange
-        alignFill="center"
-        alignFitEnd="center"
-        alignFitStart="center"
-        className="statusArrange"
-        fill={
-          <Text
-            className="textCenter"
-            color="inherit"
-            fontSize={16}
-            isItalic={false}
-            isVisuallyHidden={false}
-          >
-            anotherRepo
-          </Text>
-        }
-        fitEnd={
-          <Button
-            className="arrangeButton"
-            isBlock={false}
-            isCompact={false}
-            isDisabled={false}
-            isIconOnly={false}
-            isReversed={false}
-            onClick={[Function]}
-            text="Remove Repo"
-            type="button"
-            variant="neutral"
-          />
-        }
-        fitStart={
-          <div>
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View on Jenkins"
-              type="button"
-              variant="neutral"
-            />
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View Jobs"
-              type="button"
-              variant="neutral"
-            />
-          </div>
-        }
-        key="anotherRepo arrange"
-      >
-        <div
-          className="arrange statusArrange"
-        >
-          <div
-            className="fit center"
-          >
-            <div>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="anotherRepo start Jenkins"
-                onClick={[Function]}
-                text="View on Jenkins"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View on Jenkins
-                    </span>
-                  </span>
-                </button>
-              </Button>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="anotherRepo start jobs"
-                onClick={[Function]}
-                text="View Jobs"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View Jobs
-                    </span>
-                  </span>
-                </button>
-              </Button>
-            </div>
-          </div>
-          <div
-            className="fill center"
-          >
-            <Text
-              className="textCenter"
-              color="inherit"
-              fontSize={16}
-              isItalic={false}
-              isVisuallyHidden={false}
-            >
-              <span
-                className="text font-size-16 textCenter"
-                style={
-                  Object {
-                    "color": "inherit",
-                  }
-                }
-              >
-                anotherRepo
-              </span>
-            </Text>
-          </div>
-          <div
-            className="fit center"
-          >
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              key="anotherRepo end"
-              onClick={[Function]}
-              text="Remove Repo"
-              type="button"
-              variant="neutral"
-            >
-              <button
-                aria-disabled={false}
-                aria-label={null}
-                className="button neutral arrangeButton"
-                disabled={false}
-                onBlur={[Function]}
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                type="button"
-              >
-                <span
-                  className="button-label text-only"
-                >
-                  <span
-                    className=""
-                  >
-                    Remove Repo
-                  </span>
-                </span>
-              </button>
-            </Button>
-          </div>
-        </div>
-      </Arrange>
-      <Arrange
-        alignFill="center"
-        alignFitEnd="center"
-        alignFitStart="center"
-        className="statusArrange"
-        fill={
-          <Text
-            className="textCenter"
-            color="inherit"
-            fontSize={16}
-            isItalic={false}
-            isVisuallyHidden={false}
-          >
-            andAnotherRepo
-          </Text>
-        }
-        fitEnd={
-          <Button
-            className="arrangeButton"
-            isBlock={false}
-            isCompact={false}
-            isDisabled={false}
-            isIconOnly={false}
-            isReversed={false}
-            onClick={[Function]}
-            text="Remove Repo"
-            type="button"
-            variant="neutral"
-          />
-        }
-        fitStart={
-          <div>
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View on Jenkins"
-              type="button"
-              variant="neutral"
-            />
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              onClick={[Function]}
-              text="View Jobs"
-              type="button"
-              variant="neutral"
-            />
-          </div>
-        }
-        key="andAnotherRepo arrange"
-      >
-        <div
-          className="arrange statusArrange"
-        >
-          <div
-            className="fit center"
-          >
-            <div>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="andAnotherRepo start Jenkins"
-                onClick={[Function]}
-                text="View on Jenkins"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View on Jenkins
-                    </span>
-                  </span>
-                </button>
-              </Button>
-              <Button
-                className="arrangeButton"
-                isBlock={false}
-                isCompact={false}
-                isDisabled={false}
-                isIconOnly={false}
-                isReversed={false}
-                key="andAnotherRepo start jobs"
-                onClick={[Function]}
-                text="View Jobs"
-                type="button"
-                variant="neutral"
-              >
-                <button
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="button neutral arrangeButton"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="button-label text-only"
-                  >
-                    <span
-                      className=""
-                    >
-                      View Jobs
-                    </span>
-                  </span>
-                </button>
-              </Button>
-            </div>
-          </div>
-          <div
-            className="fill center"
-          >
-            <Text
-              className="textCenter"
-              color="inherit"
-              fontSize={16}
-              isItalic={false}
-              isVisuallyHidden={false}
-            >
-              <span
-                className="text font-size-16 textCenter"
-                style={
-                  Object {
-                    "color": "inherit",
-                  }
-                }
-              >
-                andAnotherRepo
-              </span>
-            </Text>
-          </div>
-          <div
-            className="fit center"
-          >
-            <Button
-              className="arrangeButton"
-              isBlock={false}
-              isCompact={false}
-              isDisabled={false}
-              isIconOnly={false}
-              isReversed={false}
-              key="andAnotherRepo end"
-              onClick={[Function]}
-              text="Remove Repo"
-              type="button"
-              variant="neutral"
-            >
-              <button
-                aria-disabled={false}
-                aria-label={null}
-                className="button neutral arrangeButton"
-                disabled={false}
-                onBlur={[Function]}
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                type="button"
-              >
-                <span
-                  className="button-label text-only"
-                >
-                  <span
-                    className=""
-                  >
-                    Remove Repo
-                  </span>
-                </span>
-              </button>
-            </Button>
-          </div>
-        </div>
-      </Arrange>
-    </div>
-    <Button
-      isBlock={false}
-      isCompact={false}
-      isDisabled={false}
-      isIconOnly={false}
-      isReversed={false}
-      onClick={[Function]}
-      style={
-        Object {
-          "margin": "6px 5px 0px 5px",
-        }
-      }
-      text="Add New Repo"
-      type="button"
-      variant="neutral"
-    >
-      <button
-        aria-disabled={false}
-        aria-label={null}
-        className="button neutral"
-        disabled={false}
-        onBlur={[Function]}
+        isBlock={false}
+        isCompact={false}
+        isDisabled={false}
+        isIconOnly={true}
+        isReversed={false}
         onClick={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        style={
-          Object {
-            "margin": "6px 5px 0px 5px",
-          }
-        }
+        text="Refresh"
         type="button"
+        variant="neutral"
       >
-        <span
-          className="button-label text-only"
+        <button
+          aria-disabled={false}
+          aria-label="Refresh"
+          className="button neutral refreshButton"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          type="button"
         >
           <span
-            className=""
+            className="button-label icon-only"
           >
-            Add New Repo
+            <span
+              className="icon"
+            >
+              <IconReload
+                className="icon-svg"
+                viewBox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <IconBase
+                  ariaLabel={null}
+                  className="icon-svg"
+                  focusable="false"
+                  height="1em"
+                  isBidi={false}
+                  isSpin={false}
+                  viewBox="0 0 48 48"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="icon icon-svg"
+                    focusable="false"
+                    height="1em"
+                    viewBox="0 0 48 48"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M48 18V3.4l-5.4 5.4C38.2 3.4 31.5 0 24 0 10.7 0 0 10.7 0 24s10.7 24 24 24c6.9 0 13.1-2.9 17.5-7.6L38 36.9c-3.5 3.8-8.4 6.1-14 6.1-10.5 0-19-8.5-19-19S13.5 5 24 5c6.1 0 11.5 2.9 15 7.4L33.4 18H48z"
+                    />
+                  </svg>
+                </IconBase>
+              </IconReload>
+            </span>
           </span>
-        </span>
-      </button>
-    </Button>
-  </div>
-</StatusView>
-`;
-
-exports[`StatusView Repo Click handlers View Repo Button should open jenkins window 1`] = `
-<StatusView
-  addRepoClickHandler={[Function]}
-  goBack={[Function]}
-  noRepos={[Function]}
-  removeJob={[Function]}
-  removeRepo={[MockFunction]}
-  repos={
-    Object {
-      "andAnotherRepo": Object {
-        "URL": "andAnotherUrl",
-        "jobs": Object {
-          "firstKeyc": Object {
-            "name": "firstKeyc",
-          },
-          "secondKeyc": Object {
-            "name": "secondKeyc",
-          },
-        },
-      },
-      "anotherRepo": Object {
-        "URL": "anotherUrl",
-        "jobs": Object {
-          "firstKeyb": Object {
-            "name": "firstKeyb",
-          },
-          "secondKeyb": Object {
-            "name": "secondKeyb",
-          },
-        },
-      },
-      "someRepo": Object {
-        "URL": "someUrl",
-        "jobs": Object {
-          "firstKeya": Object {
-            "name": "firstKeya",
-          },
-          "secondKeya": Object {
-            "name": "secondKeya",
-          },
-        },
-      },
-    }
-  }
-  viewJobs={[MockFunction]}
->
-  <div>
-    <Text
-      className="titleText"
-      color="inherit"
-      fontSize={20}
-      isItalic={false}
-      isVisuallyHidden={false}
-      weight={700}
-    >
-      <span
-        className="text font-size-20 font-weight-700 titleText"
-        style={
-          Object {
-            "color": "inherit",
-          }
-        }
-      >
-        Tracked Repos (
-        3
-        )
-      </span>
-    </Text>
+        </button>
+      </Button>
+    </div>
     <div
       className="StatusView-Window"
     >
@@ -5683,6 +2178,7 @@ exports[`StatusView Repos should render a view 1`] = `
   addRepoClickHandler={[Function]}
   goBack={[Function]}
   noRepos={[Function]}
+  refreshRepo={[Function]}
   removeJob={[Function]}
   removeRepo={[Function]}
   repos={
@@ -5725,27 +2221,99 @@ exports[`StatusView Repos should render a view 1`] = `
   viewJobs={[Function]}
 >
   <div>
-    <Text
-      className="titleText"
-      color="inherit"
-      fontSize={20}
-      isItalic={false}
-      isVisuallyHidden={false}
-      weight={700}
-    >
-      <span
-        className="text font-size-20 font-weight-700 titleText"
-        style={
-          Object {
-            "color": "inherit",
-          }
-        }
+    <div>
+      <Text
+        className="titleText"
+        color="inherit"
+        fontSize={20}
+        isItalic={false}
+        isVisuallyHidden={false}
+        weight={700}
       >
-        Tracked Repos (
-        3
-        )
-      </span>
-    </Text>
+        <span
+          className="text font-size-20 font-weight-700 titleText"
+          style={
+            Object {
+              "color": "inherit",
+            }
+          }
+        >
+          Tracked Repos (
+          3
+          )
+        </span>
+      </Text>
+      <Button
+        className="refreshButton"
+        icon={
+          <IconReload
+            viewBox="0 0 48 48"
+            xmlns="http://www.w3.org/2000/svg"
+          />
+        }
+        isBlock={false}
+        isCompact={false}
+        isDisabled={false}
+        isIconOnly={true}
+        isReversed={false}
+        onClick={[Function]}
+        text="Refresh"
+        type="button"
+        variant="neutral"
+      >
+        <button
+          aria-disabled={false}
+          aria-label="Refresh"
+          className="button neutral refreshButton"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          type="button"
+        >
+          <span
+            className="button-label icon-only"
+          >
+            <span
+              className="icon"
+            >
+              <IconReload
+                className="icon-svg"
+                viewBox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <IconBase
+                  ariaLabel={null}
+                  className="icon-svg"
+                  focusable="false"
+                  height="1em"
+                  isBidi={false}
+                  isSpin={false}
+                  viewBox="0 0 48 48"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="icon icon-svg"
+                    focusable="false"
+                    height="1em"
+                    viewBox="0 0 48 48"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M48 18V3.4l-5.4 5.4C38.2 3.4 31.5 0 24 0 10.7 0 0 10.7 0 24s10.7 24 24 24c6.9 0 13.1-2.9 17.5-7.6L38 36.9c-3.5 3.8-8.4 6.1-14 6.1-10.5 0-19-8.5-19-19S13.5 5 24 5c6.1 0 11.5 2.9 15 7.4L33.4 18H48z"
+                    />
+                  </svg>
+                </IconBase>
+              </IconReload>
+            </span>
+          </span>
+        </button>
+      </Button>
+    </div>
     <div
       className="StatusView-Window"
     >
@@ -6405,18 +2973,38 @@ exports[`StatusView Repos should render a view 1`] = `
 
 exports[`StatusView should render a default view 1`] = `
 <div>
-  <Text
-    className="titleText"
-    color="inherit"
-    fontSize={20}
-    isItalic={false}
-    isVisuallyHidden={false}
-    weight={700}
-  >
-    Tracked Repos (
-    2
-    )
-  </Text>
+  <div>
+    <Text
+      className="titleText"
+      color="inherit"
+      fontSize={20}
+      isItalic={false}
+      isVisuallyHidden={false}
+      weight={700}
+    >
+      Tracked Repos (
+      2
+      )
+    </Text>
+    <Button
+      className="refreshButton"
+      icon={
+        <IconReload
+          viewBox="0 0 48 48"
+          xmlns="http://www.w3.org/2000/svg"
+        />
+      }
+      isBlock={false}
+      isCompact={false}
+      isDisabled={false}
+      isIconOnly={true}
+      isReversed={false}
+      onClick={[Function]}
+      text="Refresh"
+      type="button"
+      variant="neutral"
+    />
+  </div>
   <div
     className="StatusView-Window"
   >
