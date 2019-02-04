@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Button from 'terra-button';
 import Arrange from 'terra-arrange/lib/Arrange';
 import IconXSymbol from 'terra-icon/lib/icon/IconXSymbol';
+import IconReload from 'terra-icon/lib/icon/IconReload';
 import './StatusView.scss';
 import Text from 'terra-text';
 import Image from 'terra-image/lib/Image';
@@ -23,6 +24,8 @@ const propTypes = {
   removeJob: PropTypes.func.isRequired,
   /** Function to go back to repo view from jobs view */
   goBack: PropTypes.func.isRequired,
+  /** Function to refresh repos on refresh button click */
+  refreshRepo: PropTypes.func.isRequired,
 };
 
 const StatusView = (props) => {
@@ -34,6 +37,7 @@ const StatusView = (props) => {
     repoToView,
     removeJob,
     goBack,
+    refreshRepo,
   } = props;
 
   let view = 'repos';
@@ -158,16 +162,29 @@ const StatusView = (props) => {
     <div>
       {view === 'repos' &&
         (
-          <Text
-            className="titleText"
-            fontSize={20}
-            weight={700}
-          >
-            Tracked Repos
-            (
+          <div>
+            <Text
+              className="titleText"
+              fontSize={20}
+              weight={700}
+            >
+              Tracked Repos
+              (
               {repos ? `${Object.keys(repos).length}` : '0'}
-            )
-          </Text>
+              )
+            </Text>
+            <Button
+              icon={<IconReload />}
+              isIconOnly
+              text="Refresh"
+              className="refreshButton"
+              onClick={() => {
+                Object.keys(repos).forEach((key) => {
+                  refreshRepo(repos[key].URL, key);
+                });
+              }}
+            />
+          </div>
         )
       }
       {view === 'jobs' &&

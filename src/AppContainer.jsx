@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { APP_STATE } from './reducers';
 import View from './AppView';
 import { refreshRepoAction } from './actions';
+import { googleStorageReposGet } from './modules/googleStorageHelpers';
 
 const propTypes = {
   /** View key for the current view */
@@ -20,27 +21,7 @@ export class AppContainer extends React.Component {
     const {
       refreshRepo,
     } = this.props;
-    chrome.storage.sync.get(['repos'], (result) => {
-      if (Object.keys(result.repos).length !== 0) {
-        Object.keys(result.repos).forEach((key) => {
-          refreshRepo(result.repos[key], key);
-        });
-      }
-    });
-  }
-
-  componentDidUpdate() {
-    let {
-      repos,
-    } = this.props;
-    if (!repos) {
-      repos = {};
-    }
-    let reposToSet = {};
-    Object.keys(repos).forEach((key) => {
-      reposToSet = { ...reposToSet, [key]: repos[key].URL };
-    });
-    chrome.storage.sync.set({ repos: reposToSet }, () => {});
+    googleStorageReposGet(refreshRepo);
   }
 
   render() {
@@ -66,8 +47,8 @@ const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  refreshRepo: (url) => {
-    dispatch(refreshRepoAction(url));
+  refreshRepo: (url, repoName) => {
+    dispatch(refreshRepoAction(url, repoName));
   },
 });
 

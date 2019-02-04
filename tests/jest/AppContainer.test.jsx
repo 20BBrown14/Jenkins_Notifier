@@ -64,33 +64,6 @@ describe('AppContainer', () => {
       expect(wrapper.find('View').find('AddRepo')).toBeDefined();
     });
   });
-  describe('Component did update', () => {
-    it('should set repos in storage', () => {
-      global.chrome.storage.sync.get = jest.fn((param1, someFunction) => {
-        someFunction({ repos: {} });
-      });
-      global.chrome.storage.sync.set = jest.fn((param1, param2) => {
-        param2();
-        expect(param1).toEqual({ repos: { someKey: 'someURL' } });
-      });
-      const wrapper = shallow(
-        <AppContainer
-          viewKey="someViewKey"
-          repos={{ someKey: { URL: 'someURL' } }}
-          refreshRepo={() => {}}
-        />,
-      );
-      wrapper.setProps({ viewKey: 'someOtherViewKey' });
-      expect(wrapper).toMatchSnapshot();
-      expect(global.chrome.storage.sync.set).toHaveBeenCalled();
-      expect(global.chrome.storage.sync.set).toHaveBeenCalledTimes(1);
-      global.chrome.storage.sync.set = jest.fn((param1, param2) => {
-        param2();
-        expect(param1).toEqual({ repos: {} });
-      });
-      wrapper.setProps({ repos: null });
-    });
-  });
   describe('action dispatch', () => {
     let mockDispatch;
     afterEach(() => {

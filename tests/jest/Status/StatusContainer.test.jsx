@@ -6,6 +6,7 @@ import {
   A_REMOVE_JOB_CLICKED,
   A_GO_BACK_TO_REPO_VIEW,
 } from '../../../src/Status/actions';
+import { A_REFRESH_REPO } from '../../../src/actions';
 
 describe('StatusContainer', () => {
   describe('Initialization', () => {
@@ -19,6 +20,7 @@ describe('StatusContainer', () => {
           viewJobs={() => {}}
           removeJob={() => {}}
           goBackToRepoView={() => {}}
+          refreshRepo={() => {}}
         />,
       ));
       expect(testContainer).toMatchSnapshot();
@@ -70,6 +72,16 @@ describe('StatusContainer', () => {
       });
       const dispatchProps = mapDispatchToProps(mockDispatch);
       dispatchProps.goBackToRepoView();
+      expect(mockDispatch).toHaveBeenCalledTimes(1);
+    });
+    it('dispatches a refresh repo action', () => {
+      mockDispatch = jest.fn((action) => {
+        expect(action.type).toEqual(A_REFRESH_REPO);
+        expect(action.data).toEqual({ url: 'someUrl' });
+      });
+      const dispatchProps = mapDispatchToProps(mockDispatch);
+      dispatchProps.refreshRepo('someUrl');
+      expect(mockDispatch).toHaveBeenCalled();
       expect(mockDispatch).toHaveBeenCalledTimes(1);
     });
   });

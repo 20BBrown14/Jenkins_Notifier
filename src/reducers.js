@@ -2,6 +2,7 @@ import { A_VALID_REPO_URL, A_INFORMATION_CONFIRMED, A_CANCEL_CLICKED } from './A
 import { VK_ADD_NEW_REPO, VK_REPOS } from './Navigation/viewKeys';
 import { A_ADD_NEW_REPO_CLICKED, A_REMOVE_REPO, A_REMOVE_JOB_CLICKED, A_GO_BACK_TO_REPO_VIEW } from './Status/actions';
 import { A_REPO_IS_REFRESHED } from './actions';
+import { googleStorageReposSet } from './modules/googleStorageHelpers';
 
 export const APP_STATE = 'app_state';
 
@@ -17,10 +18,10 @@ const reduceValidRepoURL = (state, action) => (
   }
 );
 
-const reduceInformationConfirmed = (state, action) => {
+const reduceInformationConfirmed = (state, action, shouldUpdateStorage) => {
   const repoInformation = state.jsonData;
   const repoName = action.data.repoName || repoInformation.displayName;
-  const newState = { ...state };
+  let newState = { ...state };
   /* eslint-disable no-restricted-syntax */
   if (newState.repos) {
     for (const name in newState.repos) {
@@ -30,7 +31,7 @@ const reduceInformationConfirmed = (state, action) => {
     }
   }
   /* eslint-enable no-restricted-syntax */
-  return {
+  newState = {
     ...newState,
     repos: {
       ...newState.repos,
@@ -40,25 +41,31 @@ const reduceInformationConfirmed = (state, action) => {
       },
     },
   };
+  if (shouldUpdateStorage) { googleStorageReposSet(newState.repos); }
+  return { ...newState };
 };
 
 const reduceRemoveRepo = (state, action) => {
   const { repoToRemove } = action.data;
-  const newState = { ...state };
+  let newState = { ...state };
   delete newState.repos[repoToRemove];
-  return { ...newState, repos: { ...newState.repos } };
+  newState = { ...newState, repos: { ...newState.repos } };
+  googleStorageReposSet(newState.repos);
+  return { ...newState };
 };
 
 const reduceRemoveJob = (state, action) => {
   const { jobToRemove, repo } = action.data;
-  const newState = { ...state };
+  let newState = { ...state };
   delete newState.repos[repo].jobs[jobToRemove];
   if (Object.keys(newState.repos[repo].jobs).length === 0) {
     const reposToReturn = { ...newState.repos };
     reposToReturn[repo].jobs = undefined;
     return { ...newState, repos: reposToReturn };
   }
-  return { ...newState, repos: { ...newState.repos } };
+  newState = { ...newState, repos: { ...newState.repos } };
+  // googleStorageReposSet(newState.repos); TODO: Re-evaluate not storing jobs
+  return { ...newState };
 };
 
 
@@ -74,9 +81,9 @@ const reduceRemoveJob = (state, action) => {
 const reduceApp = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case A_REPO_IS_REFRESHED:
-      return reduceInformationConfirmed({ ...state, jsonData: action.data.data }, action);
+      return reduceInformationConfirmed({ ...state, jsonData: action.data.data }, action, false);
     case A_INFORMATION_CONFIRMED:
-      return reduceInformationConfirmed(state, action);
+      return reduceInformationConfirmed(state, action, true);
     case A_VALID_REPO_URL:
       return reduceValidRepoURL(state, action);
     case A_ADD_NEW_REPO_CLICKED:
