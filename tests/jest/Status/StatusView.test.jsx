@@ -1,16 +1,16 @@
 import React from 'react';
 import StatusView from '../../../src/Status/StatusView';
-import determineImage from '../../../src/modules/jobStatus';
+import { determineJobStatusImage, determineJobStatusTooltip } from '../../../src/modules/jobStatus';
 
 jest.mock('../../../src/modules/jobStatus');
 
 describe('StatusView', () => {
+  // eslint-disable-next-line no-unneeded-ternary
+  determineJobStatusTooltip.mockImplementation(color => (color ? color : 'unknown'));
+  determineJobStatusImage.mockImplementation(color => (color === 'blue' ? 'successful' : 'unknown_status'));
   it('should render a default view', () => {
-    const repoInformation = {
-      someKey: 'someValue',
-      anotherKey: 'anotherValue',
-    };
-    const testView = (shallow(
+    const repoInformation = {};
+    const testView = (mount(
       <StatusView
         repos={repoInformation}
         addRepoClickHandler={() => {}}
@@ -48,7 +48,7 @@ describe('StatusView', () => {
             },
           },
         },
-        andAnotherREpo: {
+        andAnotherRepo: {
           url: 'andAnotherUrl',
           jobs: {
             firstKeyc: {
@@ -80,7 +80,6 @@ describe('StatusView', () => {
 
   describe('Jobs', () => {
     it('should render a view', () => {
-      determineImage.mockImplementation(color => (color === 'blue' ? 'successful' : 'unknown_status'));
       const repoInformation = {
         someRepo: {
           url: 'someUrl',

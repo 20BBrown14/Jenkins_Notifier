@@ -22,6 +22,7 @@
     "lint:test": "npm run lint && npm run test",
     "start": "react-scripts start",
     "test": "jest --config jestconfig.json",
+    "clear_test_cache": "jest --clearCache",
     "update-snaps": "jest --updateSnapshot --config jestconfig.json"
   },
   "dependencies": {

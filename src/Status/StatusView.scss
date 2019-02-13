@@ -14,7 +14,7 @@
 }
 
 .arrangeButton {
-  margin: 5px;
+  margin: 0px;
 }
 
 .center {
@@ -35,4 +35,41 @@
 
 .textCenter {
   text-align: center;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #808080;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 85%;
+  opacity: 0;
+  transition: opacity 0.5s;
+  transition-delay: 0.75s;
+}
+
+.tooltip:hover .tooltiptext{
+  visibility: visible;
+  opacity: 1;
+}
+
+.refreshButton {
+  top: -22px;
+  right: 5px;
+  position: absolute;
+}
+
+.addRepoButton {
+  position: relative;
+  float: right;
+  top: 5px;
 }

@@ -8,6 +8,7 @@ import {
 } from '../../src/Status/actions';
 import { VK_ADD_NEW_REPO, VK_REPOS } from '../../src/Navigation/viewKeys';
 import { A_REPO_IS_REFRESHED } from '../../src/actions';
+
 const google = require('../../src/modules/googleStorageHelpers');
 
 describe('App Reducers', () => {
