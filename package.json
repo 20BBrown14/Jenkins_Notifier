@@ -26,6 +26,7 @@
     "update-snaps": "jest --updateSnapshot --config jestconfig.json"
   },
   "dependencies": {
+    "deep-object-diff": "^1.1.0",
     "node-sass": "^4.10.0",
     "polyfill": "^0.1.0",
     "prop-types": "^15.6.2",

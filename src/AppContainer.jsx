@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { APP_STATE } from './reducers';
 import View from './AppView';
 import { refreshRepoAction } from './actions';
-import { googleStorageReposGet } from './modules/googleStorageHelpers';
+import { googleStorageReposGet } from './modules/googleHelpers';
 
 const propTypes = {
   /** View key for the current view */

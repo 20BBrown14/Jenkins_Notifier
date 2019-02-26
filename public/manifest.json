@@ -21,11 +21,13 @@
 	"permissions": [
 		"storage",
 		"declarativeContent",
-		"https://jenkins.cerner.com/*"
+    "https://jenkins.cerner.com/*",
+    "notifications",
+    "alarms"
   ],
   "background": {
     "scripts": ["./background.js"],
-    "persistent": false
+    "persistent": true
   },
 	"manifest_version": 2,
 	"content_security_policy": "script-src 'self' 'sha256-GgRxrVOKNdB4LrRsVPDSbzvfdV4UqglmviH9GoBJ5jk='; object-src 'self'"
