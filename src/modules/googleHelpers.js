@@ -26,3 +26,7 @@ export const googleStorageReposSet = (repos = {}) => {
   });
   chrome.storage.sync.set({ repos: reposToSet });
 };
+
+export const googleMessage = (object) => {
+  chrome.runtime.sendMessage(object, () => {});
+};

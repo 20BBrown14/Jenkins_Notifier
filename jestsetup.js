@@ -8,7 +8,20 @@ Enzyme.configure({ adapter: new Adapter() });
 global.shallow = shallow;
 global.render = render;
 global.mount = mount;
-global.chrome = { storage: { sync: { get: jest.fn(), set: jest.fn() } } };
+global.chrome = {
+  storage:
+  {
+    sync:
+    {
+      get: jest.fn(),
+      set: jest.fn(),
+    },
+  },
+  runtime:
+    {
+      sendMessage: jest.fn(),
+    },
+};
 /* eslint-disable import/no-extraneous-dependencies */
 global.fetch = require('jest-fetch-mock');
 /* eslint-enable import/no-extraneous-dependencies */

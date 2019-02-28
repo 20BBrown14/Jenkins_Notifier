@@ -2,7 +2,7 @@ import { A_VALID_REPO_URL, A_INFORMATION_CONFIRMED, A_CANCEL_CLICKED } from './A
 import { VK_ADD_NEW_REPO, VK_REPOS } from './Navigation/viewKeys';
 import { A_ADD_NEW_REPO_CLICKED, A_REMOVE_REPO, A_REMOVE_JOB_CLICKED, A_GO_BACK_TO_REPO_VIEW } from './Status/actions';
 import { A_REPO_IS_REFRESHED } from './actions';
-import { googleStorageReposSet } from './modules/googleStorageHelpers';
+import { googleStorageReposSet, googleMessage } from './modules/googleHelpers';
 
 export const APP_STATE = 'app_state';
 
@@ -20,6 +20,8 @@ const reduceValidRepoURL = (state, action) => (
 
 const reduceInformationConfirmed = (state, action, shouldUpdateStorage) => {
   const repoInformation = state.jsonData;
+  const repoJobs = state.jsonData.jobs;
+  let newRepoJobs = {};
   const repoName = action.data.repoName || repoInformation.displayName;
   let newState = { ...state };
   /* eslint-disable no-restricted-syntax */
@@ -30,6 +32,14 @@ const reduceInformationConfirmed = (state, action, shouldUpdateStorage) => {
       }
     }
   }
+  Object.keys(repoJobs).forEach((key) => {
+    newRepoJobs = {
+      ...newRepoJobs,
+      [repoJobs[key].name]: {
+        ...repoJobs[key],
+      },
+    };
+  });
   /* eslint-enable no-restricted-syntax */
   newState = {
     ...newState,
@@ -37,11 +47,14 @@ const reduceInformationConfirmed = (state, action, shouldUpdateStorage) => {
       ...newState.repos,
       [repoName]: {
         URL: repoInformation.url,
-        jobs: repoInformation.jobs,
+        jobs: newRepoJobs,
       },
     },
   };
-  if (shouldUpdateStorage) { googleStorageReposSet(newState.repos); }
+  if (shouldUpdateStorage) {
+    googleStorageReposSet(newState.repos);
+    googleMessage({ updateRepos: true, repos: newState.repos });
+  }
   return { ...newState };
 };
 
@@ -51,6 +64,7 @@ const reduceRemoveRepo = (state, action) => {
   delete newState.repos[repoToRemove];
   newState = { ...newState, repos: { ...newState.repos } };
   googleStorageReposSet(newState.repos);
+  googleMessage({ updateRepos: true, repos: newState.repos });
   return { ...newState };
 };
 

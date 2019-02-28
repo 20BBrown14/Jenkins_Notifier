@@ -1,3 +1,4 @@
+/* global chrome */
 import reducers, { APP_STATE as REDUCER_KEY } from '../../src/reducers';
 import { A_VALID_REPO_URL, A_INFORMATION_CONFIRMED, A_CANCEL_CLICKED } from '../../src/AddRepo/actions';
 import {
@@ -9,7 +10,7 @@ import {
 import { VK_ADD_NEW_REPO, VK_REPOS } from '../../src/Navigation/viewKeys';
 import { A_REPO_IS_REFRESHED } from '../../src/actions';
 
-const google = require('../../src/modules/googleStorageHelpers');
+const google = require('../../src/modules/googleHelpers');
 
 describe('App Reducers', () => {
   describe('When initialized', () => {
@@ -54,6 +55,8 @@ describe('App Reducers', () => {
     afterEach(() => {
       expect(spy).toHaveBeenCalled();
       expect(spy).toHaveBeenCalledTimes(1);
+      expect(chrome.runtime.sendMessage).toHaveBeenCalled();
+      expect(chrome.runtime.sendMessage).toHaveBeenCalledTimes(1);
       jest.clearAllMocks();
     });
     describe('Repo name was defined', () => {
@@ -66,23 +69,19 @@ describe('App Reducers', () => {
           const oldState = {
             jsonData: {
               url: 'someUrl',
-              jobs: 'someJobs',
-            },
-            repos: {
-              anotherName: {
-                URL: 'anotherURL',
-                jobs: 'someOtherJobs',
+              jobs: {
+                0: {
+                  name: 'someJobName',
+                },
               },
             },
+            repos: {},
           };
           const newState = reducers[REDUCER_KEY](oldState, action);
           expect(newState.repos.someName).toBeDefined();
           expect(newState.repos.someName).toBeTruthy();
-          expect(newState.repos.anotherName).toBeDefined();
-          expect(newState.repos.anotherName.URL).toEqual('anotherURL');
-          expect(newState.repos.anotherName.jobs).toEqual('someOtherJobs');
           expect(newState.repos.someName.URL).toEqual('someUrl');
-          expect(newState.repos.someName.jobs).toEqual('someJobs');
+          expect(newState.repos.someName.jobs).toEqual({ someJobName: { name: 'someJobName' } });
         });
         it('should add repos object if it is not defined', () => {
           const action = {
@@ -92,7 +91,11 @@ describe('App Reducers', () => {
           const oldState = {
             jsonData: {
               url: 'someUrl',
-              jobs: 'someJobs',
+              jobs: {
+                0: {
+                  name: 'someJobName',
+                },
+              },
             },
           };
           const newState = reducers[REDUCER_KEY](oldState, action);
@@ -100,7 +103,7 @@ describe('App Reducers', () => {
           expect(newState.repos.someName).toBeDefined();
           expect(newState.repos.someName).toBeTruthy();
           expect(newState.repos.someName.URL).toEqual('someUrl');
-          expect(newState.repos.someName.jobs).toEqual('someJobs');
+          expect(newState.repos.someName.jobs).toEqual({ someJobName: { name: 'someJobName' } });
         });
       });
       describe('Repo URL already in state', () => {
@@ -112,12 +115,20 @@ describe('App Reducers', () => {
           const oldState = {
             jsonData: {
               url: 'someUrl',
-              jobs: 'someJobs',
+              jobs: {
+                0: {
+                  name: 'someJobName',
+                },
+              },
             },
             repos: {
               anotherName: {
                 URL: 'someUrl',
-                jobs: 'someOtherJobs',
+                jobs: {
+                  0: {
+                    name: 'someJobName',
+                  },
+                },
               },
             },
           };
@@ -125,7 +136,7 @@ describe('App Reducers', () => {
           expect(newState.repos.anotherName).toBeUndefined();
           expect(newState.repos.someName).toBeDefined();
           expect(newState.repos.someName.URL).toEqual('someUrl');
-          expect(newState.repos.someName.jobs).toEqual('someJobs');
+          expect(newState.repos.someName.jobs).toEqual({ someJobName: { name: 'someJobName' } });
         });
       });
     });
@@ -138,7 +149,11 @@ describe('App Reducers', () => {
         const oldState = {
           jsonData: {
             url: 'someUrl',
-            jobs: 'someJobs',
+            jobs: {
+              0: {
+                name: 'someJobName',
+              },
+            },
             displayName: 'someName',
           },
         };
@@ -146,7 +161,7 @@ describe('App Reducers', () => {
         expect(newState.repos).toBeDefined();
         expect(newState.repos.someName).toBeDefined();
         expect(newState.repos.someName.URL).toEqual('someUrl');
-        expect(newState.repos.someName.jobs).toEqual('someJobs');
+        expect(newState.repos.someName.jobs).toEqual({ someJobName: { name: 'someJobName' } });
       });
     });
   });
@@ -171,6 +186,8 @@ describe('App Reducers', () => {
       expect(newState.repos.someRepo).toBeUndefined();
       expect(spy).toHaveBeenCalled();
       expect(spy).toHaveBeenCalledTimes(1);
+      expect(chrome.runtime.sendMessage).toHaveBeenCalled();
+      expect(chrome.runtime.sendMessage).toHaveBeenCalledTimes(1);
     });
   });
   describe('When reducing A_REMOVE_JOB_CLICKED', () => {
