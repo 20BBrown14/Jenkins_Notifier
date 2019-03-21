@@ -21,6 +21,7 @@ describe('StatusContainer', () => {
           removeJob={() => {}}
           goBackToRepoView={() => {}}
           refreshRepo={() => {}}
+          isLoading={false}
         />,
       ));
       expect(testContainer).toMatchSnapshot();

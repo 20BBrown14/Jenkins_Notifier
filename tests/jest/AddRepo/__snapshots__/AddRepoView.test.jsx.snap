@@ -9,6 +9,7 @@ exports[`AddRepoView should render a default view 1`] = `
     fontSize={32}
     isItalic={false}
     isVisuallyHidden={false}
+    isWordWrapped={false}
     style={
       Object {
         "margin": "12px 0px 0px 25px",

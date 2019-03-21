@@ -19,6 +19,7 @@ describe('StatusView', () => {
         removeJob={() => {}}
         goBack={() => {}}
         refreshRepo={() => {}}
+        isLoading={false}
       />,
     ));
     expect(testView).toMatchSnapshot();
@@ -70,6 +71,7 @@ describe('StatusView', () => {
           removeJob={() => {}}
           goBack={() => {}}
           refreshRepo={() => {}}
+          isLoading={false}
         />,
       ));
       expect(testView).toMatchSnapshot();
@@ -117,6 +119,7 @@ describe('StatusView', () => {
           removeJob={() => {}}
           goBack={() => {}}
           refreshRepo={() => {}}
+          isLoading={false}
         />,
       ));
       expect(testView).toMatchSnapshot();
@@ -137,6 +140,7 @@ describe('StatusView', () => {
           removeJob={() => {}}
           goBack={() => {}}
           refreshRepo={() => {}}
+          isLoading={false}
         />,
       ));
       expect(testView).toMatchSnapshot();
@@ -198,6 +202,7 @@ describe('StatusView', () => {
           removeJob={() => {}}
           goBack={() => {}}
           refreshRepo={refreshRepo}
+          isLoading={false}
         />,
       ));
     });
@@ -313,6 +318,7 @@ describe('StatusView', () => {
           removeJob={removeJob}
           goBack={goBack}
           refreshRepo={() => {}}
+          isLoading={false}
         />,
       ));
     });

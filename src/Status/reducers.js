@@ -1,9 +1,11 @@
 import { A_VIEW_JOBS_CLICKED, A_GO_BACK_TO_REPO_VIEW } from './actions';
+import { A_REFRESH_REPO, A_REPO_IS_REFRESHED } from '../actions';
 
 export const STATUS_STATE = 'status state';
 
 const INITIAL_STATE = {
   repoToView: undefined,
+  isLoading: false,
 };
 
 const reduceViewJobsClicked = (state, action) => (
@@ -27,6 +29,10 @@ const reduceStatus = (state = INITIAL_STATE, action) => {
       return reduceViewJobsClicked(state, action);
     case A_GO_BACK_TO_REPO_VIEW:
       return { ...state, repoToView: undefined };
+    case A_REFRESH_REPO:
+      return { ...state, isLoading: true };
+    case A_REPO_IS_REFRESHED:
+      return { ...state, isLoading: false };
     default:
       return state;
   }
