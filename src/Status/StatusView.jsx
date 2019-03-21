@@ -154,7 +154,8 @@ const StatusView = (props) => {
           fontSize={16}
         >
           {keys[i]}
-        </Text>);
+        </Text>
+      );
 
       const arrangeEnd = (
         <div>

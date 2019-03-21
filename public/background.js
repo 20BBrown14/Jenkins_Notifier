@@ -55,6 +55,36 @@ const chromeNotificationOptions = {
   ],
 };
 
+const handleAlarms = () => {
+  if (Object.keys(oldRepos).length <= 0) {
+    console.log(`Clearing '${ALARM_NAME}' alarm`); // eslint-disable-line no-console
+    chrome.alarms.clear(ALARM_NAME);
+  } else {
+    chrome.alarms.get(ALARM_NAME, (alarm) => {
+      const numberOfRepos = Object.keys(oldRepos).length;
+      const alarmPeriod = Math.max((numberOfRepos * 5) / 60, 1);
+
+      const setAlarm = () => {
+        console.log(`Setting '${ALARM_NAME}' alarm`); // eslint-disable-line no-console
+        chrome.alarms.create(
+          ALARM_NAME,
+          {
+            delayInMinutes: alarmPeriod,
+            periodInMinutes: alarmPeriod,
+          },
+        );
+      };
+      if (alarm) {
+        if (alarm.periodInMinutes < alarmPeriod) {
+          setAlarm();
+        }
+      } else {
+        setAlarm();
+      }
+    });
+  }
+};
+
 const arrayContains = (string, array) => (
   array.indexOf(string) > -1
 );
@@ -124,7 +154,7 @@ const sendNotification = () => {
   }
 };
 
-const onLoad = (repoName, xhttp) => {
+const onLoad = (repoName, xhttp, url) => {
   if (xhttp.readyState === 4 && xhttp.status === 200) {
     const responseText = JSON.parse(xhttp.response);
     const repoJobs = responseText.jobs;
@@ -138,12 +168,26 @@ const onLoad = (repoName, xhttp) => {
         },
       };
     });
-    newRepo = {
-      [repoName]: {
-        URL: oldRepos[repoName].URL,
-        jobs: newJobs,
-      },
-    };
+    newRepo = {};
+    try {
+      newRepo = {
+        [repoName]: {
+          URL: oldRepos[repoName].URL,
+          jobs: newJobs,
+        },
+      };
+    } catch (e) {
+      newRepo = {
+        [repoName]: {
+          URL: url,
+          jobs: newJobs,
+        },
+      };
+      oldRepos[repoName] = newRepo;
+      console.log(oldRepos);
+      handleAlarms();
+      return;
+    }
     diffJenkinsRepo(repoName, oldRepos[repoName], newRepo[repoName]);
     reposRequestsIncomplete -= 1;
     if (reposRequestsIncomplete === 0) {
@@ -164,42 +208,16 @@ const getJenkins = (url, repoName) => {
   const jsonURL = `${url}api/json`;
   xhttp.open('GET', jsonURL, true);
   xhttp.timeout = 5000;
-  xhttp.onload = () => { onLoad(repoName, xhttp); };
+  xhttp.onload = () => { onLoad(repoName, xhttp, url); };
   xhttp.ontimeout = onTimeout;
   xhttp.send();
 };
 
 chrome.runtime.onMessage.addListener(
-  (request, sender, sendResponse) => {
+  (request) => {
     if (request.updateRepos) {
       oldRepos = request.repos;
-      if (Object.keys(oldRepos).length <= 0) {
-        console.log(`Clearing '${ALARM_NAME}' alarm`); // eslint-disable-line no-console
-        chrome.alarms.clear(ALARM_NAME);
-      } else {
-        chrome.alarms.get(ALARM_NAME, (alarm) => {
-          const numberOfRepos = Object.keys(oldRepos).length;
-          const alarmPeriod = Math.max((numberOfRepos * 5) / 60, 1);
-
-          const setAlarm = () => {
-            console.log(`Setting '${ALARM_NAME}' alarm`); // eslint-disable-line no-console
-            chrome.alarms.create(
-              ALARM_NAME,
-              {
-                delayInMinutes: alarmPeriod,
-                periodInMinutes: alarmPeriod,
-              },
-            );
-          };
-          if (alarm) {
-            if (alarm.periodInMinutes < alarmPeriod) {
-              setAlarm();
-            }
-          } else {
-            setAlarm();
-          }
-        });
-      }
+      handleAlarms();
     } else if (request.alarm === 'off') {
       chrome.alarms.clear(ALARM_NAME);
     }
@@ -223,3 +241,15 @@ chrome.alarms.onAlarm.addListener(() => {
     getJenkins(oldRepos[repo].URL, repo);
   });
 });
+
+const onStartup = () => {
+  chrome.storage.sync.get(['repos'], (result) => {
+    if (Object.keys(result.repos).length !== 0) {
+      Object.keys(result.repos).forEach((key) => {
+        getJenkins(result.repos[key], key);
+      });
+    }
+  });
+};
+
+onStartup();
