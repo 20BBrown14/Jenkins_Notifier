@@ -12,6 +12,7 @@ import Text from 'terra-text';
 import Image from 'terra-image/lib/Image';
 import { determineJobStatusImage, determineJobStatusTooltip, UNKNOWN_STATUS } from '../modules/jobStatus';
 import headshotImage from '../assets/headshot';
+import loadingSpinner from '../assets/loading_Spinner.gif';
 
 const propTypes = {
   /** Repo information stored in app */
@@ -30,6 +31,8 @@ const propTypes = {
   goBack: PropTypes.func.isRequired,
   /** Function to refresh repos on refresh button click */
   refreshRepo: PropTypes.func.isRequired,
+  /** Bool to determine if the status view is loading */
+  isLoading: PropTypes.bool.isRequired,
 };
 
 const StatusView = (props) => {
@@ -42,6 +45,7 @@ const StatusView = (props) => {
     removeJob,
     goBack,
     refreshRepo,
+    isLoading,
   } = props;
 
   const arrangeStartStyle = {
@@ -147,7 +151,8 @@ const StatusView = (props) => {
       });
     }
     for (let i = 0; i < keys.length; i += 1) {
-      const arrangeFill = (
+      const arrangeFill =
+      (
         <Text
           className="textCenter"
           style={{ margin: '0px 0px 0px 5px' }}
@@ -222,6 +227,14 @@ const StatusView = (props) => {
               {repos ? `${Object.keys(repos).length}` : '0'}
               )
             </Text>
+            {(isLoading) && (
+              <Image
+                src={loadingSpinner}
+                height="60"
+                width="60"
+                style={{ top: '-11px', right: '186px', position: 'absolute' }}
+              />
+            )}
             <div className="tooltip">
               <Button
                 icon={<IconReload />}

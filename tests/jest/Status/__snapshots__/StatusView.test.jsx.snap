@@ -4,6 +4,7 @@ exports[`StatusView Error should render an error view 1`] = `
 <StatusView
   addRepoClickHandler={[Function]}
   goBack={[Function]}
+  isLoading={false}
   noRepos={[Function]}
   refreshRepo={[Function]}
   removeJob={[Function]}
@@ -271,6 +272,7 @@ exports[`StatusView Job Click handlers Remove Repo Button should remove repo and
       ],
     }
   }
+  isLoading={false}
   noRepos={[Function]}
   refreshRepo={[Function]}
   removeJob={[MockFunction]}
@@ -1370,6 +1372,7 @@ exports[`StatusView Jobs should render a view 1`] = `
 <StatusView
   addRepoClickHandler={[Function]}
   goBack={[Function]}
+  isLoading={false}
   noRepos={[Function]}
   refreshRepo={[Function]}
   removeJob={[Function]}
@@ -2427,6 +2430,7 @@ exports[`StatusView Repo Click handlers Refresh button should call refresh repo 
 <StatusView
   addRepoClickHandler={[Function]}
   goBack={[Function]}
+  isLoading={false}
   noRepos={[Function]}
   refreshRepo={
     [MockFunction] {
@@ -4182,6 +4186,7 @@ exports[`StatusView Repos should render a view 1`] = `
 <StatusView
   addRepoClickHandler={[Function]}
   goBack={[Function]}
+  isLoading={false}
   noRepos={[Function]}
   refreshRepo={[Function]}
   removeJob={[Function]}
@@ -5906,6 +5911,7 @@ exports[`StatusView should render a default view 1`] = `
 <StatusView
   addRepoClickHandler={[Function]}
   goBack={[Function]}
+  isLoading={false}
   refreshRepo={[Function]}
   removeJob={[Function]}
   removeRepo={[Function]}

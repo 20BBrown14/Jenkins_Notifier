@@ -30,6 +30,8 @@ const propTypes = {
   goBackToRepoView: PropTypes.func.isRequired,
   /** Function to refersh repos */
   refreshRepo: PropTypes.func.isRequired,
+  /** Bool for if the status view is loading */
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export class StatusContainer extends React.Component {
@@ -43,6 +45,7 @@ export class StatusContainer extends React.Component {
       removeJob,
       goBackToRepoView,
       refreshRepo,
+      isLoading,
     } = this.props;
     return (
       <div>
@@ -55,6 +58,7 @@ export class StatusContainer extends React.Component {
           removeJob={removeJob}
           goBack={goBackToRepoView}
           refreshRepo={refreshRepo}
+          isLoading={isLoading}
         />
       </div>
     );
@@ -64,6 +68,7 @@ export class StatusContainer extends React.Component {
 const mapStateToProps = state => ({
   repos: state[APP_STATE].repos,
   repoToView: state[STATUS_STATE].repoToView,
+  isLoading: state[STATUS_STATE].isLoading,
 });
 
 export const mapDispatchToProps = dispatch => ({
