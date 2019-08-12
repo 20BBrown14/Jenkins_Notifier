@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatusContainer Initialization should render a default view 1`] = `
+<div>
+  <StatusView
+    addRepoClickHandler={[Function]}
+    goBack={[Function]}
+    isLoading={false}
+    refreshRepo={[Function]}
+    removeJob={[Function]}
+    removeRepo={[Function]}
+    repos={Object {}}
+    viewJobs={[Function]}
+  />
+</div>
+`;

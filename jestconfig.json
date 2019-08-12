@@ -1,0 +1,23 @@
+{
+    "automock": false,
+    "setupFiles": [
+        "raf/polyfill",
+        "./jestsetup.js"
+      ],
+    "snapshotSerializers": [
+        "./node_modules/enzyme-to-json/serializer"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": ["src/**/*.{js,jsx}"],
+    "coverageReporters": ["html", "text-summary"],
+    "coverageDirectory": "./coverage/jest",
+    "coveragePathIgnorePatterns": [
+      "src/App.jsx",
+      "src/index.jsx",
+      "src/serviceWorker.js"
+    ],
+    "moduleNameMapper": {
+        "\\.(css|scss|svg|png|gif)$": "identity-obj-proxy"
+      }
+
+}

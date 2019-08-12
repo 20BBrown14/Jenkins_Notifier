@@ -1,0 +1,29 @@
+{
+	"name": "Jenkins Notifier",
+	"version": "1.0",
+	"description": "Jenkins Job Notifier",
+	"browser_action": {
+		"default_popup": "index.html",
+    "default_title": "Open the popup",
+    "default_icon": {
+      "16": "JenkinsLogo.png",
+      "32": "JenkinsLogo.png",
+      "48": "JenkinsLogo.png",
+      "128": "JenkinsLogo.png"
+    }
+  },
+  "icons": {
+    "16": "JenkinsLogo.png",
+    "32": "JenkinsLogo.png",
+    "48": "JenkinsLogo.png",
+    "128": "JenkinsLogo.png"
+  },
+	"permissions": [
+		"storage",
+		"declarativeContent",
+    "<all_urls>"
+  ],
+	"manifest_version": 2,
+	"content_security_policy": "script-src 'self' 'sha256-GgRxrVOKNdB4LrRsVPDSbzvfdV4UqglmviH9GoBJ5jk='; object-src 'self'"
+
+}
