@@ -1,8 +1,5 @@
 # Jenkins Notifier
 
-<<<<<<< HEAD
-Chrome extension to notify of Jenkins job status
-=======
 This chrome only extension should notifier users of their Jenkins job's status changes.
 
 ## Features
@@ -61,11 +58,10 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-This command is also useful for building the extension for testing in the chrome extension context. If you've followed [Loaded the Unpacked Extension](#Loading-Unpacked-Extension-in-Chrome) running this command will automatically give you the latest changes in the extension once it's been reloaded.
+This command is also useful for building the extension for testing in the chrome extension context. If you've followed [Loading Unpacked Extensions](#Loading-Unpacked-Extension-in-Chrome) running this command will automatically give you the latest changes in the extension once it's been reloaded.
 
 You can see run time errors in the chrome extensions page and click the 'errors' button.
 
 ## Contributing
 
 Contributions are always accepted in the form of an issue or PR.
->>>>>>> origin/dev
