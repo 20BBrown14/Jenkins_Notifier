@@ -5,16 +5,25 @@ import request from '../modules/dataLoadSagas';
 /**
  * Saga to validate a repo url
  * @param {object} action
+ * @yields {object} invalidRepoURL action if url is not properly formatted or
+ * there was a problem while making the network call
  */
 export function* validateRepo(action) {
   try {
-    const repoURL = action.data.URL;
-    if (!repoURL.endsWith('/api/json') && !repoURL.endsWith('/api/json/')) {
-      yield put(invalidRepoURL('URL should be appended with \'/api/json\''));
+    let repoURL = action.data.URL;
+    // eslint-disable-next-line no-useless-escape
+    const URLRegex = RegExp(/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+\%,;=.]+$/);
+    const apiRegex = RegExp(/(\/{1,}api\/{1,}json\/{0,})/);
+    if (!URLRegex.test(repoURL)) {
+      yield put(invalidRepoURL('Invalid URL format'));
       return;
     }
+    if (!apiRegex.test(repoURL)) {
+      repoURL += '/api/json';
+    }
+
     const { response } = yield race({
-      response: call(request, action.data.URL),
+      response: call(request, repoURL),
       cancel: take(A_CANCEL_CLICKED),
     });
     if (response) {

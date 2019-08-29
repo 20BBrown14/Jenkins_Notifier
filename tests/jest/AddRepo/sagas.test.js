@@ -8,7 +8,7 @@ describe('Repo Validation Sagas', () => {
       it('Dispatches A_VALID_REPO_URL action', () => {
         const action = {
           type: A_VALIDATE_REPO_URL,
-          data: { URL: 'someUrl/api/json/' },
+          data: { URL: 'https://jenkins.io/api/json/' },
         };
         const validate = validateRepo(action);
         validate.next();
@@ -25,18 +25,23 @@ describe('Repo Validation Sagas', () => {
         const expectedAction = {
           type: A_INVALID_REPO_URL,
           data: {
-            errorMessage: 'someMessage',
+            errorMessage: 'Invalid URL format',
           },
         };
         const validate = validateRepo(action);
+        const result = validate.next({ response: { err: { message: 'Invalid URL Format' } } });
         validate.next();
-        const result = validate.next({ response: { err: { message: 'someMessage' } } });
         expect(result.value).toEqual(put(expectedAction));
       });
     });
     describe('When an error occurs', () => {
       it('Dispatches A_INVALID_REPO_URL action', () => {
-        const validate = validateRepo(null);
+        const action = {
+          type: A_VALIDATE_REPO_URL,
+          data: { URL: 'https://jenkins.io' },
+        };
+        const validate = validateRepo(action);
+        validate.next();
         const result = validate.next();
         const expectedAction = {
           type: A_INVALID_REPO_URL,
@@ -47,21 +52,21 @@ describe('Repo Validation Sagas', () => {
         expect(result.value).toEqual(put(expectedAction));
       });
     });
-    describe('When URL is not formatted correctly', () => {
-      const action = {
-        type: A_VALID_REPO_URL,
-        data: { URL: 'someUrl' },
-      };
-      const expectedAction = {
-        type: A_INVALID_REPO_URL,
-        data: {
-          errorMessage: 'URL should be appended with \'/api/json\'',
-        },
-      };
-      const validate = validateRepo(action);
-      const result = validate.next();
-      expect(result.value).toEqual(put(expectedAction));
-      validate.next();
+    describe('When there is no data on response', () => {
+      it('Dispatches A_INVALID_REPO_URL action', () => {
+        const action = {
+          type: A_VALIDATE_REPO_URL,
+          data: { URL: 'https://jenkins.io' },
+        };
+        const expectedAction = {
+          type: A_INVALID_REPO_URL,
+          data: { errorMessage: 'This is an error message' },
+        };
+        const validate = validateRepo(action);
+        validate.next();
+        const result = validate.next({ response: { err: { message: 'This is an error message' } } });
+        expect(result.value).toEqual(put(expectedAction));
+      });
     });
   });
 });
