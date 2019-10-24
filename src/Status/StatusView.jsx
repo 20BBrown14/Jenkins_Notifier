@@ -87,7 +87,7 @@ const StatusView = (props) => {
       } else {
         arrangeStart = (
           <div className="tooltip">
-            {<Image src={image} style={{ margin: '-5px', padding: '2px' }} />}
+            <Image src={image} style={{ margin: '-5px', padding: '2px' }} />
             <Text className="tooltiptext" style={{ arrangeStartStyle }} color="#fff">{statusTooltip}</Text>
           </div>
         );
