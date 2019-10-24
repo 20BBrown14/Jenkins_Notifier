@@ -2,7 +2,6 @@ import React from 'react';
 import InputField from 'terra-form-input/lib/InputField';
 import PropTypes from 'prop-types';
 
-
 const propTypes = {
 /** Error message */
   errorMessage: PropTypes.string.isRequired,
@@ -18,6 +17,8 @@ const propTypes = {
   repoURL: PropTypes.string.isRequired,
   /** Value of the repo name input field */
   repoName: PropTypes.string.isRequired,
+  /** Confirm Click Handler for enter key down */
+  confirmClickHandler: PropTypes.func,
   /** Whether or not the view is loading */
   isLoading: PropTypes.bool,
 };
@@ -36,7 +37,15 @@ const RepoInputComponent = (props) => {
     repoName,
     nameFieldChanged,
     isLoading,
+    confirmClickHandler,
   } = props;
+
+  const onKeyPressHandler = (e) => {
+    if (e.key === 'Enter') {
+      confirmClickHandler();
+    }
+  };
+
   return (
     <div>
       <InputField
@@ -46,7 +55,7 @@ const RepoInputComponent = (props) => {
         value={repoName}
         onChange={nameFieldChanged}
         help="Input no name to use name on Jenkins"
-        inputAttrs={{ disabled: isLoading }}
+        inputAttrs={{ disabled: isLoading, onKeyPress: onKeyPressHandler }}
       />
       <InputField
         style={{ margin: '12.5px 25px 12.5px 25px' }}
@@ -57,7 +66,7 @@ const RepoInputComponent = (props) => {
         isInvalid={formInvalid}
         onChange={URLFieldChange}
         value={repoURL}
-        inputAttrs={{ disabled: isLoading }}
+        inputAttrs={{ disabled: isLoading, onKeyPress: onKeyPressHandler }}
       />
     </div>
   );
