@@ -15,6 +15,7 @@ exports[`RepoInputComponent should render a default view 1`] = `
     inputAttrs={
       Object {
         "disabled": undefined,
+        "onKeyPress": [Function],
       }
     }
     inputId="repoNameInput"
@@ -46,6 +47,7 @@ exports[`RepoInputComponent should render a default view 1`] = `
     inputAttrs={
       Object {
         "disabled": undefined,
+        "onKeyPress": [Function],
       }
     }
     inputId="repoURLInput"

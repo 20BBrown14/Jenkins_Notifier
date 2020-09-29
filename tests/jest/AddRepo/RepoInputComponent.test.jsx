@@ -11,6 +11,7 @@ describe('RepoInputComponent', () => {
         repoName=""
         URLFieldChange={() => {}}
         nameFieldChanged={() => {}}
+        confirmClickHandler={() => {}}
       />,
     ));
     expect(testComponent).toMatchSnapshot();

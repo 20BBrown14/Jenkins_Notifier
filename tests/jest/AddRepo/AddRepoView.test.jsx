@@ -12,6 +12,7 @@ describe('AddRepoView', () => {
         nameFieldChanged={() => {}}
         cancelClickHandler={() => {}}
         isLoading={false}
+        confirmClickHandler={() => {}}
       />,
     ));
     expect(testView).toMatchSnapshot();

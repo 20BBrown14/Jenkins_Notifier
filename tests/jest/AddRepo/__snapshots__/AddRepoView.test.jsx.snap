@@ -20,6 +20,7 @@ exports[`AddRepoView should render a default view 1`] = `
   </Text>
   <RepoInputComponent
     URLFieldChange={[Function]}
+    confirmClickHandler={[Function]}
     errorMessage="someMessage"
     formInvalid={false}
     isLoading={false}
@@ -48,6 +49,7 @@ exports[`AddRepoView should render a default view 1`] = `
     isDisabled={false}
     isIconOnly={false}
     isReversed={false}
+    onClick={[Function]}
     style={
       Object {
         "margin": "0px 5px 0px 5px",

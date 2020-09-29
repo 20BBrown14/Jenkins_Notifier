@@ -78,6 +78,7 @@ const AddRepoView = (props) => {
         repoURL={repoURL}
         repoName={repoName}
         isLoading={isLoading}
+        confirmClickHandler={confirmClickHandler}
       />
       <Button
         style={{ margin: '0px 5px 0px 25px' }}
